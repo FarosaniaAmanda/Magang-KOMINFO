@@ -1,0 +1,241 @@
+@extends('layouts.app')
+
+@section('content')
+
+<div class="min-h-screen bg-slate-50">
+
+    <!-- ================= HERO / HEADER ================= -->
+    <section class="relative overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900">
+
+        <!-- Decorative -->
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-white/10 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-32 -left-20 w-96 h-96 bg-blue-400/10 rounded-full blur-3xl"></div>
+
+        <div class="relative max-w-5xl mx-auto px-6 py-16 md:py-20">
+
+            <!-- Breadcrumb -->
+            <div class="flex items-center gap-2 text-sm text-blue-100 mb-8">
+                <a
+                    href="{{ route('informasi.index') }}"
+                    class="hover:text-white transition"
+                >
+                    Informasi
+                </a>
+
+                <span>/</span>
+
+                <span class="text-white/70">
+                    Detail Informasi
+                </span>
+            </div>
+
+            <!-- Category -->
+            <span class="inline-flex items-center px-4 py-2 rounded-full
+                         bg-white/15 border border-white/20
+                         text-white text-sm font-semibold
+                         backdrop-blur-sm mb-6">
+
+                {{ $item->kategori }}
+
+            </span>
+
+            <!-- Title -->
+            <h1 class="text-3xl md:text-5xl font-bold text-white
+                       leading-tight max-w-4xl">
+
+                {{ $item->judul }}
+
+            </h1>
+
+            <!-- Date -->
+            <div class="flex items-center gap-2 mt-6 text-blue-100">
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="w-5 h-5"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                >
+                    <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="1.8"
+                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                </svg>
+
+                <span>
+                    {{ $item->tanggal->format('d F Y') }}
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= CONTENT ================= -->
+    <section class="py-12 md:py-16">
+
+        <div class="max-w-5xl mx-auto px-6">
+
+            <div class="grid lg:grid-cols-[1fr_280px] gap-10">
+
+                <!-- MAIN CONTENT -->
+                <article
+                    class="bg-white rounded-3xl
+                           border border-slate-200
+                           shadow-sm
+                           overflow-hidden"
+                >
+
+                    <div class="p-7 md:p-10 lg:p-12">
+
+                        <!-- Ringkasan -->
+                        <div class="border-l-4 border-blue-600
+                                    bg-blue-50
+                                    rounded-r-xl
+                                    p-5 mb-9">
+
+                            <p class="text-slate-700 leading-relaxed">
+                                {{ $item->ringkasan }}
+                            </p>
+
+                        </div>
+
+
+                        <!-- Isi -->
+                        <div class="text-slate-700 text-lg leading-8">
+
+                            {!! nl2br(e($item->isi)) !!}
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+
+                <!-- SIDEBAR -->
+                <aside class="space-y-5">
+
+                    <!-- Information Card -->
+                    <div
+                        class="bg-white rounded-2xl
+                               border border-slate-200
+                               shadow-sm p-6"
+                    >
+
+                        <div class="flex items-center gap-3 mb-5">
+
+                            <div
+                                class="w-11 h-11 rounded-xl
+                                       bg-blue-50
+                                       text-blue-700
+                                       flex items-center justify-center"
+                            >
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="w-5 h-5"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke="currentColor"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        stroke-width="1.8"
+                                        d="M13 16h-1v-4h-1m1-4h.01M12 21a9 9 0 100-18 9 9 0 000 18z"
+                                    />
+                                </svg>
+                            </div>
+
+                            <div>
+                                <h3 class="font-bold text-slate-800">
+                                    Informasi
+                                </h3>
+
+                                <p class="text-sm text-slate-500">
+                                    Detail publikasi
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="space-y-4 text-sm">
+
+                            <div>
+                                <p class="text-slate-400 mb-1">
+                                    Kategori
+                                </p>
+
+                                <p class="font-semibold text-slate-700">
+                                    {{ $item->kategori }}
+                                </p>
+                            </div>
+
+
+                            <div>
+                                <p class="text-slate-400 mb-1">
+                                    Tanggal Publikasi
+                                </p>
+
+                                <p class="font-semibold text-slate-700">
+                                    {{ $item->tanggal->format('d F Y') }}
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Back Button -->
+                    <a
+                        href="{{ route('home') }}#informasi"
+                        class="group flex items-center justify-center gap-2
+                               w-full
+                               px-5 py-4
+                               bg-blue-700
+                               hover:bg-blue-800
+                               text-white
+                               rounded-2xl
+                               font-semibold
+                               shadow-sm
+                               hover:shadow-lg
+                               transition-all duration-300"
+                    >
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5 group-hover:-translate-x-1 transition"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                            />
+                        </svg>
+
+                        Kembali ke Informasi
+
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+@endsection
