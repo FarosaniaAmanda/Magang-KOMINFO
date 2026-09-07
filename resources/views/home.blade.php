@@ -66,7 +66,7 @@
         </a>
 
         <a href="#tentang" class="hover:text-blue-700 transition">
-            Tentang
+            About 
         </a>
 
         <a href="#layanan" class="hover:text-blue-700 transition">
