@@ -33,25 +33,25 @@
 
 <!-- ================= NAVBAR ================= -->
 
-<nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
+<nav class="bg-white backdrop-blur-md shadow-sm sticky top-0 z-50">
 
 
-<div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3">
 
-        <div class="w-11 h-11 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
-            <img src="{{ asset('images/logo kominfo.png') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
+        <div class="w-12 h-14 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+            <img src="{{ asset('images/logo.jpeg') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
         </div>
 
         <div>
             <h1 class="font-bold text-xl text-slate-800">
-                E-GOV
+                E-GOVERNMENT
             </h1>
 
             <p class="text-xs text-slate-500">
-                Pelayanan Digital Pemerintah
+                Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan
             </p>
         </div>
 
@@ -74,7 +74,7 @@
         </a>
 
         <a href="#informasi" class="hover:text-blue-700 transition">
-            Information
+            Informasi
         </a>
 
     </div>
@@ -109,7 +109,7 @@
             <span class="w-2 h-2 bg-green-400 rounded-full"></span>
 
             <span class="text-sm">
-                Pelayanan Pemerintahan Digital
+                Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan
             </span>
 
         </div>
