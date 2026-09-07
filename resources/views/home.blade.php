@@ -61,7 +61,7 @@
     <!-- Menu -->
     <div class="hidden md:flex items-center gap-8 font-medium">
 
-        <a href="/" class="text-blue-700">
+        <a href="/" class="hover:text-blue-700 transition">
             Beranda
         </a>
 
@@ -70,7 +70,7 @@
         </a>
 
         <a href="#layanan" class="hover:text-blue-700 transition">
-            keunggulan
+            Keunggulan
         </a>
 
         <a href="#informasi" class="hover:text-blue-700 transition">
