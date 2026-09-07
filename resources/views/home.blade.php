@@ -70,7 +70,7 @@
         </a>
 
         <a href="#layanan" class="hover:text-blue-700 transition">
-            unggul
+            keunggulan
         </a>
 
         <a href="#informasi" class="hover:text-blue-700 transition">
