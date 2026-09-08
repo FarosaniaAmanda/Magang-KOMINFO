@@ -223,7 +223,7 @@
         </h2>
 
         <p class="text-slate-600 mt-4 leading-relaxed">
-            Layanan kamu hadir untuk mendukung penyelenggaraan pemerintahan digital yang terencana,
+            Layanan kamu adir untuk mendukung penyelenggaraan pemerintahan digital yang terencana,
             terarah, terintegrasi, dan berkelanjutan di lingkungan Pemerintah Kota Pasuruan
         </p>
 
@@ -604,11 +604,11 @@
 
             <div>
 
-                <p class="text-[#008C45] font-bold text-sm tracking-widest mb-3">
+                <p class="text-[#005C3B] font-bold text-sm tracking-widest mb-3">
                     INFORMASI TERBARU
                 </p>
 
-                <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#008C45]">
                     Informasi & Pengumuman
                 </h2>
 
