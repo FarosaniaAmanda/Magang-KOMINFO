@@ -36,22 +36,22 @@
 <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
 
 
-<div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
 
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3">
 
-        <div class="w-11 h-11 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+        <div class="w-14 h-18 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
             <img src="{{ asset('images/logo.jpeg') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
         </div>
 
         <div>
-            <h1 class="font-bold text-xl text-slate-800">
-                E-GOV
+            <h1 class="font-bold text-xl text-[#005C3B]">
+                E-GOVERNMENT
             </h1>
 
             <p class="text-xs text-slate-500">
-                Pelayanan Digital Pemerintah 
+                Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan 
             </p>
         </div>
 
@@ -61,23 +61,26 @@
     <!-- Menu -->
     <div class="hidden md:flex items-center gap-8 font-medium">
 
-        <a href="/" class="text-[#008C45]">
-         Beranda
-        </a>
+        <!-- Menu -->
+<div class="hidden md:flex items-center gap-8 font-medium">
 
-        <a href="#tentang" class="hover:text-[#008C45] transition">
-            Tentang
-        </a>
+    <a href="/" class="nav-link text-[#008C45] transition">
+        Beranda
+    </a>
 
-        <a href="#layanan" class="hover:text-[#008C45] transition">
-            Keunggulan
-        </a>
+    <a href="#tentang" class="nav-link text-slate-800 hover:text-[#008C45] transition">
+        Tentang
+    </a>
 
-        <a href="#informasi" class="hover:text-[#008C45] transition">
-            Information
-        </a>
+    <a href="#layanan" class="nav-link text-slate-800 hover:text-[#008C45] transition">
+        Keunggulan
+    </a>
 
-    </div>
+    <a href="#informasi" class="nav-link text-slate-800 hover:text-[#008C45] transition">
+        Informasi
+    </a>
+
+</div>
 
 </div>
 
@@ -136,19 +139,20 @@
         <div class="flex flex-wrap gap-4">
 
             <a
-                href="#layanan"
-                class="bg-white text-[#008C45] px-7 py-3.5 rounded-xl font-semibold hover:bg-green-50 transition shadow-lg"
-            >
-                Jelajahi Layanan →
-            </a>
+    href="{{ route('agenda.index') }}"
+    class="bg-[#008C45] text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-[#006F38] transition shadow-lg"
+
+>
+           Agenda E-Government →
+</a>
 
 
-            <a
-                href="#informasi"
-                class="border border-white/50 text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-white/10 transition"
-            >
-                Informasi Terbaru
-            </a>
+    <a
+    href="{{ route('kegiatan.index') }}"
+    class="bg-[#C9A227] text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-[#A8841F] transition shadow-lg"
+>
+    Manajemen Kegiatan DISKOMINFOTIK → 
+    </a>
 
         </div>
 
@@ -160,7 +164,7 @@
 </section>
 
 <!-- ================= TENTANG ================= -->
-<section id="tentang" class="py-24 bg-white">
+<section id="tentang" class="py-24 bg-gradient-to-br from-[#E8F3EC] via-[#F8F6EA] to-[#EDE2B8]">
 
     <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-start">
 
@@ -168,7 +172,7 @@
         <div class="relative">
 
             <img
-                src="{{ asset('images/layanan.jpg') }}"
+                src="{{ asset('images/kominfo.png') }}"
                 alt="Pelayanan E-Government"
                 class="rounded-3xl shadow-2xl w-full h-[420px] object-cover"
             >
@@ -179,11 +183,11 @@
         <!-- Deskripsi -->
         <div>
 
-            <p class="text-[#008C45] font-bold tracking-wider text-sm mb-3">
-            TENTANG E-GOV
+            <p class="text-[#005C3B] font-bold tracking-wider text-sm mb-3">
+            TENTANG E-GOVERNMENT
             </p>
 
-            <h2 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight mb-6">
+            <h2 class="text-3xl md:text-4xl font-bold text-[#008C45] leading-tight mb-6">
                 Pemerintahan Modern untuk
                 Masyarakat yang Lebih Baik
             </h2>
@@ -209,227 +213,385 @@
 
 
 <!-- WHY E-GOVERNMENT -->
-<section id="layanan" class="py-20 bg-slate-50">
+<section id="layanan" class="py-24 bg-gradient-to-br from-[#DDEDE3] via-[#F4F1DD] to-[#E9D58A]">
 
     <!-- Heading -->
-    <div class="text-center max-w-3xl mx-auto mb-14">
-        <h2 class="text-3xl md:text-4xl font-bold text-slate-800">
+    <div class="text-center max-w-3xl mx-auto mb-14 px-6">
+
+        <h2 class="text-3xl md:text-3xl font-bold text-[#005C3B]">
             Mengapa Memilih Layanan E-Government?
         </h2>
 
         <p class="text-slate-600 mt-4 leading-relaxed">
-            Hadir untuk mendukung penyelenggaraan pemerintahan digital yang terencana, 
+            Layanan kamu hadir untuk mendukung penyelenggaraan pemerintahan digital yang terencana,
             terarah, terintegrasi, dan berkelanjutan di lingkungan Pemerintah Kota Pasuruan
         </p>
 
     </div>
 
 
-    <!-- 4 ALASAN -->
-    <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+    <!-- SLIDER -->
+    <div class="max-w-6xl mx-auto px-6">
+
+        <div class="relative">
+
+            <!-- Slider Window -->
+            <div class="overflow-hidden rounded-[2rem] shadow-xl">
+
+                <div id="keunggulanSlider"
+                     class="flex transition-transform duration-700 ease-in-out">
 
 
-        <!-- ALASAN 01 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm
-                    hover:shadow-xl transition duration-300 group">
+                    <!-- ================= SLIDE 01 ================= -->
+                    <div class="min-w-full">
 
-            <!-- Gambar Layanan 1 -->
-            <div class="h-56 overflow-hidden bg-blue-100">
+                        <div class="grid md:grid-cols-2 min-h-[430px] overflow-hidden
+                                    bg-gradient-to-br from-[#075E4A] via-[#087F5B] to-[#C9A227]">
 
-                <img
-                    src="{{ asset('images/layanan 1.jpg') }}"
-                    alt="Layanan 1 - Akses layanan E-Government lebih mudah"
-                    class="w-full h-full object-cover
-                           group-hover:scale-105 transition duration-500"
-                >
+                            <!-- TEXT -->
+                            <div class="relative p-10 md:p-14 flex flex-col justify-center text-white">
 
-            </div>
+                                <!-- Decorative Number -->
+                                <span class="absolute top-6 left-8
+                                             text-8xl font-black text-white/10">
+                                    01
+                                </span>
 
-            <div class="p-8">
+                                <div class="relative">
 
-                <div class="flex items-start gap-5">
+                                    <span class="inline-block text-sm font-semibold
+                                                 tracking-widest text-[#F4C430] mb-4">
+                                        KEUNGGULAN 01
+                                    </span>
 
-                    <!-- Nomor -->
-                    <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-[#008C45]">
-                            01
-                        </span>
+                                    <h3 class="text-3xl md:text-4xl font-bold mb-5">
+                                        Perencanaan Pemerintahan Digital
+                                    </h3>
+
+                                    <p class="text-white/85 leading-relaxed max-w-lg">
+                                        Mendukung perencanaan sistem dan aplikasi digital
+                                        sesuai dengan kebutuhan pemerintahan dan pelayanan masyarakat.
+                                    </p>
+
+                                    <div class="mt-8 flex items-center gap-3">
+
+                                        <span class="w-12 h-1 bg-[#F4C430] rounded-full"></span>
+
+                                        <span class="text-sm text-white/70">
+                                            E-Government Kota Pasuruan
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- IMAGE -->
+                            <div class="relative min-h-[300px] md:min-h-0">
+
+                                <img
+                                    src="{{ asset('images/keunggulan 01.jpg') }}"
+                                    alt="Layanan 1 - Akses layanan E-Government lebih mudah"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                >
+
+                                <!-- Image Overlay -->
+                                <div class="absolute inset-0
+                                            bg-gradient-to-r
+                                            from-[#075E4A]/80
+                                            via-transparent
+                                            to-[#C9A227]/20">
+                                </div>
+
+                            </div>
+
+                        </div>
+
                     </div>
 
-                    <div>
 
-                        <h3 class="text-xl font-bold text-slate-800 mb-3">
-                            Perencanaan Pemerintahan Digital
-                        </h3>
+                    <!-- ================= SLIDE 02 ================= -->
+                    <div class="min-w-full">
 
-                        <p class="text-slate-600 leading-relaxed">
-                            Mendukung perencanaan sistem dan aplikasi digital
-                            sesuai dengan kebutuhan pemerintahan dan pelayanan masyarakat. 
-                        </p>
+                        <div class="grid md:grid-cols-2 min-h-[430px] overflow-hidden
+                                    bg-gradient-to-br from-[#006F38] via-[#087F5B] to-[#E7B92E]">
+
+                            <!-- TEXT -->
+                            <div class="relative p-10 md:p-14 flex flex-col justify-center text-white">
+
+                                <span class="absolute top-6 left-8
+                                             text-8xl font-black text-white/10">
+                                    02
+                                </span>
+
+                                <div class="relative">
+
+                                    <span class="inline-block text-sm font-semibold
+                                                 tracking-widest text-[#F4C430] mb-4">
+                                        KEUNGGULAN 02
+                                    </span>
+
+                                    <h3 class="text-3xl md:text-4xl font-bold mb-5">
+                                        Kebijakan Teknis yang Terarah
+                                    </h3>
+
+                                    <p class="text-white/85 leading-relaxed max-w-lg">
+                                        Menjamin pengembangan dan penggunaan sistem digital
+                                        antar-OPD berjalan sesuai pedoman dan kebijakan yang telah ditetapkan.
+                                    </p>
+
+                                    <div class="mt-8 flex items-center gap-3">
+
+                                        <span class="w-12 h-1 bg-[#F4C430] rounded-full"></span>
+
+                                        <span class="text-sm text-white/70">
+                                            E-Government Kota Pasuruan
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- IMAGE -->
+                            <div class="relative min-h-[300px] md:min-h-0">
+
+                                <img
+                                    src="{{ asset('images/keunggulan 02.jpg') }}"
+                                    alt="Layanan 2 - Pelayanan E-Government cepat dan efisien"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                >
+
+                                <div class="absolute inset-0
+                                            bg-gradient-to-r
+                                            from-[#006F38]/80
+                                            via-transparent
+                                            to-[#E7B92E]/20">
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
+
+
+                    <!-- ================= SLIDE 03 ================= -->
+                    <div class="min-w-full">
+
+                        <div class="grid md:grid-cols-2 min-h-[430px] overflow-hidden
+                                    bg-gradient-to-br from-[#075E4A] via-[#008C45] to-[#D4AA25]">
+
+                            <!-- TEXT -->
+                            <div class="relative p-10 md:p-14 flex flex-col justify-center text-white">
+
+                                <span class="absolute top-6 left-8
+                                             text-8xl font-black text-white/10">
+                                    03
+                                </span>
+
+                                <div class="relative">
+
+                                    <span class="inline-block text-sm font-semibold
+                                                 tracking-widest text-[#F4C430] mb-4">
+                                        KEUNGGULAN 03
+                                    </span>
+
+                                    <h3 class="text-3xl md:text-4xl font-bold mb-5">
+                                        Implementasi E-Government
+                                    </h3>
+
+                                    <p class="text-white/85 leading-relaxed max-w-lg">
+                                        Mendorong penerapan teknologi dalam penyelenggaraan pemerintahan
+                                        agar proses kerja menjadi lebih efektif dan terintegrasi.
+                                    </p>
+
+                                    <div class="mt-8 flex items-center gap-3">
+
+                                        <span class="w-12 h-1 bg-[#F4C430] rounded-full"></span>
+
+                                        <span class="text-sm text-white/70">
+                                            E-Government Kota Pasuruan
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- IMAGE -->
+                            <div class="relative min-h-[300px] md:min-h-0">
+
+                                <img
+                                    src="{{ asset('images/layanan 3.jpg') }}"
+                                    alt="Layanan 3 - Pelayanan E-Government transparan"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                >
+
+                                <div class="absolute inset-0
+                                            bg-gradient-to-r
+                                            from-[#075E4A]/80
+                                            via-transparent
+                                            to-[#D4AA25]/20">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- ================= SLIDE 04 ================= -->
+                    <div class="min-w-full">
+
+                        <div class="grid md:grid-cols-2 min-h-[430px] overflow-hidden
+                                    bg-gradient-to-br from-[#006F38] via-[#087F5B] to-[#E7B92E]">
+
+                            <!-- TEXT -->
+                            <div class="relative p-10 md:p-14 flex flex-col justify-center text-white">
+
+                                <span class="absolute top-6 left-8
+                                             text-8xl font-black text-white/10">
+                                    04
+                                </span>
+
+                                <div class="relative">
+
+                                    <span class="inline-block text-sm font-semibold
+                                                 tracking-widest text-[#F4C430] mb-4">
+                                        KEUNGGULAN 04
+                                    </span>
+
+                                    <h3 class="text-3xl md:text-4xl font-bold mb-5">
+                                        Koordinasi Antar-OPD
+                                    </h3>
+
+                                    <p class="text-white/85 leading-relaxed max-w-lg">
+                                        Mendukung penggunaan aplikasi dan sistem informasi yang selaras
+                                        dengan penerapan SPBE di lingkungan Pemerintah Kota Pasuruan.
+                                    </p>
+
+                                    <div class="mt-8 flex items-center gap-3">
+
+                                        <span class="w-12 h-1 bg-[#F4C430] rounded-full"></span>
+
+                                        <span class="text-sm text-white/70">
+                                            E-Government Kota Pasuruan
+                                        </span>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- IMAGE -->
+                            <div class="relative min-h-[300px] md:min-h-0">
+
+                                <img
+                                    src="{{ asset('images/keunggulan 04.jpg') }}"
+                                    alt="Layanan 4 - Pelayanan E-Government untuk masyarakat"
+                                    class="absolute inset-0 w-full h-full object-cover"
+                                >
+
+                                <div class="absolute inset-0
+                                            bg-gradient-to-r
+                                            from-[#006F38]/80
+                                            via-transparent
+                                            to-[#E7B92E]/20">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
 
                 </div>
 
             </div>
 
-        </div>
+
+            <!-- SLIDER CONTROL -->
+            <div class="flex items-center justify-between mt-7">
+
+                <!-- PREVIOUS -->
+                <button
+                    onclick="prevKeunggulan()"
+                    aria-label="Slide sebelumnya"
+                    class="w-12 h-12 rounded-full
+                           bg-white border border-[#008C45]
+                           text-[#006F38]
+                           flex items-center justify-center
+                           shadow-sm
+                           hover:bg-[#008C45]
+                           hover:text-white
+                           transition duration-300">
+
+                    <span class="text-xl">←</span>
+
+                </button>
 
 
-        <!-- ALASAN 02 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm
-                    hover:shadow-xl transition duration-300 group">
+                <!-- INDICATOR -->
+                <div class="flex items-center gap-2">
 
-            <!-- Gambar Layanan 2 -->
-            <div class="h-56 overflow-hidden bg-green-100">
+                    <button onclick="goToKeunggulan(0)"
+                            class="slider-dot w-8 h-2 rounded-full
+                                   bg-[#008C45] transition-all duration-300">
+                    </button>
 
-                <img
-                    src="{{ asset('images/layanan 2.jpg') }}"
-                    alt="Layanan 2 - Pelayanan E-Government cepat dan efisien"
-                    class="w-full h-full object-cover
-                           group-hover:scale-105 transition duration-500"
-                >
+                    <button onclick="goToKeunggulan(1)"
+                            class="slider-dot w-2 h-2 rounded-full
+                                   bg-slate-300 transition-all duration-300">
+                    </button>
 
-            </div>
+                    <button onclick="goToKeunggulan(2)"
+                            class="slider-dot w-2 h-2 rounded-full
+                                   bg-slate-300 transition-all duration-300">
+                    </button>
 
-            <div class="p-8">
-
-                <div class="flex items-start gap-5">
-
-                    <!-- Nomor -->
-                    <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-[#008C45]">
-                            02
-                        </span>
-                    </div>
-
-                    <div>
-
-                        <h3 class="text-xl font-bold text-slate-800 mb-3">
-                            Kebijakan Teknis yang Terarah
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Menjamin pengembangan dan penggunaan sistem digital 
-                            antar-OPD berjalan sesuai pedoman dan kebijakan yang telah ditetapkan.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- ALASAN 03 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm
-                    hover:shadow-xl transition duration-300 group">
-
-            <!-- Gambar Layanan 3 -->
-            <div class="h-56 overflow-hidden bg-purple-100">
-
-                <img
-                    src="{{ asset('images/layanan 3.jpg') }}"
-                    alt="Layanan 3 - Pelayanan E-Government transparan"
-                    class="w-full h-full object-cover
-                           group-hover:scale-105 transition duration-500"
-                >
-
-            </div>
-
-            <div class="p-8">
-
-                <div class="flex items-start gap-5">
-
-                    <!-- Nomor -->
-                    <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-[#008C45]">
-                            03
-                        </span>
-                    </div>
-
-                    <div>
-
-                        <h3 class="text-xl font-bold text-slate-800 mb-3">
-                            Implementasi E-Government
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Mendorong penerapan teknologi dalam penyelenggaraan pemerintahan 
-                            agar proses kerja menjadi lebih efektif dan terintegrasi.
-                        </p>
-
-                    </div>
+                    <button onclick="goToKeunggulan(3)"
+                            class="slider-dot w-2 h-2 rounded-full
+                                   bg-slate-300 transition-all duration-300">
+                    </button>
 
                 </div>
 
-            </div>
 
-        </div>
+                <!-- NEXT -->
+                <button
+                    onclick="nextKeunggulan()"
+                    aria-label="Slide berikutnya"
+                    class="w-12 h-12 rounded-full
+                           bg-white border border-[#008C45]
+                           text-[#006F38]
+                           flex items-center justify-center
+                           shadow-sm
+                           hover:bg-[#008C45]
+                           hover:text-white
+                           transition duration-300">
 
+                    <span class="text-xl">→</span>
 
-        <!-- ALASAN 04 -->
-        <div class="bg-white rounded-3xl overflow-hidden shadow-sm
-                    hover:shadow-xl transition duration-300 group">
-
-            <!-- Gambar Layanan 4 -->
-            <div class="h-56 overflow-hidden bg-orange-100">
-
-                <img
-                    src="{{ asset('images/layanan 4.jpg') }}"
-                    alt="Layanan 4 - Pelayanan E-Government untuk masyarakat"
-                    class="w-full h-full object-cover
-                           group-hover:scale-105 transition duration-500"
-                >
-
-            </div>
-
-            <div class="p-8">
-
-                <div class="flex items-start gap-5">
-
-                    <!-- Nomor -->
-                    <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-[#008C45]">
-                            04
-                        </span>
-                    </div>
-
-                    <div>
-
-                        <h3 class="text-xl font-bold text-slate-800 mb-3">
-                            Koordinasi Antar-OPD
-                        </h3>
-
-                        <p class="text-slate-600 leading-relaxed">
-                            Mendukung penggunaan aplikasi dan sistem informasi yang selaras 
-                            dengan penerapan SPBE di lingkungan Pemerintah Kota Pasuruan.
-                        </p>
-
-                    </div>
-
-                </div>
+                </button>
 
             </div>
 
         </div>
-
 
     </div>
 
 </section>
-
-
-
-
-    </div>
-
-</div>
-
-
-</section> 
 
 <!-- ================= INFORMASI ================= -->
 
@@ -620,12 +782,16 @@
         <div>
 
             <div class="flex items-center gap-3 mb-5">
-                <div class="w-11 h-11 bg-[#008C45] rounded-xl flex items-center justify-center text-white text-xl font-bold">
-                    E
-                </div>
+                <div class="w-16 h-18 rounded-xl overflow-hidden flex items-center justify-center">
+    <img 
+        src="{{ asset('images/logo.jpeg') }}" 
+        alt="Logo E-Government"
+        class="w-full h-full object-cover"
+    >
+</div>
 
                 <h2 class="text-2xl font-bold text-white">
-                    E-GOV
+                    E-GOVERNMENT
                 </h2>
             </div>
 
@@ -745,34 +911,136 @@
     <!-- END Footer Content -->
 
 
-    <!-- Copyright -->
-    <div class="border-t border-slate-800">
+    <!-- Copyright --> 
+<div class="border-t border-white/10"> 
 
-        <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-slate-500">
+    <div class="max-w-7xl mx-auto px-6 py-6 text-center text-sm text-white"> 
 
-            <p>
-                © {{ date('Y') }} E-GOV — Diskominfotik Kota Pasuruan.
-                Seluruh Hak Cipta Dilindungi.
-            </p>
+        <p> 
+            © {{ date('Y') }} E-GOVERNMENT — Diskominfotik Kota Pasuruan. 
+            Seluruh Hak Cipta Dilindungi. 
+        </p> 
 
-            <div class="flex justify-center items-center gap-4 mt-3">
+        <div class="flex justify-center items-center gap-4 mt-3"> 
 
-                <a href="#" class="hover:text-[#E7B92E] transition">
-                    Kebijakan Privasi
-                </a>
+            <a href="javascript:void(0)" 
+               class="text-white hover:text-[#E7B92E] transition"> 
+                Kebijakan Privasi 
+            </a> 
 
-                <span>|</span>
+            <span class="text-white">|</span> 
 
-                <a href="#" class="hover:text-[#E7B92E] transition">
-                    Syarat & Ketentuan
-                </a>
+            <a href="javascript:void(0)" 
+               class="text-white hover:text-[#E7B92E] transition"> 
+                Syarat & Ketentuan 
+            </a> 
 
-            </div>
+        </div> 
 
-        </div>
+    </div> 
 
-    </div>
+</div>
 
 </footer>
+
+<script>
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function () {
+
+            // Semua menu kembali menjadi hitam
+            navLinks.forEach(item => {
+                item.classList.remove('text-[#008C45]');
+                item.classList.add('text-slate-800');
+            });
+
+            // Menu yang sedang diklik menjadi hijau
+            this.classList.remove('text-slate-800');
+            this.classList.add('text-[#008C45]');
+        });
+    });
+</script>
+
+<script>
+    let currentKeunggulan = 0;
+
+    const sliderKeunggulan =
+        document.getElementById('keunggulanSlider');
+
+    const dotsKeunggulan =
+        document.querySelectorAll('.slider-dot');
+
+
+    function updateKeunggulan() {
+
+        sliderKeunggulan.style.transform =
+            `translateX(-${currentKeunggulan * 100}%)`;
+
+
+        dotsKeunggulan.forEach((dot, index) => {
+
+            if (index === currentKeunggulan) {
+
+                dot.classList.remove(
+                    'w-2',
+                    'bg-slate-300'
+                );
+
+                dot.classList.add(
+                    'w-8',
+                    'bg-[#008C45]'
+                );
+
+            } else {
+
+                dot.classList.remove(
+                    'w-8',
+                    'bg-[#008C45]'
+                );
+
+                dot.classList.add(
+                    'w-2',
+                    'bg-slate-300'
+                );
+
+            }
+
+        });
+    }
+
+
+    function nextKeunggulan() {
+
+        currentKeunggulan++;
+
+        if (currentKeunggulan >= 4) {
+            currentKeunggulan = 0;
+        }
+
+        updateKeunggulan();
+    }
+
+
+    function prevKeunggulan() {
+
+        currentKeunggulan--;
+
+        if (currentKeunggulan < 0) {
+            currentKeunggulan = 3;
+        }
+
+        updateKeunggulan();
+    }
+
+
+    function goToKeunggulan(index) {
+
+        currentKeunggulan = index;
+
+        updateKeunggulan();
+    }
+</script>
+
 </body>
 </html>
