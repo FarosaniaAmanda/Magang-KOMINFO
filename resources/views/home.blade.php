@@ -213,7 +213,7 @@
 
 
 <!-- WHY E-GOVERNMENT -->
-<section id="layanan" class="py-24 bg-gradient-to-br from-[#DDEDE3] via-[#F4F1DD] to-[#E9D58A]">
+<section id="layanan" class="py-24 bg-gradient-to-br from-[#C5E2D1] via-[#E7F0E5] to-[#F7F0D2]">
 
     <!-- Heading -->
     <div class="text-center max-w-3xl mx-auto mb-14 px-6">
