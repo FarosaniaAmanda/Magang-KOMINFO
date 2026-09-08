@@ -42,7 +42,7 @@
     <a href="/" class="flex items-center gap-3">
 
         <div class="w-11 h-11 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
-            <img src="{{ asset('images/logo kominfo.png') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
+            <img src="{{ asset('images/logo.jpeg') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
         </div>
 
         <div>
@@ -610,7 +610,7 @@
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-slate-900 text-slate-300">
+<footer class="bg-[#004D3C] text-white">
 
     <!-- Footer Content -->
     <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
