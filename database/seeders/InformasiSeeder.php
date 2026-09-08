@@ -49,8 +49,10 @@ class InformasiSeeder extends Seeder
             'kategori' => 'Keamanan',
             'ringkasan' => 'Keamanan data menjadi salah satu aspek penting dalam penyelenggaraan layanan pemerintahan digital.',
             'isi' => 'Keamanan data harus menjadi perhatian dalam pengembangan layanan digital. Perlindungan terhadap data masyarakat diperlukan untuk menjaga keamanan, privasi, dan kepercayaan masyarakat terhadap layanan pemerintahan.',
-            'tanggal' => '2026-08-22',
+            'tanggal' => '2026-08-22', 
+    
         ]);
+
 
     }
 }
