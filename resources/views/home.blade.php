@@ -168,7 +168,7 @@
         <div class="relative">
 
             <img
-                src="{{ asset('images/layanan.png') }}"
+                src="{{ asset('images/layanan.jpg') }}"
                 alt="Pelayanan E-Government"
                 class="rounded-3xl shadow-2xl w-full h-[420px] object-cover"
             >
