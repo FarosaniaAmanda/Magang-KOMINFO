@@ -17,41 +17,41 @@
     }
 
     .hero-overlay {
-        background: linear-gradient(
-            90deg,
-            rgba(15, 23, 42, 0.92),
-            rgba(30, 64, 175, 0.70),
-            rgba(30, 64, 175, 0.20)
-        );
-    }
+    background: linear-gradient(
+        90deg,
+        rgba(0, 77, 60, 0.92),
+        rgba(0, 140, 69, 0.70),
+        rgba(0, 140, 69, 0.20)
+    );
+}
 </style>
-
 
 </head>
 
-<body class="bg-slate-50 text-slate-800">
+<body class="bg-[#FAFAF7] text-[#17211B]">  
+
 
 <!-- ================= NAVBAR ================= -->
 
-<nav class="bg-white backdrop-blur-md shadow-sm sticky top-0 z-50">
+<nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50">
 
 
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
 
     <!-- Logo -->
     <a href="/" class="flex items-center gap-3">
 
-        <div class="w-12 h-14 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
-            <img src="{{ asset('images/logo.jpeg') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
+        <div class="w-11 h-11 bg-white-700 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+            <img src="{{ asset('images/logo kominfo.png') }}" alt="Logo KOMINFO" class="w-full h-full object-cover">
         </div>
 
         <div>
             <h1 class="font-bold text-xl text-slate-800">
-                E-GOVERNMENT
+                E-GOV
             </h1>
 
             <p class="text-xs text-slate-500">
-                Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan
+                Pelayanan Digital Pemerintah 
             </p>
         </div>
 
@@ -61,20 +61,20 @@
     <!-- Menu -->
     <div class="hidden md:flex items-center gap-8 font-medium">
 
-        <a href="/" class="hover:text-blue-700 transition">
-            Beranda
+        <a href="/" class="text-[#008C45]">
+         Beranda
         </a>
 
-        <a href="#tentang" class="hover:text-blue-700 transition">
+        <a href="#tentang" class="hover:text-[#008C45] transition">
             Tentang
         </a>
 
-        <a href="#layanan" class="hover:text-blue-700 transition">
+        <a href="#layanan" class="hover:text-[#008C45] transition">
             Keunggulan
         </a>
 
-        <a href="#informasi" class="hover:text-blue-700 transition">
-            Informasi
+        <a href="#informasi" class="hover:text-[#008C45] transition">
+            Information
         </a>
 
     </div>
@@ -109,7 +109,7 @@
             <span class="w-2 h-2 bg-green-400 rounded-full"></span>
 
             <span class="text-sm">
-                Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan
+                Pelayanan Pemerintahan Digital
             </span>
 
         </div>
@@ -118,15 +118,15 @@
         <h1 class="text-4xl md:text-6xl font-bold leading-tight mb-6">
 
             Selamat Datang di
-            <span class="text-blue-300">
-                E-Government
+            <span class="text-[#F4C430]">
+             E-Government
             </span>
 
         </h1>
 
 
-        <p class="text-lg md:text-xl text-blue-100 leading-relaxed max-w-2xl mb-9">
-
+        
+<p class="text-lg md:text-xl text-green-50 leading-relaxed max-w-2xl mb-9">
             Mewujudkan pelayanan pemerintahan yang lebih modern,
             transparan, cepat, dan mudah diakses oleh seluruh masyarakat.
 
@@ -137,7 +137,7 @@
 
             <a
                 href="#layanan"
-                class="bg-white text-blue-700 px-7 py-3.5 rounded-xl font-semibold hover:bg-blue-50 transition shadow-lg"
+                class="bg-white text-[#008C45] px-7 py-3.5 rounded-xl font-semibold hover:bg-green-50 transition shadow-lg"
             >
                 Jelajahi Layanan →
             </a>
@@ -179,8 +179,8 @@
         <!-- Deskripsi -->
         <div>
 
-            <p class="text-blue-700 font-bold tracking-wider text-sm mb-3">
-                TENTANG E-GOV
+            <p class="text-[#008C45] font-bold tracking-wider text-sm mb-3">
+            TENTANG E-GOV
             </p>
 
             <h2 class="text-3xl md:text-4xl font-bold text-slate-800 leading-tight mb-6">
@@ -251,7 +251,7 @@
 
                     <!-- Nomor -->
                     <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-blue-600">
+                        <span class="text-4xl font-extrabold text-[#008C45]">
                             01
                         </span>
                     </div>
@@ -298,7 +298,7 @@
 
                     <!-- Nomor -->
                     <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-green-600">
+                        <span class="text-4xl font-extrabold text-[#008C45]">
                             02
                         </span>
                     </div>
@@ -345,7 +345,7 @@
 
                     <!-- Nomor -->
                     <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-purple-600">
+                        <span class="text-4xl font-extrabold text-[#008C45]">
                             03
                         </span>
                     </div>
@@ -392,7 +392,7 @@
 
                     <!-- Nomor -->
                     <div class="flex-shrink-0">
-                        <span class="text-4xl font-extrabold text-orange-500">
+                        <span class="text-4xl font-extrabold text-[#008C45]">
                             04
                         </span>
                     </div>
@@ -442,7 +442,7 @@
 
             <div>
 
-                <p class="text-blue-700 font-bold text-sm tracking-widest mb-3">
+                <p class="text-[#008C45] font-bold text-sm tracking-widest mb-3">
                     INFORMASI TERBARU
                 </p>
 
@@ -486,12 +486,12 @@
                             <!-- Kategori -->
                             <span
                                 class="inline-flex items-center
-                                       bg-blue-50 text-blue-700
+                                       bg-[#008C45] text-white
                                        text-xs font-semibold
                                        px-3 py-1.5
                                        rounded-full
                                        mb-5
-                                       group-hover:bg-blue-600
+                                       group-hover:bg-[#008C45]
                                        group-hover:text-white
                                        transition-colors duration-300"
                             >
@@ -512,7 +512,7 @@
                                        text-slate-800
                                        mb-4
                                        leading-snug
-                                       group-hover:text-blue-700
+                                       group-hover:text-[#008C45]
                                        transition-colors duration-300"
                             >
                                 {{ $item->judul }}
@@ -528,7 +528,7 @@
                             <!-- Baca Selengkapnya -->
                             <div
                                 class="mt-6 flex items-center gap-2
-                                       text-blue-700
+                                       text-[#008C45]
                                        font-semibold text-sm"
                             >
                                 <span>
@@ -580,8 +580,8 @@
             <a
                 href="{{ route('informasi.index') }}"
                 class="inline-flex items-center justify-center gap-3
-                       bg-blue-700
-                       hover:bg-blue-800
+                       bg-[#008C45]
+                       hover:bg-[#006F38]
                        text-white
                        px-8 py-4
                        rounded-xl
@@ -619,7 +619,7 @@
         <div>
 
             <div class="flex items-center gap-3 mb-5">
-                <div class="w-11 h-11 bg-blue-600 rounded-xl flex items-center justify-center text-white text-xl font-bold">
+                <div class="w-11 h-11 bg-[#008C45] rounded-xl flex items-center justify-center text-white text-xl font-bold">
                     E
                 </div>
 
@@ -646,25 +646,25 @@
 
             <ul class="space-y-3 text-slate-400 text-sm">
                 <li>
-                    <a href="/" class="hover:text-blue-400 transition">
+                    <a href="/" class="hover:text-[#008C45] transition">
                         Beranda
                     </a>
                 </li>
 
                 <li>
-                    <a href="#tentang" class="hover:text-blue-400 transition">
+                    <a href="#tentang" class="hover:text-[#008C45] transition">
                         Tentang
                     </a>
                 </li>
 
                 <li>
-                    <a href="#layanan" class="hover:text-blue-400 transition">
+                    <a href="#layanan" class="hover:text-[#008C45] transition">
                         Layanan
                     </a>
                 </li>
 
                 <li>
-                    <a href="#informasi" class="hover:text-blue-400 transition">
+                    <a href="#informasi" class="hover:text-[#008C45] transition">
                         Informasi
                     </a>
                 </li>
@@ -683,7 +683,7 @@
             <div class="space-y-4 text-slate-400 text-sm">
 
                 <div class="flex items-start gap-3">
-                    <span class="text-blue-400">📍</span>
+                    <span class="text-[#008C45]">📍</span>
 
                     <p>
                         Jl. Pahlawan No.28, Pekuncen,<br>
@@ -693,19 +693,19 @@
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-blue-400">📧</span>
+                    <span class="text-[#008C45]">📧</span>
 
                     <a href="mailto:kominfo@pasuruankota.go.id"
-                       class="hover:text-blue-400 transition">
+                       class="hover:text-[#008C45] transition">
                         kominfo@pasuruankota.go.id
                     </a>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-blue-400">📞</span>
+                    <span class="text-[#008C45]">📞</span>
 
                     <a href="tel:+62343561668"
-                       class="hover:text-blue-400 transition">
+                       class="hover:text-[#008C45] transition">
                         (0343) 5616668
                     </a>
                 </div>
@@ -726,7 +726,7 @@
                 href="https://www.google.com/maps/search/?api=1&query=Diskominfotik+Kota+Pasuruan+Jl.+Pahlawan+No.28+Pekuncen+Panggungrejo"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block rounded-xl overflow-hidden border border-slate-700 hover:border-blue-500 transition"
+                class="block rounded-xl overflow-hidden border border-slate-700 hover:border-[#008C45] transition"
             >
 
                 <iframe
@@ -756,13 +756,13 @@
 
             <div class="flex justify-center items-center gap-4 mt-3">
 
-                <a href="#" class="hover:text-blue-400 transition">
+                <a href="#" class="hover:text-[#008C45] transition">
                     Kebijakan Privasi
                 </a>
 
                 <span>|</span>
 
-                <a href="#" class="hover:text-blue-400 transition">
+                <a href="#" class="hover:text-[#008C45] transition">
                     Syarat & Ketentuan
                 </a>
 
