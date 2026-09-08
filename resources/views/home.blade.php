@@ -19,11 +19,11 @@
     .hero-overlay {
     background: linear-gradient(
         90deg,
-        rgba(0, 77, 60, 0.92),
-        rgba(0, 140, 69, 0.70),
-        rgba(0, 140, 69, 0.20)
+        rgba(7, 94, 74, 0.90),
+        rgba(8, 127, 91, 0.60),
+        rgba(8, 127, 91, 0.10)
     );
-}
+} 
 </style>
 
 </head>
@@ -610,7 +610,8 @@
 </section>
 
 <!-- ================= FOOTER ================= -->
-<footer class="bg-[#004D3C] text-white">
+<footer class="bg-gradient-to-br from-[#075E4A] to-[#087F5B] text-white">      
+    
 
     <!-- Footer Content -->
     <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-10">
@@ -628,7 +629,7 @@
                 </h2>
             </div>
 
-            <p class="leading-relaxed text-slate-400 text-sm">
+           <p class="leading-relaxed text-white/80 text-sm">
                 Platform pelayanan digital pemerintahan Kota Pasuruan
                 yang hadir untuk memberikan kemudahan akses informasi
                 dan layanan kepada masyarakat.
@@ -644,27 +645,27 @@
                 Navigasi
             </h3>
 
-            <ul class="space-y-3 text-slate-400 text-sm">
+            <ul class="space-y-3 text-white/80 text-sm">
                 <li>
-                    <a href="/" class="hover:text-[#008C45] transition">
+                    <a href="/" class="hover:text-[#E7B92E] transition">
                         Beranda
                     </a>
                 </li>
 
                 <li>
-                    <a href="#tentang" class="hover:text-[#008C45] transition">
+                    <a href="#tentang" class="hover:text-[#E7B92E] transition">
                         Tentang
                     </a>
                 </li>
 
                 <li>
-                    <a href="#layanan" class="hover:text-[#008C45] transition">
+                    <a href="#layanan" class="hover:text-[#E7B92E] transition">
                         Layanan
                     </a>
                 </li>
 
                 <li>
-                    <a href="#informasi" class="hover:text-[#008C45] transition">
+                    <a href="#informasi" class="hover:text-[#E7B92E] transition">
                         Informasi
                     </a>
                 </li>
@@ -680,10 +681,10 @@
                 Hubungi Kami
             </h3>
 
-            <div class="space-y-4 text-slate-400 text-sm">
+            <div class="space-y-4 text-white/80 text-sm">
 
                 <div class="flex items-start gap-3">
-                    <span class="text-[#008C45]">📍</span>
+                    <span class="text-[#E7B92E]">📍</span>
 
                     <p>
                         Jl. Pahlawan No.28, Pekuncen,<br>
@@ -693,19 +694,19 @@
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-[#008C45]">📧</span>
+                    <span class="text-[#E7B92E]">📧</span>
 
                     <a href="mailto:kominfo@pasuruankota.go.id"
-                       class="hover:text-[#008C45] transition">
+                       class="hover:text-[#E7B92E] transition">
                         kominfo@pasuruankota.go.id
                     </a>
                 </div>
 
                 <div class="flex items-center gap-3">
-                    <span class="text-[#008C45]">📞</span>
+                    <span class="text-[#E7B92E]">📞</span>
 
                     <a href="tel:+62343561668"
-                       class="hover:text-[#008C45] transition">
+                       class="hover:text-[#E7B92E] transition">
                         (0343) 5616668
                     </a>
                 </div>
@@ -726,7 +727,7 @@
                 href="https://www.google.com/maps/search/?api=1&query=Diskominfotik+Kota+Pasuruan+Jl.+Pahlawan+No.28+Pekuncen+Panggungrejo"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="block rounded-xl overflow-hidden border border-slate-700 hover:border-[#008C45] transition"
+                class="block rounded-xl overflow-hidden border border-slate-700 hover:border-[#E7B92E] transition"
             >
 
                 <iframe
@@ -756,13 +757,13 @@
 
             <div class="flex justify-center items-center gap-4 mt-3">
 
-                <a href="#" class="hover:text-[#008C45] transition">
+                <a href="#" class="hover:text-[#E7B92E] transition">
                     Kebijakan Privasi
                 </a>
 
                 <span>|</span>
 
-                <a href="#" class="hover:text-[#008C45] transition">
+                <a href="#" class="hover:text-[#E7B92E] transition">
                     Syarat & Ketentuan
                 </a>
 
