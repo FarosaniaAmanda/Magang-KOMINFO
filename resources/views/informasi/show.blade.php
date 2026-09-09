@@ -4,7 +4,6 @@
 
 <div class="min-h-screen bg-[#FAFAF7]">
 
-```
 <!-- ================= HERO / HEADER ================= -->
 <section
     class="relative overflow-hidden

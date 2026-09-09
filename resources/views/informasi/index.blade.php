@@ -4,9 +4,38 @@
 
 <div class="min-h-screen bg-[#FAFAF7]">
 
-```
 <!-- ================= HEADER ================= -->
 <section class="relative overflow-hidden bg-gradient-to-br from-[#075E4A] via-[#087F5B] to-[#005C3B]">
+
+<!-- ================= BACK TO HOME ================= -->
+<div class="relative max-w-7xl mx-auto px-6 pt-8">
+
+    <a 
+        href="{{ route('home') }}" 
+        class="inline-flex items-center gap-3
+               px-5 py-3
+               bg-[#F4C430]
+               text-[#075E4A]
+               font-semibold
+               rounded-xl
+               shadow-md
+               hover:bg-[#E7B92E]
+               hover:shadow-lg
+               hover:-translate-y-0.5
+               transition-all duration-200"
+    >
+
+        <span class="text-lg font-bold">
+            ←
+        </span>
+
+        <span>
+            Kembali ke Beranda
+        </span>
+
+    </a>
+
+</div>
 
     <!-- Decorative -->
     <div class="absolute -top-24 -right-24 w-80 h-80
@@ -359,33 +388,10 @@
 
         </div>
 
-
-        <!-- ================= BACK TO HOME ================= -->
-        <div class="text-center mt-12">
-
-            <a
-                href="{{ route('home') }}"
-                class="inline-flex items-center gap-2
-                       text-[#008C45]
-                       font-semibold
-                       hover:text-[#005C3B]
-                       transition"
-            >
-
-                <span>
-                    ←
-                </span>
-
-                Kembali ke Beranda
-
-            </a>
-
-        </div>
-
     </div>
 
 </section>
-```
+
 
 </div>
 
