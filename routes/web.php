@@ -3,10 +3,11 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
+
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
-
+use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
 
 // =========================
 // HALAMAN PUBLIK
@@ -60,4 +61,8 @@ Route::middleware('admin')
 
         // Agenda Admin
         Route::resource('agenda', AgendaController::class);
-    });
+
+        // Informasi / Berita Admin
+        Route::resource('informasi', AdminInformasiController::class);
+
+         });
