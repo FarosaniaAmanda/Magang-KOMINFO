@@ -7,6 +7,11 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
 
+
+// =========================
+// HALAMAN PUBLIK
+// =========================
+
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
 
@@ -16,7 +21,19 @@ Route::get('/informasi', [InformasiController::class, 'index'])
 Route::get('/informasi/{id}', [InformasiController::class, 'show'])
     ->name('informasi.show');
 
-    // Login Admin
+Route::get('/agenda', function () {
+    return view('agenda.index');
+})->name('public.agenda');
+
+Route::get('/kegiatan', function () {
+    return view('kegiatan.index');
+})->name('kegiatan.index');
+
+
+// =========================
+// LOGIN ADMIN
+// =========================
+
 Route::get('/login-admin', [AdminAuthController::class, 'showLogin'])
     ->name('admin.login');
 
@@ -24,22 +41,23 @@ Route::post('/login-admin', [AdminAuthController::class, 'login'])
     ->name('admin.login.process');
 
 
-// Halaman Admin
-Route::middleware('admin')->prefix('admin')->name('admin.')->group(function () {
+// =========================
+// HALAMAN ADMIN
+// =========================
 
-    Route::get('/dashboard', [DashboardController::class, 'index'])
-        ->name('dashboard');
+Route::middleware('admin')
+    ->prefix('admin')
+    ->name('admin.')
+    ->group(function () {
 
-    Route::post('/logout', [AdminAuthController::class, 'logout'])
-        ->name('logout');
+        // Dashboard
+        Route::get('/dashboard', [DashboardController::class, 'index'])
+            ->name('dashboard');
 
-    // Agenda
-    Route::resource('agenda', AgendaController::class);
+        // Logout
+        Route::post('/logout', [AdminAuthController::class, 'logout'])
+            ->name('logout');
 
-});
-    Route::get('/agenda', function () {
-    return view('agenda.index');
-})->name('agenda.index');
-Route::get('/kegiatan', function () {
-    return view('kegiatan.index');
-})->name('kegiatan.index');
+        // Agenda Admin
+        Route::resource('agenda', AgendaController::class);
+    });
