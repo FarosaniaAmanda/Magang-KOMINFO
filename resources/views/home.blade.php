@@ -223,7 +223,7 @@
         </h2>
 
         <p class="text-slate-600 mt-4 leading-relaxed">
-            Layanan kamu adir untuk mendukung penyelenggaraan pemerintahan digital yang terencana,
+            Layanan kami hadir untuk mendukung penyelenggaraan pemerintahan digital yang terencana,
             terarah, terintegrasi, dan berkelanjutan di lingkungan Pemerintah Kota Pasuruan
         </p>
 
