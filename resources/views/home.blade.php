@@ -139,7 +139,7 @@
         <div class="flex flex-wrap gap-4">
 
             <a
-    href="{{ route('agenda.index') }}"
+    href="{{ route('layout') }}"
     class="bg-[#008C45] text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-[#006F38] transition shadow-lg"
 
 >
