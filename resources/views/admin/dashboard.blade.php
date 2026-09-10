@@ -195,7 +195,7 @@
                     <h3 class="text-3xl font-bold
                                text-blue-700 mt-2">
 
-                        0
+                        {{ $jumlahBerita }}
 
                     </h3>
 
@@ -215,7 +215,7 @@
                     <h3 class="text-3xl font-bold
                                text-green-600 mt-2">
 
-                        0
+                        {{ $jumlahKegiatan }}
 
                     </h3>
 

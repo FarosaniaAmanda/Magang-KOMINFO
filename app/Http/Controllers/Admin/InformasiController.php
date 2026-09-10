@@ -34,6 +34,7 @@ class InformasiController extends Controller
      */
     public function store(Request $request)
     {
+          dd($_FILES);
         // Validasi data
         $data = $request->validate([
             'judul' => 'required|string|max:255',

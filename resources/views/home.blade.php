@@ -76,8 +76,11 @@
         <div class="hidden md:flex items-center gap-8 font-medium">
 
             <a
-     href="{{ route('public.agenda') }}"
-    class="bg-[#008C45] text-white px-7 py-3.5 rounded-xl font-semibold hover:bg-[#006F38] transition shadow-lg"
+                href="/"
+                class="nav-link text-[#008C45] transition"
+            >
+                Beranda
+            </a>
 
             <a
                 href="#tentang"

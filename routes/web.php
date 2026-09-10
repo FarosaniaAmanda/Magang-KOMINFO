@@ -1,13 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
+use App\Http\Controllers\KegiatanController;
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
-use App\Http\Controllers\Admin\KegiatanController;
+use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
+use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 
 
 // =========================
@@ -27,9 +28,11 @@ Route::get('/agenda', function () {
     return view('agenda.index');
 })->name('public.agenda');
 
-Route::get('/kegiatan', function () {
-    return view('kegiatan.index');
-})->name('kegiatan.index');
+Route::get('/kegiatan', [KegiatanController::class, 'index'])
+    ->name('kegiatan.index');
+
+Route::get('/kegiatan/{kegiatan}', [KegiatanController::class, 'show'])
+    ->name('kegiatan.show');
 
 
 // =========================
@@ -63,6 +66,9 @@ Route::middleware('admin')
         // Agenda Admin
         Route::resource('agenda', AgendaController::class);
 
+        // Informasi / Berita Admin
+        Route::resource('informasi', AdminInformasiController::class);
+        
         // kegiatan admin
-        Route::resource('kegiatan', KegiatanController::class);
+        Route::resource('kegiatan', AdminKegiatanController::class);
     });

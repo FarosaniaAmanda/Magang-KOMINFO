@@ -34,10 +34,8 @@
             <!-- KEMBALI KE DASHBOARD -->
 
             <a href="{{ route('admin.dashboard') }}"
-                class="px-5 py-2.5 rounded-lg
-                       bg-slate-700 text-white
-                       hover:bg-slate-800
-                       transition">
+                class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-5 py-3 rounded-xl font-semibold shadow-md transition">
+                <span class="text-xl"></span>
 
                 ← Dashboard
 
