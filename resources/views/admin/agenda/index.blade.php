@@ -25,10 +25,24 @@
             </p>
         </div>
 
-        <a href="{{ route('admin.agenda.create') }}"
-           class="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-lg">
-            + Tambah Agenda
-        </a>
+        <div class="flex items-center gap-3">
+
+            {{-- Tombol Kembali ke Dashboard --}}
+            <a href="{{ route('admin.dashboard') }}"
+            class="bg-white hover:bg-green-50 text-gray-700
+                    border border-gray-200 px-5 py-3 rounded-lg
+                    font-medium shadow-sm transition">
+                ← Dashboard
+            </a>
+
+            {{-- Tombol Tambah Agenda --}}
+            <a href="{{ route('admin.agenda.create') }}"
+            class="bg-blue-600 hover:bg-yellow-700 text-white
+                    px-5 py-3 rounded-lg font-medium shadow-sm transition">
+                + Tambah Agenda
+            </a>
+
+</div>
 
     </div>
 

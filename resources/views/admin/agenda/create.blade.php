@@ -42,9 +42,8 @@
     @endif
 
 
-    <form action="{{ route('admin.agenda.store') }}"
-          method="POST"
-          class="bg-white rounded-xl shadow p-6">
+    <form action="{{ route('admin.kegiatan.store') }}" 
+                    method="POST" enctype="multipart/form-data">
 
         @csrf
 

@@ -6,6 +6,7 @@ use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\KegiatanController;
 
 
 // =========================
@@ -60,4 +61,7 @@ Route::middleware('admin')
 
         // Agenda Admin
         Route::resource('agenda', AgendaController::class);
+
+        // kegiatan admin
+        Route::resource('kegiatan', KegiatanController::class);
     });

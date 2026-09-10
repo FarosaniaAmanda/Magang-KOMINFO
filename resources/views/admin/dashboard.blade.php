@@ -60,7 +60,7 @@
             </a>
 
 
-            <a href="#"
+            <a href="{{ route('admin.kegiatan.index') }}"
                class="block px-4 py-3 rounded-lg
                       hover:bg-[#C9A227]">
 
@@ -236,7 +236,7 @@
                     <h3 class="text-3xl font-bold
                                text-orange-500 mt-2">
 
-                        0
+                        {{ $jumlahAgenda }}
 
                     </h3>
 

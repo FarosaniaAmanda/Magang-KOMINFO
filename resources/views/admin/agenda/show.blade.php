@@ -9,162 +9,204 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="bg-gray-100">
+<body class="min-h-screen bg-slate-50">
 
-<div class="max-w-4xl mx-auto px-6 py-8">
+<div class="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8">
 
+    {{-- HEADER --}}
     <div class="mb-6">
-        <h1 class="text-2xl font-bold text-gray-800">
-            Detail Agenda
-        </h1>
+        <div class="flex items-center gap-3">
+            <div class="h-10 w-1 rounded-full bg-emerald-500"></div>
 
-        <p class="text-gray-500">
-            Informasi lengkap agenda kegiatan
-        </p>
+            <div>
+                <h1 class="text-2xl font-bold text-slate-800">
+                    Detail Agenda
+                </h1>
+
+                <p class="text-sm text-slate-400">
+                    Informasi lengkap mengenai agenda kegiatan
+                </p>
+            </div>
+        </div>
     </div>
 
 
-    <div class="bg-white rounded-xl shadow p-6">
+    {{-- CARD --}}
+    <div class="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
 
-        {{-- Judul --}}
-        <div class="mb-6">
-
-            <p class="text-sm text-gray-500 mb-1">
-                Judul Agenda
+        {{-- JUDUL --}}
+        <div class="border-b border-slate-200 px-6 py-5">
+            <p class="mb-1 text-xs font-semibold uppercase tracking-wider text-emerald-600">
+                Nama Agenda
             </p>
 
-            <h2 class="text-xl font-bold text-gray-800">
+            <h2 class="text-2xl font-bold text-slate-800">
                 {{ $agenda->judul }}
             </h2>
-
         </div>
 
 
-        {{-- Deskripsi --}}
-        <div class="mb-6">
+        {{-- DESKRIPSI --}}
+        <div class="border-b border-slate-200 px-6 py-5">
 
-            <p class="text-sm text-gray-500 mb-1">
+            <p class="mb-2 text-xs font-semibold uppercase tracking-wider text-slate-400">
                 Deskripsi
             </p>
 
-            <p class="text-gray-700">
+            <p class="leading-7 text-slate-600">
                 {{ $agenda->deskripsi ?? '-' }}
             </p>
 
         </div>
 
 
-        {{-- Informasi --}}
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {{-- TABEL --}}
+        <div class="p-6">
+
+            <div class="overflow-hidden rounded-xl border border-slate-200">
+
+                <table class="w-full border-collapse">
+
+                    <tbody class="divide-y divide-slate-200">
+
+                        {{-- TANGGAL --}}
+                        <tr class="hover:bg-emerald-50/50 transition">
+
+                            <td class="w-1/3 bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-600">
+                                Tanggal
+                            </td>
+
+                            <td class="px-5 py-4 text-sm font-medium text-slate-800">
+                                {{ $agenda->tanggal->format('d-m-Y') }}
+                            </td>
+
+                        </tr>
 
 
-            {{-- Tanggal --}}
-            <div>
+                        {{-- WAKTU --}}
+                        <tr class="hover:bg-emerald-50/50 transition">
 
-                <p class="text-sm text-gray-500 mb-1">
-                    Tanggal
-                </p>
+                            <td class="bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-600">
+                                Waktu
+                            </td>
 
-                <p class="font-medium text-gray-800">
-                    {{ $agenda->tanggal->format('d-m-Y') }}
-                </p>
+                            <td class="px-5 py-4 text-sm font-medium text-slate-800">
+
+                                @if($agenda->waktu_mulai)
+
+                                    {{ $agenda->waktu_mulai }}
+
+                                    @if($agenda->waktu_selesai)
+                                        - {{ $agenda->waktu_selesai }}
+                                    @endif
+
+                                @else
+                                    -
+                                @endif
+
+                            </td>
+
+                        </tr>
+
+
+                        {{-- LOKASI --}}
+                        <tr class="hover:bg-emerald-50/50 transition">
+
+                            <td class="bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-600">
+                                Lokasi
+                            </td>
+
+                            <td class="px-5 py-4 text-sm font-medium text-slate-800">
+                                {{ $agenda->lokasi ?? '-' }}
+                            </td>
+
+                        </tr>
+
+
+                        {{-- PENYELENGGARA --}}
+                        <tr class="hover:bg-emerald-50/50 transition">
+
+                            <td class="bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-600">
+                                Penyelenggara
+                            </td>
+
+                            <td class="px-5 py-4 text-sm font-medium text-slate-800">
+                                {{ $agenda->penyelenggara ?? '-' }}
+                            </td>
+
+                        </tr>
+
+
+                        {{-- STATUS --}}
+                        <tr class="hover:bg-emerald-50/50 transition">
+
+                            <td class="bg-slate-50 px-5 py-4 text-sm font-semibold text-slate-600">
+                                Status
+                            </td>
+
+                            <td class="px-5 py-4">
+
+                                @if($agenda->status === 'akan_datang')
+
+                                    <span class="inline-flex items-center gap-2 rounded-full
+                                                 bg-emerald-100 px-3 py-1.5 text-xs
+                                                 font-bold text-emerald-700">
+
+                                        <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+
+                                        Akan Datang
+                                    </span>
+
+                                @else
+
+                                    <span class="inline-flex items-center gap-2 rounded-full
+                                                 bg-slate-100 px-3 py-1.5 text-xs
+                                                 font-bold text-slate-600">
+
+                                        <span class="h-2 w-2 rounded-full bg-slate-400"></span>
+
+                                        Selesai
+                                    </span>
+
+                                @endif
+
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
 
             </div>
 
 
-            {{-- Waktu --}}
-            <div>
+            {{-- BUTTON --}}
+            <div class="mt-6 flex justify-end gap-3">
 
-                <p class="text-sm text-gray-500 mb-1">
-                    Waktu
-                </p>
+                {{-- KEMBALI --}}
+                <a href="{{ route('admin.agenda.index') }}"
+                style="background-color: #facc15; color: #0f172a;"
+                class="inline-flex items-center justify-center rounded-lg
+                        px-5 py-2.5 text-sm font-semibold shadow-sm
+                        transition hover:opacity-90 active:scale-95">
 
-                <p class="font-medium text-gray-800">
+                    ← Kembali
 
-                    @if($agenda->waktu_mulai)
+                </a>
 
-                        {{ $agenda->waktu_mulai }}
+                {{-- EDIT AGENDA --}}
+                <a href="{{ route('admin.agenda.edit', $agenda) }}"
+                style="background-color: #16a34a; color: white;"
+                class="inline-flex items-center justify-center rounded-lg
+                        px-5 py-2.5 text-sm font-semibold shadow-sm
+                        transition hover:opacity-90 active:scale-95">
 
-                        @if($agenda->waktu_selesai)
-                            - {{ $agenda->waktu_selesai }}
-                        @endif
+                    Edit Agenda
 
-                    @else
-                        -
-                    @endif
-
-                </p>
-
-            </div>
-
-
-            {{-- Lokasi --}}
-            <div>
-
-                <p class="text-sm text-gray-500 mb-1">
-                    Lokasi
-                </p>
-
-                <p class="font-medium text-gray-800">
-                    {{ $agenda->lokasi ?? '-' }}
-                </p>
+                </a>
 
             </div>
-
-
-            {{-- Penyelenggara --}}
-            <div>
-
-                <p class="text-sm text-gray-500 mb-1">
-                    Penyelenggara
-                </p>
-
-                <p class="font-medium text-gray-800">
-                    {{ $agenda->penyelenggara ?? '-' }}
-                </p>
-
-            </div>
-
-
-            {{-- Status --}}
-            <div>
-
-                <p class="text-sm text-gray-500 mb-1">
-                    Status
-                </p>
-
-                @if($agenda->status === 'akan_datang')
-
-                    <span class="inline-block bg-yellow-100 text-yellow-700 px-3 py-1 rounded-full text-sm">
-                        Akan Datang
-                    </span>
-
-                @else
-
-                    <span class="inline-block bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm">
-                        Selesai
-                    </span>
-
-                @endif
-
-            </div>
-
-
-        </div>
-
-
-        {{-- Tombol --}}
-        <div class="flex gap-3 mt-8">
-
-            <a href="{{ route('admin.agenda.index') }}"
-               class="px-5 py-3 bg-gray-200 text-gray-700 rounded-lg">
-                Kembali
-            </a>
-
-            <a href="{{ route('admin.agenda.edit', $agenda) }}"
-               class="px-5 py-3 bg-yellow-500 text-white rounded-lg">
-                Edit Agenda
-            </a>
 
         </div>
 
