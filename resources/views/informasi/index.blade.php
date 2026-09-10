@@ -4,388 +4,569 @@
 
 <div class="min-h-screen bg-[#FAFAF7]">
 
-```
-<!-- ================= HEADER ================= -->
-<section class="relative overflow-hidden bg-gradient-to-br from-[#075E4A] via-[#087F5B] to-[#005C3B]">
 
-    <!-- Decorative -->
-    <div class="absolute -top-24 -right-24 w-80 h-80
-                bg-white/10 rounded-full blur-3xl">
-    </div>
+    <!-- ===================================================== -->
+    <!-- HEADER INFORMASI -->
+    <!-- ===================================================== -->
+    <section class="relative overflow-hidden min-h-[420px]">
 
-    <div class="absolute -bottom-32 -left-20 w-96 h-96
-                bg-[#E7B92E]/10 rounded-full blur-3xl">
-    </div>
 
-    <div class="relative max-w-7xl mx-auto px-6 py-16 md:py-20">
+        <!-- ================= BACKGROUND IMAGE ================= -->
+        <img
+            src="{{ asset('images/pasuruan.jpeg') }}"
+            alt="E-Government Kota Pasuruan"
+            class="absolute inset-0
+                   w-full h-full
+                   object-cover"
+        >
 
-        <div class="max-w-3xl">
 
-            <!-- Label -->
-            <span class="inline-block text-[#F4C430]
-                         text-sm font-bold tracking-widest
-                         uppercase mb-4">
-                Pusat Informasi
-            </span>
+        <!-- ================= DARK/GOLD OVERLAY ================= -->
+        <div
+            class="absolute inset-0
+                   bg-gradient-to-r
+                   from-[#3D2D05]/90
+                   via-[#6B5108]/70
+                   to-[#C9A227]/35"
+        ></div>
 
-            <!-- Title -->
-            <h1 class="text-3xl md:text-5xl
-                       font-bold text-white
-                       leading-tight">
 
-                Informasi & Pengumuman
+        <!-- ================= BOTTOM OVERLAY ================= -->
+        <div
+            class="absolute inset-x-0 bottom-0
+                   h-36
+                   bg-gradient-to-t
+                   from-black/50
+                   to-transparent"
+        ></div>
 
-            </h1>
 
-            <!-- Description -->
-            <p class="text-[#E8F3EC] mt-5
-                      text-base md:text-lg
-                      leading-relaxed max-w-2xl">
+        <!-- ================= DECORATIVE CIRCLE ================= -->
+        <div
+            class="absolute
+                   -top-24
+                   -right-24
+                   w-80 h-80
+                   rounded-full
+                   bg-[#F4C430]/10
+                   blur-3xl"
+        ></div>
 
-                Temukan berbagai informasi terbaru mengenai kegiatan,
-                program, pengumuman, dan layanan Pemerintah Kota Pasuruan.
 
-            </p>
+        <!-- ================================================= -->
+        <!-- HEADER CONTENT -->
+        <!-- ================================================= -->
+        <div
+            class="relative z-10
+                   max-w-6xl mx-auto
+                   px-6
+                   min-h-[420px]
+                   py-12 md:py-16
+                   flex flex-col
+                   justify-center"
+        >
 
-            <!-- Decorative Line -->
-            <div class="flex items-center gap-3 mt-7">
 
-                <span class="w-14 h-1 bg-[#F4C430] rounded-full"></span>
+            <!-- Breadcrumb -->
+            <div
+                class="flex items-center gap-2
+                       text-sm
+                       text-white/75
+                       mb-7"
+            >
 
-                <span class="text-sm text-white/60">
-                    E-Government Kota Pasuruan
+                <a
+                    href="{{ route('home') }}"
+                    class="hover:text-white transition"
+                >
+                    Beranda
+                </a>
+
+                <span>/</span>
+
+                <span class="text-white">
+                    Informasi
                 </span>
 
             </div>
 
-        </div>
 
-    </div>
-
-</section>
+            <!-- Header Text -->
+            <div class="max-w-3xl">
 
 
-<!-- ================= CONTENT ================= -->
-<section class="py-12 md:py-16">
+                <!-- Small Label -->
+                <div class="mb-5">
 
-    <div class="max-w-7xl mx-auto px-6">
-
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row
-                    md:items-end md:justify-between
-                    gap-4 mb-8">
-
-            <div>
-
-                <p class="text-sm font-semibold
-                          text-[#008C45] mb-2">
-                    INFORMASI TERKINI
-                </p>
-
-                <h2 class="text-2xl md:text-3xl
-                           font-bold text-slate-800">
-
-                    Berita & Informasi
-
-                </h2>
-
-                <div class="flex items-center gap-2 mt-3">
-
-                    <span class="w-8 h-1
-                                 bg-[#E7B92E]
-                                 rounded-full">
+                    <span
+                        class="inline-flex
+                               items-center
+                               px-4 py-2
+                               rounded-full
+                               bg-[#F4C430]/90
+                               text-[#4A3700]
+                               text-sm
+                               font-bold
+                               shadow-lg
+                               backdrop-blur-sm"
+                    >
+                        INFORMASI PEMERINTAHAN
                     </span>
 
-                    <span class="text-sm text-slate-500">
-                        Informasi resmi E-Government
+                </div>
+
+
+                <!-- Title -->
+                <h1
+                    class="text-4xl
+                           md:text-5xl
+                           lg:text-6xl
+                           font-bold
+                           text-white
+                           leading-tight
+                           tracking-tight
+                           drop-shadow-xl"
+                >
+                    Berita & Informasi
+                </h1>
+
+
+                <!-- Description -->
+                <p
+                    class="mt-5
+                           max-w-2xl
+                           text-base
+                           md:text-lg
+                           text-white/80
+                           leading-relaxed"
+                >
+                    Informasi terbaru mengenai kegiatan,
+                    pelayanan, dan perkembangan
+                    Pemerintah Kota Pasuruan.
+                </p>
+
+
+                <!-- Decorative Line -->
+                <div
+                    class="flex items-center gap-3
+                           mt-7"
+                >
+
+                    <span
+                        class="w-16 h-1
+                               rounded-full
+                               bg-[#F4C430]"
+                    ></span>
+
+                    <span
+                        class="text-sm
+                               text-white/60"
+                    >
+                        E-Government Kota Pasuruan
                     </span>
 
                 </div>
 
             </div>
 
-            <div class="text-sm text-slate-500">
+        </div>
 
-                {{ $informasi->count() }} informasi tersedia
+    </section>
+
+
+    <!-- ===================================================== -->
+    <!-- DAFTAR INFORMASI -->
+    <!-- ===================================================== -->
+    <section class="py-12 md:py-16">
+
+        <div class="max-w-6xl mx-auto px-6">
+
+
+            <!-- Section Heading -->
+            <div
+                class="flex flex-col
+                       md:flex-row
+                       md:items-end
+                       md:justify-between
+                       gap-4
+                       mb-9"
+            >
+
+                <div>
+
+                    <p
+                        class="text-sm
+                               font-semibold
+                               uppercase
+                               tracking-widest
+                               text-[#008C45]"
+                    >
+                        Informasi Terkini
+                    </p>
+
+                    <h2
+                        class="text-2xl
+                               md:text-3xl
+                               font-bold
+                               text-slate-800
+                               mt-1"
+                    >
+                        Berita Terbaru
+                    </h2>
+
+                </div>
+
+
+                <div
+                    class="text-sm
+                           text-slate-500"
+                >
+                    Informasi Pemerintah Kota Pasuruan
+                </div>
 
             </div>
 
-        </div>
 
+            <!-- ================================================= -->
+            <!-- GRID BERITA -->
+            <!-- ================================================= -->
+            @if($informasi->count())
 
-        <!-- ================= CARDS ================= -->
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
-
-            @forelse ($informasi as $item)
-
-                <!-- CARD -->
-                <a
-                    href="{{ route('informasi.show', $item->id) }}"
-                    class="group block"
+                <div
+                    class="grid
+                           sm:grid-cols-2
+                           lg:grid-cols-3
+                           gap-7"
                 >
 
-                    <article
-                        class="h-full bg-white
-                               rounded-2xl
-                               border border-slate-200
-                               overflow-hidden
-                               shadow-sm
-                               hover:shadow-2xl
-                               hover:-translate-y-2
-                               hover:border-[#008C45]
-                               transition-all duration-300"
-                    >
+                    @foreach($informasi as $item)
 
-                        <!-- Top Accent -->
-                        <div
-                            class="h-1.5 bg-gradient-to-r
-                                   from-[#008C45]
-                                   via-[#087F5B]
-                                   to-[#E7B92E]"
-                        ></div>
+                        <!-- ================= CARD ================= -->
+                        <a
+                            href="{{ route('informasi.show', $item->id) }}"
+                            class="group block"
+                        >
 
-
-                        <div class="p-7">
-
-                            <!-- Category + Icon -->
-                            <div class="flex items-center
-                                        justify-between mb-6">
-
-                                <!-- Category -->
-                                <span
-                                    class="inline-flex
-                                           items-center
-                                           px-3 py-1.5
-                                           rounded-full
-                                           bg-[#E8F3EC]
-                                           text-[#006F38]
-                                           text-xs
-                                           font-bold
-                                           group-hover:bg-[#008C45]
-                                           group-hover:text-white
-                                           transition"
-                                >
-
-                                    {{ $item->kategori }}
-
-                                </span>
+                            <article
+                                class="h-full
+                                       bg-white
+                                       rounded-3xl
+                                       overflow-hidden
+                                       border border-slate-200
+                                       shadow-sm
+                                       hover:shadow-xl
+                                       hover:-translate-y-1
+                                       transition-all
+                                       duration-300"
+                            >
 
 
-                                <!-- Icon -->
+                                <!-- ================= IMAGE ================= -->
                                 <div
-                                    class="w-10 h-10
-                                           rounded-xl
-                                           bg-[#FAFAF7]
-                                           text-slate-400
-                                           flex items-center
-                                           justify-center
-                                           group-hover:bg-[#E8F3EC]
-                                           group-hover:text-[#008C45]
-                                           transition"
+                                    class="relative
+                                           w-full
+                                           h-56
+                                           bg-slate-100
+                                           overflow-hidden"
                                 >
 
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="w-5 h-5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="1.8"
-                                            d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"
-                                        />
-                                    </svg>
+                                    @if($item->gambar)
+
+                                        <img
+                                            src="{{ asset('storage/' . $item->gambar) }}"
+                                            alt="{{ $item->judul }}"
+                                            class="w-full
+                                                   h-full
+                                                   object-cover
+                                                   group-hover:scale-105
+                                                   transition-transform
+                                                   duration-500"
+                                        >
+
+                                    @else
+
+                                        <!-- Placeholder -->
+                                        <div
+                                            class="w-full
+                                                   h-full
+                                                   flex
+                                                   flex-col
+                                                   items-center
+                                                   justify-center
+                                                   bg-gradient-to-br
+                                                   from-[#E8F3EC]
+                                                   to-[#F5F8F6]
+                                                   text-[#008C45]"
+                                        >
+
+                                            <svg
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                class="w-12 h-12 mb-2"
+                                                fill="none"
+                                                viewBox="0 0 24 24"
+                                                stroke="currentColor"
+                                            >
+                                                <path
+                                                    stroke-linecap="round"
+                                                    stroke-linejoin="round"
+                                                    stroke-width="1.5"
+                                                    d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                                />
+                                            </svg>
+
+                                            <span
+                                                class="text-sm
+                                                       font-medium"
+                                            >
+                                                Tidak ada gambar
+                                            </span>
+
+                                        </div>
+
+                                    @endif
+
+
+                                    <!-- Image Overlay -->
+                                    <div
+                                        class="absolute inset-0
+                                               bg-gradient-to-t
+                                               from-black/25
+                                               via-transparent
+                                               to-transparent
+                                               opacity-0
+                                               group-hover:opacity-100
+                                               transition-opacity
+                                               duration-300"
+                                    ></div>
 
                                 </div>
 
-                            </div>
 
-
-                            <!-- Date -->
-                            <div
-                                class="flex items-center gap-2
-                                       text-sm text-slate-400 mb-4"
-                            >
-
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="w-4 h-4 text-[#008C45]"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        stroke-width="1.8"
-                                        d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                    />
-                                </svg>
-
-                                {{ $item->tanggal->format('d F Y') }}
-
-                            </div>
-
-
-                            <!-- Title -->
-                            <h2
-                                class="text-xl font-bold
-                                       text-slate-800
-                                       leading-snug
-                                       mb-4
-                                       group-hover:text-[#008C45]
-                                       transition"
-                            >
-
-                                {{ $item->judul }}
-
-                            </h2>
-
-
-                            <!-- Summary -->
-                            <p
-                                class="text-slate-600
-                                       leading-relaxed
-                                       line-clamp-3"
-                            >
-
-                                {{ $item->ringkasan }}
-
-                            </p>
-
-
-                            <!-- Read More -->
-                            <div
-                                class="mt-7 pt-5
-                                       border-t border-slate-100
-                                       flex items-center
-                                       justify-between"
-                            >
-
-                                <span
-                                    class="text-sm font-bold
-                                           text-[#008C45]"
-                                >
-                                    Baca Selengkapnya
-                                </span>
-
-
-                                <span
-                                    class="w-9 h-9
-                                           rounded-full
-                                           bg-[#E8F3EC]
-                                           text-[#008C45]
-                                           flex items-center
-                                           justify-center
-                                           group-hover:bg-[#008C45]
-                                           group-hover:text-white
-                                           group-hover:translate-x-1
-                                           transition-all"
+                                <!-- ================= CARD CONTENT ================= -->
+                                <div
+                                    class="p-6"
                                 >
 
-                                    →
 
-                                </span>
+                                    <!-- Category & Date -->
+                                    <div
+                                        class="flex
+                                               items-center
+                                               justify-between
+                                               gap-3
+                                               mb-4"
+                                    >
 
-                            </div>
-
-                        </div>
-
-                    </article>
-
-                </a>
-
-
-            @empty
-
-                <!-- EMPTY STATE -->
-                <div class="lg:col-span-3">
-
-                    <div
-                        class="bg-white rounded-3xl
-                               border border-slate-200
-                               p-14 text-center
-                               shadow-sm"
-                    >
-
-                        <div
-                            class="w-16 h-16 mx-auto mb-5
-                                   rounded-2xl
-                                   bg-[#E8F3EC]
-                                   text-[#008C45]
-                                   flex items-center
-                                   justify-center"
-                        >
-
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                class="w-8 h-8"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="1.8"
-                                    d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10l4 4v10a2 2 0 01-2 2z"
-                                />
-                            </svg>
-
-                        </div>
+                                        <span
+                                            class="inline-flex
+                                                   px-3 py-1.5
+                                                   rounded-full
+                                                   bg-[#E8F3EC]
+                                                   text-[#006F38]
+                                                   text-xs
+                                                   font-semibold"
+                                        >
+                                            {{ $item->kategori }}
+                                        </span>
 
 
-                        <h2 class="text-xl font-bold text-slate-700">
+                                        <span
+                                            class="text-xs
+                                                   text-slate-400
+                                                   whitespace-nowrap"
+                                        >
+                                            {{ $item->tanggal->format('d M Y') }}
+                                        </span>
 
-                            Belum Ada Informasi
-
-                        </h2>
+                                    </div>
 
 
-                        <p class="text-slate-500 mt-2">
+                                    <!-- Title -->
+                                    <h3
+                                        class="text-xl
+                                               font-bold
+                                               text-slate-800
+                                               leading-snug
+                                               group-hover:text-[#008C45]
+                                               transition"
+                                    >
+                                        {{ $item->judul }}
+                                    </h3>
 
-                            Informasi terbaru akan segera tersedia.
 
-                        </p>
+                                    <!-- Summary -->
+                                    <p
+                                        class="mt-3
+                                               text-slate-500
+                                               leading-relaxed
+                                               text-sm
+                                               line-clamp-3"
+                                    >
+                                        {{ $item->ringkasan }}
+                                    </p>
 
-                    </div>
+
+                                    <!-- Read More -->
+                                    <div
+                                        class="flex
+                                               items-center
+                                               gap-2
+                                               mt-5
+                                               text-[#008C45]
+                                               font-semibold
+                                               text-sm"
+                                    >
+
+                                        <span>
+                                            Baca Selengkapnya
+                                        </span>
+
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="w-4 h-4
+                                                   group-hover:translate-x-1
+                                                   transition-transform"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M13 7l5 5m0 0l-5 5m5-5H6"
+                                            />
+                                        </svg>
+
+                                    </div>
+
+                                </div>
+
+                            </article>
+
+                        </a>
+
+                    @endforeach
 
                 </div>
 
-            @endforelse
+            @else
 
-        </div>
+                <!-- ================= EMPTY STATE ================= -->
+                <div
+                    class="bg-white
+                           rounded-3xl
+                           border border-slate-200
+                           p-12
+                           text-center"
+                >
+
+                    <div
+                        class="w-16 h-16
+                               mx-auto
+                               rounded-2xl
+                               bg-[#E8F3EC]
+                               text-[#008C45]
+                               flex items-center
+                               justify-center
+                               mb-5"
+                    >
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-8 h-8"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="1.5"
+                                d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v12a2 2 0 01-2 2zM7 8h10M7 12h10M7 16h6"
+                            />
+                        </svg>
+
+                    </div>
 
 
-        <!-- ================= BACK TO HOME ================= -->
-        <div class="text-center mt-12">
+                    <h3
+                        class="text-xl
+                               font-bold
+                               text-slate-800"
+                    >
+                        Belum Ada Informasi
+                    </h3>
 
-            <a
-                href="{{ route('home') }}"
-                class="inline-flex items-center gap-2
-                       text-[#008C45]
-                       font-semibold
-                       hover:text-[#005C3B]
-                       transition"
+
+                    <p
+                        class="mt-2
+                               text-slate-500"
+                    >
+                        Belum terdapat berita atau informasi
+                        yang dipublikasikan.
+                    </p>
+
+                </div>
+
+            @endif
+
+
+            <!-- ================================================= -->
+            <!-- BOTTOM CTA -->
+            <!-- ================================================= -->
+            <div
+                class="mt-12
+                       pt-8
+                       border-t
+                       border-slate-200"
             >
 
-                <span>
-                    ←
-                </span>
+                <a
+                    href="{{ route('home') }}"
+                    class="group
+                           inline-flex
+                           items-center
+                           gap-3
+                           px-6 py-3.5
+                           rounded-2xl
+                           bg-[#F4C430]
+                           text-[#075E4A]
+                           font-semibold
+                           shadow-sm
+                           hover:bg-[#E7B92E]
+                           hover:shadow-lg
+                           hover:-translate-y-0.5
+                           transition-all
+                           duration-300"
+                >
 
-                Kembali ke Beranda
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="w-5 h-5
+                               group-hover:-translate-x-1
+                               transition-transform"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                    >
+                        <path
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                        />
+                    </svg>
 
-            </a>
+                    Kembali ke Beranda
+
+                </a>
+
+            </div>
 
         </div>
 
-    </div>
-
-</section>
-```
+    </section>
 
 </div>
 

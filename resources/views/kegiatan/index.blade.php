@@ -29,11 +29,7 @@
                 </div>
             </div>
 
-            <a href="/"
-               class="text-[#008C45] font-semibold hover:text-[#006F38]">
-                ← Kembali
-            </a>
-
+            
         </div>
     </nav>
 

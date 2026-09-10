@@ -51,12 +51,11 @@
             </a>
 
 
-            <a href="#"
-               class="block px-4 py-3 rounded-lg
-                      hover:bg-[#C9A227]">
+            <a href="{{ route('admin.informasi.index') }}"
+              class="block px-4 py-3 rounded-lg
+                      hover:bg-[#C9A227]">   
 
-                Berita
-
+               Berita
             </a>
 
 
