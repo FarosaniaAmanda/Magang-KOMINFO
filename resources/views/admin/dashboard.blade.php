@@ -21,7 +21,9 @@
 <div class="min-h-screen flex">
 
 
+    <!-- ========================= -->
     <!-- SIDEBAR -->
+    <!-- ========================= -->
 
     <aside class="w-64 bg-[#005C3B] text-white
                   fixed left-0 top-0 bottom-0">
@@ -42,6 +44,8 @@
         <nav class="px-4 space-y-2">
 
 
+            <!-- DASHBOARD -->
+
             <a href="{{ route('admin.dashboard') }}"
                class="block px-4 py-3 rounded-lg
                       hover:bg-[#C9A227]">
@@ -51,13 +55,20 @@
             </a>
 
 
-            <a href="{{ route('admin.informasi.index') }}"
-              class="block px-4 py-3 rounded-lg
-                      hover:bg-[#C9A227]">   
 
-               Berita
+            <!-- BERITA -->
+
+            <a href="{{ route('admin.informasi.index') }}"
+               class="block px-4 py-3 rounded-lg
+                      hover:bg-[#C9A227]">
+
+                Berita
+
             </a>
 
+
+
+            <!-- KEGIATAN -->
 
             <a href="{{ route('admin.kegiatan.index') }}"
                class="block px-4 py-3 rounded-lg
@@ -68,15 +79,47 @@
             </a>
 
 
+
+            <!-- AGENDA -->
+
             <a href="{{ route('admin.agenda.index') }}"
-                class="block px-4 py-3 rounded-lg
-                      hover:bg-[#C9A227]">    
-            Agenda
+               class="block px-4 py-3 rounded-lg
+                      hover:bg-[#C9A227]">
+
+                Agenda
+
+            </a>
+
+
+
+            <!-- PROFILE KARYAWAN -->
+
+            <a href="{{ url('/admin/profile-karyawan') }}"
+               class="block px-4 py-3 rounded-lg
+                      hover:bg-[#C9A227]">
+
+                Profile Karyawan
+
+            </a>
+
+
+
+            <!-- SURVEY -->
+
+            <a href="{{ route('admin.survey.index') }}"
+               class="block px-4 py-3 rounded-lg
+                      hover:bg-[#C9A227]">
+
+                Survey Kepuasan
+
             </a>
 
 
         </nav>
 
+
+
+        <!-- LOGOUT -->
 
         <div class="absolute bottom-6 left-4 right-4">
 
@@ -102,12 +145,16 @@
 
 
 
+    <!-- ========================= -->
     <!-- MAIN -->
+    <!-- ========================= -->
 
     <main class="ml-64 flex-1">
 
 
+        <!-- ========================= -->
         <!-- HEADER -->
+        <!-- ========================= -->
 
         <header class="bg-white border-b
                        px-8 py-5
@@ -151,10 +198,14 @@
 
 
 
+        <!-- ========================= -->
         <!-- CONTENT -->
+        <!-- ========================= -->
 
         <section class="p-8">
 
+
+            <!-- WELCOME -->
 
             <div class="mb-8">
 
@@ -176,10 +227,13 @@
 
 
 
+            <!-- ========================= -->
             <!-- STATISTICS -->
+            <!-- ========================= -->
 
             <div class="grid grid-cols-1
-                        md:grid-cols-3
+                        md:grid-cols-2
+                        xl:grid-cols-5
                         gap-6">
 
 
@@ -189,7 +243,9 @@
                             shadow-sm p-6">
 
                     <p class="text-gray-500">
+
                         Total Berita
+
                     </p>
 
                     <h3 class="text-3xl font-bold
@@ -209,7 +265,9 @@
                             shadow-sm p-6">
 
                     <p class="text-gray-500">
+
                         Total Kegiatan
+
                     </p>
 
                     <h3 class="text-3xl font-bold
@@ -229,7 +287,9 @@
                             shadow-sm p-6">
 
                     <p class="text-gray-500">
+
                         Agenda Mendatang
+
                     </p>
 
                     <h3 class="text-3xl font-bold
@@ -242,26 +302,409 @@
                 </div>
 
 
+
+                <!-- SURVEY -->
+
+                <div class="bg-white rounded-2xl
+                            shadow-sm p-6">
+
+                    <p class="text-gray-500">
+
+                        Total Survey
+
+                    </p>
+
+                    <h3 class="text-3xl font-bold
+                               text-[#005C3B] mt-2">
+
+                        {{ $jumlahSurvey }}
+
+                    </h3>
+
+                </div>
+
+
+
+                <!-- RATING -->
+
+                <div class="bg-white rounded-2xl
+                            shadow-sm p-6">
+
+                    <p class="text-gray-500">
+
+                        Rata-rata Rating
+
+                    </p>
+
+
+                    <div class="flex items-center
+                                gap-2 mt-2">
+
+                        <span class="text-2xl">
+                            ⭐
+                        </span>
+
+                        <h3 class="text-3xl font-bold
+                                   text-[#C9A227]">
+
+                            {{ $rataRating ? number_format($rataRating, 1) : '0.0' }}
+
+                        </h3>
+
+                        <span class="text-gray-400
+                                     text-sm">
+
+                            / 5
+
+                        </span>
+
+                    </div>
+
+                </div>
+
+
             </div>
 
 
 
-            <!-- INFORMASI -->
+            <!-- ========================= -->
+            <!-- SURVEY TERBARU -->
+            <!-- ========================= -->
 
             <div class="bg-white rounded-2xl
-                        shadow-sm p-6 mt-8">
+                        shadow-sm mt-8
+                        overflow-hidden">
 
-                <h3 class="font-semibold text-lg">
 
-                    Aktivitas Admin
+                <!-- HEADER TABLE -->
 
-                </h3>
+                <div class="px-6 py-5
+                            border-b
+                            flex flex-col
+                            md:flex-row
+                            md:items-center
+                            md:justify-between
+                            gap-3">
 
-                <p class="text-gray-500 mt-2">
+                    <div>
 
-                    Belum ada aktivitas terbaru.
+                        <h3 class="font-semibold
+                                   text-lg">
 
-                </p>
+                            Survey Kepuasan Masyarakat
+
+                        </h3>
+
+                        <p class="text-gray-500
+                                  text-sm mt-1">
+
+                            Data survey masyarakat terbaru.
+
+                        </p>
+
+                    </div>
+
+
+                    <a href="{{ route('admin.survey.index') }}"
+                       class="inline-flex
+                              items-center
+                              justify-center
+                              bg-[#005C3B]
+                              hover:bg-[#00482F]
+                              text-white
+                              px-5 py-2.5
+                              rounded-lg
+                              text-sm
+                              font-semibold
+                              transition">
+
+                        Lihat Semua Survey
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- TABLE -->
+
+                <div class="overflow-x-auto">
+
+                    <table class="w-full">
+
+
+                        <thead class="bg-gray-50">
+
+                            <tr>
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    No
+
+                                </th>
+
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    Nama
+
+                                </th>
+
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    Domisili
+
+                                </th>
+
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    Rating
+
+                                </th>
+
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    Saran
+
+                                </th>
+
+
+                                <th class="px-6 py-4
+                                           text-left
+                                           text-sm
+                                           font-semibold
+                                           text-gray-600">
+
+                                    Tanggal
+
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+
+                        <tbody class="divide-y">
+
+
+                            @forelse($surveyTerbaru as $index => $item)
+
+                                <tr class="hover:bg-gray-50">
+
+
+                                    <!-- NO -->
+
+                                    <td class="px-6 py-4
+                                               text-sm
+                                               text-gray-500">
+
+                                        {{ $index + 1 }}
+
+                                    </td>
+
+
+
+                                    <!-- NAMA -->
+
+                                    <td class="px-6 py-4">
+
+                                        <p class="font-semibold
+                                                  text-gray-800">
+
+                                            {{ $item->nama }}
+
+                                        </p>
+
+
+                                        @if($item->no_wa)
+
+                                            <p class="text-xs
+                                                      text-gray-400
+                                                      mt-1">
+
+                                                {{ $item->no_wa }}
+
+                                            </p>
+
+                                        @endif
+
+                                    </td>
+
+
+
+                                    <!-- DOMISILI -->
+
+                                    <td class="px-6 py-4
+                                               text-sm
+                                               text-gray-600">
+
+                                        {{ $item->alamat }}
+
+                                    </td>
+
+
+
+                                    <!-- RATING -->
+
+                                    <td class="px-6 py-4
+                                               whitespace-nowrap">
+
+                                        <span class="text-[#C9A227]
+                                                     tracking-wide">
+
+                                            {{ str_repeat('★', $item->rating) }}
+
+                                        </span>
+
+                                        <span class="text-xs
+                                                     text-gray-400">
+
+                                            ({{ $item->rating }}/5)
+
+                                        </span>
+
+                                    </td>
+
+
+
+                                    <!-- SARAN -->
+
+                                    <td class="px-6 py-4
+                                               max-w-xs">
+
+                                        <p class="text-sm
+                                                  text-gray-600
+                                                  line-clamp-2">
+
+                                            {{ $item->pesan }}
+
+                                        </p>
+
+                                    </td>
+
+
+
+                                    <!-- TANGGAL -->
+
+                                    <td class="px-6 py-4
+                                               text-sm
+                                               text-gray-500
+                                               whitespace-nowrap">
+
+                                        {{ $item->created_at->format('d M Y') }}
+
+                                    </td>
+
+
+                                </tr>
+
+
+                            @empty
+
+                                <tr>
+
+                                    <td colspan="6"
+                                        class="px-6 py-12
+                                               text-center">
+
+                                        <div class="text-4xl mb-3">
+                                            📭
+                                        </div>
+
+                                        <p class="font-semibold
+                                                  text-gray-700">
+
+                                            Belum ada survey
+
+                                        </p>
+
+                                        <p class="text-sm
+                                                  text-gray-500
+                                                  mt-1">
+
+                                            Data survey masyarakat
+                                            akan muncul di sini.
+
+                                        </p>
+
+                                    </td>
+
+                                </tr>
+
+                            @endforelse
+
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+
+                <!-- FOOTER TABLE -->
+
+                @if($jumlahSurvey > 0)
+
+                    <div class="px-6 py-4
+                                border-t
+                                bg-gray-50
+                                flex flex-col
+                                sm:flex-row
+                                sm:items-center
+                                sm:justify-between
+                                gap-3">
+
+                        <p class="text-sm
+                                  text-gray-500">
+
+                            Menampilkan
+                            {{ min(5, $jumlahSurvey) }}
+                            survey terbaru dari
+                            {{ $jumlahSurvey }}
+                            responden.
+
+                        </p>
+
+
+                        <a href="{{ route('admin.survey.index') }}"
+                           class="text-[#005C3B]
+                                  hover:text-[#C9A227]
+                                  font-semibold
+                                  text-sm">
+
+                            Kelola Data Survey →
+
+                        </a>
+
+                    </div>
+
+                @endif
+
 
             </div>
 
