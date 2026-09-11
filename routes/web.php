@@ -45,7 +45,13 @@ Route::get('/login-admin', [AdminAuthController::class, 'showLogin'])
 Route::post('/login-admin', [AdminAuthController::class, 'login'])
     ->name('admin.login.process');
 
+// =========================
+// SURVEI KEPUASAN PELAYANAN
+// =========================
 
+Route::get('/survei-kepuasan', function () {
+    return view('survei.kepuasan');
+})->name('survei.kepuasan'); 
 // =========================
 // HALAMAN ADMIN
 // =========================
@@ -72,3 +78,17 @@ Route::middleware('admin')
         // kegiatan admin
         Route::resource('kegiatan', AdminKegiatanController::class);
     });
+
+
+    // =========================
+// PROFIL
+// =========================
+
+Route::get('/profil/kepala-dinas', function () {
+    return view('profil.kepala-dinas');
+})->name('profil.kepala');
+
+Route::get('/profil/karyawan', function () {
+    return view('profil.karyawan');
+})->name('profil.karyawan');
+

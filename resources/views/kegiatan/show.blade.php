@@ -17,11 +17,11 @@
 
             <div class="flex items-center gap-3">
 
-                <div class="w-14 h-14 overflow-hidden rounded-xl">
-                    <img src="{{ asset('images/logo.jpeg') }}"
-                         class="w-full h-full object-cover"
-                         alt="Logo">
-                </div>
+                <div class="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl">
+    <img src="{{ asset('images/logo.jpeg') }}"
+         class="w-full h-full object-contain"
+         alt="Logo">
+</div>
 
                 <div>
                     <h1 class="font-bold text-xl text-slate-800">
@@ -44,13 +44,9 @@
 
         <div class="max-w-7xl mx-auto px-6 py-12">
 
-            <a href="{{ route('kegiatan.index') }}"
-               class="inline-flex items-center gap-2 text-green-100
-                      hover:text-white mb-6 transition">
+            
 
-                ← Kembali ke Kegiatan
 
-            </a>
 
             <p class="text-sm font-semibold uppercase tracking-wider
                       text-green-100 mb-3">

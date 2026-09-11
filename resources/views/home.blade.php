@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="id">
 
 <head>
@@ -15,20 +14,109 @@
 
     <style>
 
-        html {
-            scroll-behavior: smooth;
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    /* ========================================================= */
+    /* HERO OVERLAY */
+    /* ========================================================= */
+
+    .hero-overlay {
+        background: linear-gradient(
+            90deg,
+            rgba(7, 94, 74, 0.90),
+            rgba(8, 127, 91, 0.60),
+            rgba(8, 127, 91, 0.10)
+        );
+    }
+
+
+    /* ========================================================= */
+    /* FLOATING SURVEY BUTTON */
+    /* ========================================================= */
+
+    /* Animasi tombol kedut-kedut */
+    @keyframes surveyWiggle {
+
+        0%,
+        80%,
+        100% {
+            transform: translateY(0) rotate(0deg);
         }
 
-        .hero-overlay {
-            background: linear-gradient(
-                90deg,
-                rgba(7, 94, 74, 0.90),
-                rgba(8, 127, 91, 0.60),
-                rgba(8, 127, 91, 0.10)
-            );
+        83% {
+            transform: translateY(-5px) rotate(-6deg);
         }
 
-    </style>
+        86% {
+            transform: translateY(0) rotate(6deg);
+        }
+
+        89% {
+            transform: translateY(-3px) rotate(-4deg);
+        }
+
+        92% {
+            transform: translateY(0) rotate(3deg);
+        }
+
+    }
+
+
+    .survey-floating {
+        animation: surveyWiggle 4s ease-in-out infinite;
+    }
+
+
+    .survey-floating:hover {
+        animation: none;
+        transform: scale(1.08);
+    }
+
+
+    /* Efek lingkaran di belakang tombol */
+    @keyframes surveyPulse {
+
+        0% {
+            transform: scale(1);
+            opacity: 0.35;
+        }
+
+        70% {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1.5);
+            opacity: 0;
+        }
+
+    }
+
+
+    .survey-pulse {
+        animation: surveyPulse 2s ease-out infinite;
+    }
+
+
+    /* Tooltip */
+    .survey-tooltip {
+        opacity: 0;
+        transform: translateX(10px);
+        pointer-events: none;
+        transition: all 0.3s ease;
+    }
+
+
+    .survey-wrapper:hover .survey-tooltip {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+</style>
 
 </head>
 
@@ -72,9 +160,13 @@
         </a>
 
 
-        <!-- Menu -->
+        <!-- ================================================= -->
+        <!-- MENU DESKTOP -->
+        <!-- ================================================= -->
+
         <div class="hidden md:flex items-center gap-8 font-medium">
 
+            <!-- Beranda -->
             <a
                 href="/"
                 class="nav-link text-[#008C45] transition"
@@ -82,6 +174,8 @@
                 Beranda
             </a>
 
+
+            <!-- Tentang -->
             <a
                 href="#tentang"
                 class="nav-link text-slate-800 hover:text-[#008C45] transition"
@@ -89,6 +183,8 @@
                 Tentang
             </a>
 
+
+            <!-- Keunggulan -->
             <a
                 href="#layanan"
                 class="nav-link text-slate-800 hover:text-[#008C45] transition"
@@ -96,12 +192,150 @@
                 Keunggulan
             </a>
 
+
+            <!-- Berita -->
             <a
                 href="#informasi"
                 class="nav-link text-slate-800 hover:text-[#008C45] transition"
             >
                 Berita
             </a>
+
+
+            <!-- ================================================= -->
+            <!-- PROFIL -->
+            <!-- ================================================= -->
+
+            <div class="relative">
+
+                <!-- Tombol Profil -->
+                <button
+                    type="button"
+                    id="profilButton"
+                    class="flex items-center gap-2
+                           text-slate-800
+                           hover:text-[#008C45]
+                           transition
+                           focus:outline-none"
+                >
+
+                    <span>
+                        Profil
+                    </span>
+
+                    <span
+                        id="profilArrow"
+                        class="text-xs transition-transform duration-200"
+                    >
+                        ▼
+                    </span>
+
+                </button>
+
+
+                <!-- ================================================= -->
+                <!-- DROPDOWN PROFIL -->
+                <!-- ================================================= -->
+
+                <div
+                    id="profilDropdown"
+                    class="hidden
+                           absolute
+                           right-0
+                           top-full
+                           mt-3
+                           w-60
+                           bg-white
+                           rounded-xl
+                           shadow-xl
+                           border border-slate-100
+                           overflow-hidden
+                           z-[60]"
+                >
+
+                    <!-- Kepala Dinas -->
+
+                    <a
+                        href="{{ route('profil.kepala') }}"
+                        class="flex items-center gap-3
+                               px-5 py-4
+                               text-sm
+                               text-slate-700
+                               hover:bg-[#E8F3EC]
+                               hover:text-[#008C45]
+                               transition"
+                    >
+
+                        <span
+                            class="flex items-center justify-center
+                                   w-9 h-9
+                                   rounded-lg
+                                   bg-[#E8F3EC]
+                                   text-[#008C45]"
+                        >
+                            👤
+                        </span>
+
+                        <div>
+
+                            <p class="font-semibold">
+                                Profil Kepala Dinas
+                            </p>
+
+                            <p class="text-xs text-slate-400 mt-0.5">
+                                Informasi Kepala Dinas
+                            </p>
+
+                        </div>
+
+                    </a>
+
+
+                    <!-- Garis pemisah -->
+
+                    <div class="border-t border-slate-100"></div>
+
+
+                    <!-- Karyawan -->
+
+                    <a
+                        href="{{ route('profil.karyawan') }}"
+                        class="flex items-center gap-3
+                               px-5 py-4
+                               text-sm
+                               text-slate-700
+                               hover:bg-[#E8F3EC]
+                               hover:text-[#008C45]
+                               transition"
+                    >
+
+                        <span
+                            class="flex items-center justify-center
+                                   w-9 h-9
+                                   rounded-lg
+                                   bg-[#E8F3EC]
+                                   text-[#008C45]"
+                        >
+                            👥
+                        </span>
+
+                        <div>
+
+                            <p class="font-semibold">
+                                Profil Karyawan
+                            </p>
+
+                            <p class="text-xs text-slate-400 mt-0.5">
+                                Informasi Karyawan
+                            </p>
+
+                        </div>
+
+                    </a>
+
+                </div>
+
+            </div>
 
         </div>
 
@@ -1580,10 +1814,16 @@
 
 
 <!-- ========================================================= -->
-<!-- JAVASCRIPT NAVBAR -->
+<!-- JAVASCRIPT NAVBAR + DROPDOWN PROFIL -->
 <!-- ========================================================= -->
 
 <script>
+
+    /*
+    |--------------------------------------------------------------------------
+    | NAVBAR
+    |--------------------------------------------------------------------------
+    */
 
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -1594,17 +1834,60 @@
             navLinks.forEach(item => {
 
                 item.classList.remove('text-[#008C45]');
-
                 item.classList.add('text-slate-800');
 
             });
 
 
             this.classList.remove('text-slate-800');
-
             this.classList.add('text-[#008C45]');
 
         });
+
+    });
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | DROPDOWN PROFIL
+    |--------------------------------------------------------------------------
+    */
+
+    const profilButton = document.getElementById('profilButton');
+    const profilDropdown = document.getElementById('profilDropdown');
+    const profilArrow = document.getElementById('profilArrow');
+
+
+    profilButton.addEventListener('click', function (event) {
+
+        event.stopPropagation();
+
+        profilDropdown.classList.toggle('hidden');
+
+        profilArrow.classList.toggle('rotate-180');
+
+    });
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Klik di luar dropdown
+    |--------------------------------------------------------------------------
+    */
+
+    document.addEventListener('click', function (event) {
+
+        if (
+            !profilButton.contains(event.target) &&
+            !profilDropdown.contains(event.target)
+        ) {
+
+            profilDropdown.classList.add('hidden');
+
+            profilArrow.classList.remove('rotate-180');
+
+        }
 
     });
 
@@ -1718,6 +2001,112 @@
 
 </script>
 
+<!-- ========================================================= -->
+<!-- FLOATING SURVEY KEPUASAN PELAYANAN -->
+<!-- ========================================================= -->
+
+<div class="survey-wrapper fixed bottom-6 right-6 z-[9999]">
+
+
+    <!-- ===================================================== -->
+    <!-- TOOLTIP -->
+    <!-- ===================================================== -->
+
+    <div
+        class="survey-tooltip
+               absolute
+               right-[78px]
+               bottom-1
+               w-64
+               bg-white
+               border
+               border-[#E8F3EC]
+               rounded-2xl
+               shadow-2xl
+               px-5
+               py-4"
+    >
+
+        <p class="font-bold text-[#005C3B] text-sm">
+            Survei Kepuasan Pelayanan
+        </p>
+
+        <p class="text-xs text-slate-500 mt-1 leading-relaxed">
+            Bagaimana pengalaman Anda menggunakan pelayanan kami?
+        </p>
+
+    </div>
+
+
+
+    <!-- ===================================================== -->
+    <!-- EFEK PULSE -->
+    <!-- ===================================================== -->
+
+    <span
+        class="survey-pulse
+               absolute
+               inset-0
+               rounded-full
+               bg-[#008C45]"
+    ></span>
+
+
+
+    <!-- ===================================================== -->
+    <!-- TOMBOL UTAMA -->
+    <!-- ===================================================== -->
+
+    <a
+        href="{{ route('survei.kepuasan')}}"
+        aria-label="Survei Kepuasan Pelayanan"
+        class="survey-floating
+               relative
+               w-16
+               h-16
+               rounded-full
+               bg-gradient-to-br
+               from-[#008C45]
+               to-[#005C3B]
+               border-4
+               border-white
+               shadow-2xl
+               flex
+               items-center
+               justify-center
+               transition-all
+               duration-300"
+    >
+
+
+        <!-- ICON -->
+        <span class="text-3xl select-none">
+            😊
+        </span>
+
+
+        <!-- TITIK NOTIFIKASI -->
+        <span
+            class="absolute
+                   top-0
+                   right-0
+                   w-4
+                   h-4
+                   bg-[#F4C430]
+                   border-2
+                   border-white
+                   rounded-full"
+        ></span>
+
+
+    </a>
+
+</div>
+
+
+</body>
+
+</html> 
 
 </body>
 
