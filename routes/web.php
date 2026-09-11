@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KegiatanController;
+use App\Http\Controllers\SurveyKepuasanController;
 
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -33,6 +34,12 @@ Route::get('/kegiatan', [KegiatanController::class, 'index'])
 
 Route::get('/kegiatan/{kegiatan}', [KegiatanController::class, 'show'])
     ->name('kegiatan.show');
+
+Route::get('/survey-kepuasan', [SurveyKepuasanController::class, 'index'])
+    ->name('survey.index');
+
+Route::post('/survey-kepuasan', [SurveyKepuasanController::class, 'store'])
+    ->name('survey.store');
 
 
 // =========================
@@ -71,4 +78,12 @@ Route::middleware('admin')
         
         // kegiatan admin
         Route::resource('kegiatan', AdminKegiatanController::class);
+
+        // Survey Kepuasan
+        Route::get('/survey-kepuasan', [SurveyKepuasanController::class, 'adminIndex'])
+            ->name('survey.index');
+
+        Route::get('/survey-kepuasan/download-pdf', [SurveyKepuasanController::class, 'downloadPdf'])
+            ->name('survey.pdf');
+
     });
