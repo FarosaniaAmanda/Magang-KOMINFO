@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\SurveyController;
 use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
+use App\Http\Controllers\Admin\SurveyController;
 
 
 // =========================
@@ -53,13 +54,16 @@ Route::get('/login-admin', [AdminAuthController::class, 'showLogin'])
 Route::post('/login-admin', [AdminAuthController::class, 'login'])
     ->name('admin.login.process');
 
+
 // =========================
 // SURVEI KEPUASAN PELAYANAN
 // =========================
 
 Route::get('/survei-kepuasan', function () {
     return view('survei.kepuasan');
-})->name('survei.kepuasan'); 
+})->name('survei.kepuasan');
+
+
 // =========================
 // HALAMAN ADMIN
 // =========================
@@ -82,8 +86,8 @@ Route::middleware('admin')
 
         // Informasi / Berita Admin
         Route::resource('informasi', AdminInformasiController::class);
-        
-        // kegiatan admin
+
+        // Kegiatan Admin
         Route::resource('kegiatan', AdminKegiatanController::class);
 
         // Survey Kepuasan Admin
@@ -96,7 +100,7 @@ Route::middleware('admin')
     });
 
 
-    // =========================
+// =========================
 // PROFIL
 // =========================
 
