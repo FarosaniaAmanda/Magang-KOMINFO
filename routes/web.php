@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
+use App\Http\Controllers\Admin\SurveyController;
 
 
 // =========================
@@ -52,13 +53,16 @@ Route::get('/login-admin', [AdminAuthController::class, 'showLogin'])
 Route::post('/login-admin', [AdminAuthController::class, 'login'])
     ->name('admin.login.process');
 
+
 // =========================
 // SURVEI KEPUASAN PELAYANAN
 // =========================
 
 Route::get('/survei-kepuasan', function () {
     return view('survei.kepuasan');
-})->name('survei.kepuasan'); 
+})->name('survei.kepuasan');
+
+
 // =========================
 // HALAMAN ADMIN
 // =========================
@@ -81,13 +85,20 @@ Route::middleware('admin')
 
         // Informasi / Berita Admin
         Route::resource('informasi', AdminInformasiController::class);
-        
-        // kegiatan admin
+
+        // Kegiatan Admin
         Route::resource('kegiatan', AdminKegiatanController::class);
+
+        // Survey Kepuasan Admin
+        Route::resource('survey', SurveyController::class);
+
+        // Cetak / Export Survey ke PDF
+        Route::get('/survey/pdf', [SurveyController::class, 'pdf'])
+            ->name('survey.pdf');
     });
 
 
-    // =========================
+// =========================
 // PROFIL
 // =========================
 
@@ -98,4 +109,3 @@ Route::get('/profil/kepala-dinas', function () {
 Route::get('/profil/karyawan', function () {
     return view('profil.karyawan');
 })->name('profil.karyawan');
-
