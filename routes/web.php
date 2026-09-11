@@ -8,6 +8,7 @@ use App\Http\Controllers\SurveyKepuasanController;
 use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\AgendaController;
+use App\Http\Controllers\Admin\SurveyController;
 use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 
@@ -84,6 +85,14 @@ Route::middleware('admin')
         
         // kegiatan admin
         Route::resource('kegiatan', AdminKegiatanController::class);
+
+        // Survey Kepuasan Admin
+        Route::get('/survey', [SurveyController::class, 'index'])
+            ->name('survey.index');
+
+        Route::get('/survey/download-pdf', [SurveyController::class, 'downloadPdf'])
+            ->name('survey.pdf');// Survey Kepuasan Admin
+                Route::resource('survey', SurveyController::class);
     });
 
 
@@ -98,4 +107,3 @@ Route::get('/profil/kepala-dinas', function () {
 Route::get('/profil/karyawan', function () {
     return view('profil.karyawan');
 })->name('profil.karyawan');
-
