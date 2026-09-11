@@ -94,9 +94,9 @@
 
             <!-- PROFILE KARYAWAN -->
 
-            <a href="{{ url('/admin/profile-karyawan') }}"
-               class="block px-4 py-3 rounded-lg
-                      hover:bg-[#C9A227]">
+            <a href="{{ route('admin.profil.index') }}"
+   class="block px-4 py-3 rounded-lg
+          hover:bg-[#C9A227]">
 
                 Profile Karyawan
 
@@ -106,7 +106,7 @@
 
             <!-- SURVEY -->
 
-            <a href="{{ route('survey.index') }}"
+            <a href="{{ route('admin.survey.index') }}"
                class="block px-4 py-3 rounded-lg
                       hover:bg-[#C9A227]">
 

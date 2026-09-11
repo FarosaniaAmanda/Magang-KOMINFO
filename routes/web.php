@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\InformasiController;
 use App\Http\Controllers\KegiatanController;
@@ -11,12 +13,19 @@ use App\Http\Controllers\Admin\AgendaController;
 use App\Http\Controllers\Admin\SurveyController;
 use App\Http\Controllers\Admin\InformasiController as AdminInformasiController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
-use App\Http\Controllers\Admin\SurveyController;
-
 
 // =========================
+// CONTROLLER PROFIL ADMIN
+// =========================
+
+use App\Http\Controllers\Admin\Profil\ProfilController;
+use App\Http\Controllers\Admin\Profil\KepalaDinasController;
+use App\Http\Controllers\Admin\Profil\KaryawanController;
+
+
+// =====================================================
 // HALAMAN PUBLIK
-// =========================
+// =====================================================
 
 Route::get('/', [HomeController::class, 'index'])
     ->name('home');
@@ -44,9 +53,9 @@ Route::post('/survey-kepuasan', [SurveyKepuasanController::class, 'store'])
     ->name('survey.store');
 
 
-// =========================
+// =====================================================
 // LOGIN ADMIN
-// =========================
+// =====================================================
 
 Route::get('/login-admin', [AdminAuthController::class, 'showLogin'])
     ->name('admin.login');
@@ -55,59 +64,139 @@ Route::post('/login-admin', [AdminAuthController::class, 'login'])
     ->name('admin.login.process');
 
 
-// =========================
+// =====================================================
 // SURVEI KEPUASAN PELAYANAN
-// =========================
+// =====================================================
 
 Route::get('/survei-kepuasan', function () {
     return view('survei.kepuasan');
 })->name('survei.kepuasan');
 
 
-// =========================
+// =====================================================
 // HALAMAN ADMIN
-// =========================
+// =====================================================
 
 Route::middleware('admin')
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
 
-        // Dashboard
+        // =================================================
+        // DASHBOARD
+        // =================================================
+
         Route::get('/dashboard', [DashboardController::class, 'index'])
             ->name('dashboard');
 
-        // Logout
+
+        // =================================================
+        // LOGOUT
+        // =================================================
+
         Route::post('/logout', [AdminAuthController::class, 'logout'])
             ->name('logout');
 
-        // Agenda Admin
+
+        // =================================================
+        // AGENDA ADMIN
+        // =================================================
+
         Route::resource('agenda', AgendaController::class);
 
-        // Informasi / Berita Admin
+
+        // =================================================
+        // INFORMASI / BERITA ADMIN
+        // =================================================
+
         Route::resource('informasi', AdminInformasiController::class);
 
-        // Kegiatan Admin
+
+        // =================================================
+        // KEGIATAN ADMIN
+        // =================================================
+
         Route::resource('kegiatan', AdminKegiatanController::class);
 
-        // Survey Kepuasan Admin
+
+        // =================================================
+        // SURVEY KEPUASAN ADMIN
+        // =================================================
+
         Route::get('/survey', [SurveyController::class, 'index'])
             ->name('survey.index');
 
         Route::get('/survey/download-pdf', [SurveyController::class, 'downloadPdf'])
-            ->name('survey.pdf');// Survey Kepuasan Admin
-                Route::resource('survey', SurveyController::class);
+            ->name('survey.pdf');
+
+
+        // =================================================
+        // PROFIL ADMIN
+        // =================================================
+
+        // Halaman utama Profil
+        // /admin/profil
+        Route::get('/profil', [ProfilController::class, 'index'])
+            ->name('profil.index');
+
+
+        // =================================================
+        // PROFIL KEPALA DINAS
+        // =================================================
+
+        // Menampilkan halaman profil kepala dinas
+        // /admin/profil/kepala-dinas
+        Route::get('/profil/kepala-dinas', [KepalaDinasController::class, 'index'])
+            ->name('profil.kepala-dinas');
+
+        // Menyimpan perubahan profil kepala dinas
+        Route::put('/profil/kepala-dinas', [KepalaDinasController::class, 'update'])
+            ->name('profil.kepala-dinas.update');
+
+
+        // =================================================
+        // PROFIL KARYAWAN
+        // =================================================
+
+        // Menampilkan daftar karyawan
+        // /admin/profil/karyawan
+        Route::get('/profil/karyawan', [KaryawanController::class, 'index'])
+            ->name('profil.karyawan');
+
+        // Halaman tambah karyawan
+        // /admin/profil/karyawan/create
+        Route::get('/profil/karyawan/create', [KaryawanController::class, 'create'])
+            ->name('profil.karyawan.create');
+
+        // Menyimpan karyawan baru
+        Route::post('/profil/karyawan', [KaryawanController::class, 'store'])
+            ->name('profil.karyawan.store');
+
+        // Halaman edit karyawan
+        // /admin/profil/karyawan/{karyawan}/edit
+        Route::get('/profil/karyawan/{karyawan}/edit', [KaryawanController::class, 'edit'])
+            ->name('profil.karyawan.edit');
+
+        // Menyimpan perubahan karyawan
+        Route::put('/profil/karyawan/{karyawan}', [KaryawanController::class, 'update'])
+            ->name('profil.karyawan.update');
+
+        // Menghapus karyawan
+        Route::delete('/profil/karyawan/{karyawan}', [KaryawanController::class, 'destroy'])
+            ->name('profil.karyawan.destroy');
     });
 
 
-// =========================
-// PROFIL
-// =========================
+// =====================================================
+// PROFIL PUBLIK
+// =====================================================
 
+// Profil Kepala Dinas
 Route::get('/profil/kepala-dinas', function () {
     return view('profil.kepala-dinas');
 })->name('profil.kepala');
 
+// Profil Karyawan
 Route::get('/profil/karyawan', function () {
     return view('profil.karyawan');
 })->name('profil.karyawan');

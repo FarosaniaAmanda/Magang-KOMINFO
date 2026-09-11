@@ -2058,7 +2058,7 @@
     <!-- ===================================================== -->
 
     <a
-        href="{{ route('survei.kepuasan')}}"
+        href="{{ route('survey.index')}}"
         aria-label="Survei Kepuasan Pelayanan"
         class="survey-floating
                relative
