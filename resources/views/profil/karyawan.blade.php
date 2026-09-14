@@ -28,7 +28,7 @@
             position: absolute;
             top: 25px;
             left: 25px;
-            z-index: 10;
+            z-index: 20;
         }
 
         .back-home a {
@@ -36,7 +36,7 @@
             align-items: center;
             gap: 9px;
             padding: 11px 18px;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.94);
             color: #006b3c;
             text-decoration: none;
             font-size: 14px;
@@ -50,7 +50,6 @@
             background: #f4b400;
             color: white;
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
         }
 
         .back-icon {
@@ -59,70 +58,112 @@
         }
 
         /* =========================
-           HEADER
+           HERO FOTO KOMINFO
         ========================= */
 
         .hero {
-            background:
-                linear-gradient(135deg, #005c3b, #007a43, #008c45);
-            color: white;
-            padding: 65px 20px 75px;
-            text-align: center;
             position: relative;
+            min-height: 620px;
+            background-image:
+                linear-gradient(
+                    135deg,
+                    rgba(0, 77, 50, 0.92),
+                    rgba(0, 107, 63, 0.78),
+                    rgba(0, 140, 69, 0.62)
+                ),
+                url('{{ asset('images/kominfo.png') }}');
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: white;
+            text-align: center;
             overflow: hidden;
         }
 
         .hero::before {
             content: "";
             position: absolute;
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-            background: rgba(255, 193, 7, 0.12);
-            top: -130px;
-            left: -100px;
+            inset: 0;
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 50, 32, 0.10),
+                    rgba(0, 77, 50, 0.22)
+                );
         }
 
         .hero::after {
             content: "";
             position: absolute;
-            width: 350px;
-            height: 350px;
+            width: 430px;
+            height: 430px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             right: -150px;
-            bottom: -200px;
+            bottom: -220px;
         }
 
         .hero-content {
             position: relative;
-            z-index: 2;
-            max-width: 900px;
+            z-index: 5;
+            max-width: 950px;
             margin: auto;
+            padding: 175px 20px 145px;
         }
 
         .hero-badge {
-            display: inline-block;
-            background: rgba(255, 193, 7, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.25);
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            background: rgba(0, 50, 32, 0.35);
+            border: 1px solid rgba(244, 180, 0, 0.55);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
             color: #ffe082;
-            padding: 8px 18px;
+            padding: 10px 20px;
             border-radius: 50px;
             font-size: 13px;
             font-weight: bold;
-            margin-bottom: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 22px;
+        }
+
+        .hero-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #f4b400;
         }
 
         .hero h1 {
-            font-size: clamp(28px, 5vw, 48px);
-            line-height: 1.2;
-            margin-bottom: 14px;
+            font-size: clamp(34px, 5vw, 58px);
+            line-height: 1.15;
+            margin-bottom: 18px;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.22);
         }
 
         .hero p {
-            font-size: 16px;
-            opacity: 0.9;
-            line-height: 1.7;
+            max-width: 850px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.92);
+            text-shadow: 0 3px 12px rgba(0, 0, 0, 0.18);
+        }
+
+        .hero-line {
+            width: 90px;
+            height: 4px;
+            border-radius: 10px;
+            background: linear-gradient(
+                90deg,
+                #f4b400,
+                #ffd35a,
+                #f4b400
+            );
+            margin: 30px auto 0;
         }
 
         /* =========================
@@ -132,11 +173,11 @@
         .container {
             max-width: 1200px;
             margin: auto;
-            padding: 55px 20px 80px;
+            padding: 60px 20px 80px;
         }
 
         .bidang-section {
-            margin-bottom: 65px;
+            margin-bottom: 70px;
         }
 
         .bidang-title {
@@ -169,14 +210,14 @@
         }
 
         /* =========================
-           SLIDER
+           RUNNING CAROUSEL
         ========================= */
 
         .slider-wrapper {
             width: 100%;
             overflow: hidden;
             position: relative;
-            padding: 15px 0 25px;
+            padding: 15px 0 30px;
         }
 
         .slider-wrapper::before,
@@ -185,7 +226,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 90px;
+            width: 100px;
             z-index: 5;
             pointer-events: none;
         }
@@ -194,7 +235,7 @@
             left: 0;
             background: linear-gradient(
                 to right,
-                #f4f8f5,
+                #f4f8f5 5%,
                 rgba(244, 248, 245, 0)
             );
         }
@@ -203,25 +244,22 @@
             right: 0;
             background: linear-gradient(
                 to left,
-                #f4f8f5,
+                #f4f8f5 5%,
                 rgba(244, 248, 245, 0)
             );
         }
 
         .slider-track {
             display: flex;
+            gap: 36px;
             width: max-content;
-            animation: berjalan 24s linear infinite;
-        }
-
-        .slider-track:hover {
-            animation-play-state: paused;
+            transform: translateX(0);
+            will-change: transform;
         }
 
         .employee-card {
             width: 250px;
-            flex-shrink: 0;
-            margin: 0 18px;
+            flex: 0 0 250px;
             text-align: center;
         }
 
@@ -310,20 +348,6 @@
         }
 
         /* =========================
-           ANIMATION
-        ========================= */
-
-        @keyframes berjalan {
-            from {
-                transform: translateX(0);
-            }
-
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        /* =========================
            RESPONSIVE
         ========================= */
 
@@ -340,11 +364,24 @@
             }
 
             .hero {
-                padding: 75px 20px 60px;
+                min-height: 560px;
+                background-position: center center;
+            }
+
+            .hero-content {
+                padding: 150px 20px 110px;
+            }
+
+            .hero h1 {
+                font-size: 40px;
+            }
+
+            .hero p {
+                font-size: 15px;
             }
 
             .container {
-                padding: 40px 10px 60px;
+                padding: 45px 10px 60px;
             }
 
             .bidang-title h2 {
@@ -353,16 +390,12 @@
 
             .employee-card {
                 width: 210px;
-                margin: 0 12px;
+                flex-basis: 210px;
             }
 
             .photo-wrapper {
                 width: 145px;
                 height: 145px;
-            }
-
-            .slider-track {
-                animation-duration: 20s;
             }
         }
 
@@ -382,9 +415,30 @@
                 font-size: 16px;
             }
 
+            .hero {
+                min-height: 520px;
+            }
+
+            .hero-content {
+                padding: 135px 18px 95px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .hero p {
+                font-size: 14px;
+            }
+
+            .hero-badge {
+                font-size: 11px;
+                padding: 8px 15px;
+            }
+
             .employee-card {
                 width: 190px;
-                margin: 0 10px;
+                flex-basis: 190px;
             }
 
             .photo-wrapper {
@@ -406,6 +460,7 @@
 <body>
 
     {{-- =========================
+<<<<<<< HEAD
          SUCCESS NOTIFICATION
     ========================== --}}
     @if(session('success'))
@@ -476,11 +531,13 @@
 
     {{-- =========================
          HEADER
+=======
+         HERO
+>>>>>>> 7728504ea1ed15bd0f1b600e00aadbd6232d2544
     ========================== --}}
 
     <header class="hero">
 
-        {{-- TOMBOL KEMBALI KE BERANDA --}}
         <div class="back-home">
             <a href="{{ url('/') }}">
                 <span class="back-icon">←</span>
@@ -499,9 +556,11 @@
             </h1>
 
             <p>
-                Dinas Komunikasi, Informatika, Statistik dan Persandian
-                Kota Pasuruan
+                Mengenal jajaran pegawai pada Dinas Komunikasi,
+                Informatika, Statistik dan Persandian Kota Pasuruan.
             </p>
+
+            <div class="hero-line"></div>
 
         </div>
 
@@ -537,56 +596,7 @@
 
                     <div class="slider-wrapper">
 
-                        <div class="slider-track">
-
-                            {{-- DATA ASLI --}}
-
-                            @foreach($employees as $karyawan)
-
-                                <div class="employee-card">
-
-                                    <div class="photo-wrapper">
-
-                                        <div class="photo">
-
-                                            @if($karyawan->foto)
-
-                                                <img
-                                                    src="{{ asset('storage/' . $karyawan->foto) }}"
-                                                    alt="{{ $karyawan->nama }}"
-                                                >
-
-                                            @else
-
-                                                <img
-                                                    src="{{ asset('images/karyawan/default.jpg') }}"
-                                                    alt="{{ $karyawan->nama }}"
-                                                >
-
-                                            @endif
-
-                                        </div>
-
-                                    </div>
-
-                                    <div class="employee-name">
-                                        {{ $karyawan->nama }}
-                                    </div>
-
-                                    @if($karyawan->jabatan)
-
-                                        <div class="employee-position">
-                                            {{ $karyawan->jabatan }}
-                                        </div>
-
-                                    @endif
-
-                                </div>
-
-                            @endforeach
-
-
-                            {{-- DUPLIKASI UNTUK LOOPING SEAMLESS --}}
+                        <div class="slider-track js-slider">
 
                             @foreach($employees as $karyawan)
 
@@ -671,6 +681,120 @@
         </p>
 
     </footer>
+
+
+    {{-- =========================
+         RUNNING SLIDER
+    ========================== --}}
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            document.querySelectorAll(".js-slider").forEach(function (track) {
+
+                const wrapper = track.parentElement;
+
+                let position = 0;
+                let speed = 0.45;
+                let paused = false;
+
+                function getFirstCardWidth() {
+
+                    const firstCard =
+                        track.querySelector(".employee-card");
+
+                    if (!firstCard) {
+                        return 0;
+                    }
+
+                    const trackStyle =
+                        window.getComputedStyle(track);
+
+                    const gap =
+                        parseFloat(
+                            trackStyle.columnGap ||
+                            trackStyle.gap ||
+                            0
+                        );
+
+                    return firstCard.offsetWidth + gap;
+                }
+
+                function moveSlider() {
+
+                    if (!paused) {
+
+                        position += speed;
+
+                        const firstCardWidth =
+                            getFirstCardWidth();
+
+                        if (
+                            firstCardWidth > 0 &&
+                            position >= firstCardWidth
+                        ) {
+
+                            const firstCard =
+                                track.firstElementChild;
+
+                            track.appendChild(firstCard);
+
+                            position -= firstCardWidth;
+                        }
+
+                        track.style.transform =
+                            "translate3d(-" +
+                            position +
+                            "px, 0, 0)";
+                    }
+
+                    requestAnimationFrame(moveSlider);
+                }
+
+                wrapper.addEventListener(
+                    "mouseenter",
+                    function () {
+                        paused = true;
+                    }
+                );
+
+                wrapper.addEventListener(
+                    "mouseleave",
+                    function () {
+                        paused = false;
+                    }
+                );
+
+                wrapper.addEventListener(
+                    "touchstart",
+                    function () {
+                        paused = true;
+                    },
+                    {
+                        passive: true
+                    }
+                );
+
+                wrapper.addEventListener(
+                    "touchend",
+                    function () {
+
+                        setTimeout(function () {
+                            paused = false;
+                        }, 1000);
+
+                    },
+                    {
+                        passive: true
+                    }
+                );
+
+                moveSlider();
+
+            });
+
+        });
+    </script>
 
 </body>
 
