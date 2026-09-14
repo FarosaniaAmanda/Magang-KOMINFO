@@ -288,7 +288,7 @@
 
                     <p class="text-gray-500">
 
-                        Agenda Mendatang
+                        Total Agenda
 
                     </p>
 

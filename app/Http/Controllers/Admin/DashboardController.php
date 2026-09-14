@@ -20,11 +20,7 @@ class DashboardController extends Controller
 
         $jumlahKegiatan = Kegiatan::count();
 
-        $jumlahAgenda = Agenda::whereDate(
-            'tanggal',
-            '>=',
-            now()->toDateString()
-        )->count();
+        $jumlahAgenda = Agenda::count();
 
 
         // =========================

@@ -185,6 +185,7 @@
                                     <input
                                         type="file"
                                         name="foto"
+                                        id="fotoInput"
                                         class="hidden"
                                         accept=".jpg,.jpeg,.png,.webp"
                                     >
@@ -196,6 +197,35 @@
                                 </p>
 
                             </div>
+
+                            <script>
+                                document.getElementById('fotoInput').addEventListener('change', function(e) {
+                                    const file = e.target.files[0];
+                                    if (file) {
+                                        const reader = new FileReader();
+                                        reader.onload = function(event) {
+                                            const imgContainer = e.target.parentElement.parentElement.querySelector('img');
+                                            const placeholderDiv = e.target.parentElement.parentElement.querySelector('.bg-gray-100');
+
+                                            if (imgContainer) {
+                                                imgContainer.src = event.target.result;
+                                            } else if (placeholderDiv) {
+                                                const newImg = document.createElement('img');
+                                                newImg.src = event.target.result;
+                                                newImg.className = 'w-44 h-44 object-cover rounded-xl mx-auto mb-4 border border-gray-200';
+                                                newImg.alt = 'Preview Foto';
+                                                placeholderDiv.replaceWith(newImg);
+                                            }
+
+                                            const textInfo = e.target.parentElement.parentElement.querySelector('p');
+                                            if (textInfo) {
+                                                textInfo.textContent = 'Preview foto baru';
+                                            }
+                                        };
+                                        reader.readAsDataURL(file);
+                                    }
+                                });
+                            </script>
 
                         </div>
 

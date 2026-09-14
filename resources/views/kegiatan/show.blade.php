@@ -11,59 +11,87 @@
 
 <body class="bg-[#FAFAF7] text-slate-800">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-sm sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center">
+    <!-- Header (Scrollable, Not Sticky) -->
+    <header class="relative overflow-hidden">
+        
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style="background-image: linear-gradient(135deg, rgba(0, 92, 59, 0.88) 0%, rgba(0, 112, 79, 0.83) 50%, rgba(0, 140, 69, 0.88) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&h=800&fit=crop&q=80');
+                    background-attachment: fixed;
+                    background-position: center;">
+        </div>
 
-            <div class="flex items-center gap-3">
+        <!-- Decorative Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 600">
+                <defs>
+                    <pattern id="detail-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <circle cx="60" cy="60" r="40" fill="none" stroke="white" stroke-width="1"/>
+                        <circle cx="60" cy="60" r="60" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="1200" height="600" fill="url(#detail-pattern)"/>
+            </svg>
+        </div>
 
-                <div class="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl">
-    <img src="{{ asset('images/logo.jpeg') }}"
-         class="w-full h-full object-contain"
-         alt="Logo">
-</div>
+        <!-- Top Bar (Navbar) -->
+        <div class="relative bg-black/10 backdrop-blur-sm border-b border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl ring-2 ring-white/30">
+                        <img src="{{ asset('images/logo.jpeg') }}"
+                             class="w-full h-full object-contain"
+                             alt="Logo">
+                    </div>
 
-                <div>
-                    <h1 class="font-bold text-xl text-slate-800">
-                        E-GOVERNMENT
-                    </h1>
+                    <div>
+                        <h1 class="font-bold text-lg sm:text-xl text-white">
+                            E-GOVERNMENT
+                        </h1>
 
-                    <p class="text-xs text-slate-500">
-                        Diskominfotik Kota Pasuruan
-                    </p>
+                        <p class="text-xs text-white/70">
+                            Diskominfotik Kota Pasuruan
+                        </p>
+                    </div>
                 </div>
 
+                <!-- Back Button -->
+                <a href="{{ route('kegiatan.index') }}"
+                   class="inline-flex items-center gap-2 px-4 py-2
+                          bg-white/10 hover:bg-white/20
+                          text-white
+                          rounded-lg text-sm font-semibold
+                          border border-white/20
+                          transition-all duration-200">
+                    ← Kembali
+                </a>
             </div>
-
-        </div>
-    </nav>
-
-
-    <!-- Header -->
-    <section class="bg-gradient-to-r from-[#005C3B] to-[#008C45] text-white">
-
-        <div class="max-w-7xl mx-auto px-6 py-12">
-
-            
-
-
-
-            <p class="text-sm font-semibold uppercase tracking-wider
-                      text-green-100 mb-3">
-
-                Detail Kegiatan
-
-            </p>
-
-            <h1 class="text-3xl md:text-4xl font-bold">
-
-                {{ $kegiatan->nama_kegiatan }}
-
-            </h1>
-
         </div>
 
-    </section>
+        <!-- Hero Section -->
+        <div class="relative px-4 sm:px-6 py-8 md:py-10">
+            <div class="max-w-7xl mx-auto">
+                <div class="max-w-3xl">
+                    <p class="text-sm font-semibold uppercase tracking-widest text-white/80 mb-2 inline-flex items-center gap-2">
+                        <span class="w-1 h-1 rounded-full bg-[#C9A227]"></span>
+                        Detail Kegiatan
+                    </p>
+
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-white leading-tight mb-3 drop-shadow-lg">
+                        {{ $kegiatan->nama_kegiatan }}
+                    </h1>
+
+                    <p class="text-green-50 text-sm md:text-base leading-relaxed max-w-2xl drop-shadow-md font-medium">
+                        Informasi lengkap mengenai kegiatan DISKOMINFOTIK Kota Pasuruan.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Accent -->
+        <div class="relative h-1 bg-gradient-to-r from-white/0 via-[#C9A227] to-white/0"></div>
+
+    </header>
 
 
     <!-- Detail -->

@@ -89,55 +89,67 @@
 
     <!-- Header -->
     <section class="relative overflow-hidden
-                    bg-gradient-to-br from-[#005C3B] via-[#007A4A] to-[#008C45]
                     text-white mt-5 sm:mt-6">
 
-        <!-- Dekorasi -->
-        <div class="absolute -right-20 -top-20
-                    w-64 h-64
-                    rounded-full
-                    bg-white/5">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style="background-image: linear-gradient(135deg, rgba(0, 92, 59, 0.85) 0%, rgba(0, 112, 79, 0.80) 50%, rgba(0, 140, 69, 0.85) 100%), url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop&q=80');
+                    background-attachment: fixed;
+                    background-position: center;">
         </div>
 
-        <div class="absolute -left-20 -bottom-24
-                    w-72 h-72
-                    rounded-full
-                    bg-white/5">
+        <!-- Decorative Pattern Overlay -->
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 600">
+                <defs>
+                    <pattern id="kegiatan-pattern" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
+                        <circle cx="60" cy="60" r="40" fill="none" stroke="white" stroke-width="1"/>
+                        <circle cx="60" cy="60" r="60" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="1200" height="600" fill="url(#kegiatan-pattern)"/>
+            </svg>
         </div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <!-- Content -->
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16 md:py-20">
 
             <div class="max-w-3xl">
 
                 <div class="inline-flex items-center gap-2
                             px-3 py-1.5
                             rounded-full
-                            bg-white/10
-                            border border-white/10
+                            bg-white/15
+                            backdrop-blur-sm
+                            border border-white/20
                             text-green-50
                             text-xs sm:text-sm
                             font-medium
-                            mb-4">
+                            mb-4
+                            shadow-lg">
 
-                    <span class="w-2 h-2 rounded-full bg-[#C9A227]"></span>
+                    <span class="w-2 h-2 rounded-full bg-[#C9A227] animate-pulse"></span>
 
                     Informasi Kegiatan
 
                 </div>
 
-                <h1 class="text-3xl sm:text-4xl md:text-5xl
+                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl
                            font-bold
                            tracking-tight
-                           mb-4">
+                           mb-4
+                           drop-shadow-lg">
 
                     Kegiatan DISKOMINFOTIK
 
                 </h1>
 
                 <p class="text-green-50
-                          text-sm sm:text-base
+                          text-sm sm:text-base md:text-lg
                           leading-relaxed
-                          max-w-2xl">
+                          max-w-2xl
+                          drop-shadow-md
+                          font-medium">
 
                     Informasi kegiatan dan agenda Diskominfotik
                     Kota Pasuruan.
@@ -147,6 +159,11 @@
             </div>
 
         </div>
+
+        <!-- Bottom Accent -->
+        <div class="relative h-1 bg-gradient-to-r from-white/0 via-[#C9A227] to-white/0"></div>
+
+    </section>
 
     </section>
 
@@ -200,65 +217,64 @@
                                     hover:shadow-xl
                                     transition-all duration-300">
 
-                        <!-- Icon -->
-                        <div class="relative h-36 sm:h-40
+                        <!-- Patterned Header -->
+                        <div class="relative h-40 sm:h-44
                                     bg-gradient-to-br
-                                    from-[#005C3B]
+                                    from-[#005C3B] via-[#006B47]
                                     to-[#008C45]
                                     flex items-center justify-center
                                     overflow-hidden">
 
-                            <!-- Dekorasi -->
-                            <div class="absolute
-                                        -right-8 -top-8
-                                        w-28 h-28
-                                        rounded-full
-                                        bg-white/5">
-                            </div>
+                            <!-- SVG Pattern Background -->
+                            <svg class="absolute inset-0 w-full h-full opacity-15"
+                                 preserveAspectRatio="xMidYMid slice"
+                                 viewBox="0 0 400 300">
+                                <defs>
+                                    <pattern id="card-pattern-{{ $kegiatan->id }}" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+                                        <circle cx="40" cy="40" r="25" fill="none" stroke="white" stroke-width="1.5"/>
+                                        <path d="M 40 15 L 40 65" stroke="white" stroke-width="1"/>
+                                        <path d="M 15 40 L 65 40" stroke="white" stroke-width="1"/>
+                                    </pattern>
+                                </defs>
+                                <rect width="400" height="300" fill="url(#card-pattern-{{ $kegiatan->id }})"/>
+                            </svg>
 
-                            <div class="absolute
-                                        -left-10 -bottom-10
-                                        w-32 h-32
-                                        rounded-full
-                                        bg-white/5">
-                            </div>
+                            <!-- Decorative Circles -->
+                            <div class="absolute -right-12 -top-12 w-32 h-32 rounded-full bg-white/5"></div>
+                            <div class="absolute -left-12 -bottom-12 w-36 h-36 rounded-full bg-white/5"></div>
 
-                            <div class="relative
-                                        w-20 h-20
-                                        rounded-2xl
-                                        bg-white/10
-                                        border border-white/10
-                                        flex items-center justify-center
-                                        text-5xl
-                                        group-hover:scale-105
-                                        transition-transform duration-300">
-
-                                📅
-
+                            <!-- Date Badge (Geometric) -->
+                            <div class="relative flex flex-col items-center justify-center">
+                                <div class="w-16 h-16 rounded-3xl
+                                            bg-white/15 backdrop-blur-sm
+                                            border border-white/30
+                                            flex items-center justify-center
+                                            group-hover:scale-110 group-hover:bg-white/20
+                                            transition-all duration-300
+                                            shadow-lg">
+                                    <span class="text-2xl font-bold text-white">
+                                        {{ $kegiatan->tanggal_kegiatan ? $kegiatan->tanggal_kegiatan->format('d') : '-' }}
+                                    </span>
+                                </div>
+                                <span class="text-xs text-white/80 font-semibold mt-2">
+                                    {{ $kegiatan->tanggal_kegiatan ? $kegiatan->tanggal_kegiatan->format('M') : 'N/A' }}
+                                </span>
                             </div>
 
                         </div>
 
 
-                        <!-- Isi -->
+                        <!-- Content -->
                         <div class="p-5 sm:p-6">
 
-                            <!-- Tanggal -->
+                            <!-- Tanggal Info -->
                             <div class="flex items-center gap-2
-                                        text-sm
-                                        text-[#008C45]
-                                        font-semibold
+                                        text-xs text-[#008C45]
+                                        font-semibold uppercase
+                                        tracking-wide
                                         mb-3">
 
-                                <span class="flex items-center justify-center
-                                             w-7 h-7
-                                             rounded-lg
-                                             bg-green-50">
-
-                                    📅
-
-                                </span>
-
+                                <div class="w-1 h-1 rounded-full bg-[#008C45]"></div>
                                 <span>
                                     {{ $kegiatan->tanggal_kegiatan
                                         ? $kegiatan->tanggal_kegiatan->format('d F Y')
@@ -282,20 +298,20 @@
 
                             </h2>
 
-
                             <!-- Lokasi -->
                             @if($kegiatan->lokasi)
 
-                                <div class="flex items-start gap-2
+                                <div class="flex items-start gap-3
                                             text-sm
-                                            text-slate-500
-                                            mb-2">
+                                            text-slate-600
+                                            mb-3">
 
-                                    <span class="flex-shrink-0">
+                                    <div class="flex-shrink-0 w-5 h-5 flex items-center justify-center
+                                                rounded-full bg-slate-100 text-xs font-bold text-[#008C45]">
                                         📍
-                                    </span>
+                                    </div>
 
-                                    <span class="line-clamp-2">
+                                    <span class="line-clamp-2 leading-snug">
                                         {{ $kegiatan->lokasi }}
                                     </span>
 
@@ -307,16 +323,17 @@
                             <!-- Bidang -->
                             @if($kegiatan->bidang_penyelenggara)
 
-                                <div class="flex items-start gap-2
+                                <div class="flex items-start gap-3
                                             text-sm
-                                            text-slate-500
+                                            text-slate-600
                                             mb-5">
 
-                                    <span class="flex-shrink-0">
+                                    <div class="flex-shrink-0 w-5 h-5 flex items-center justify-center
+                                                rounded-full bg-slate-100 text-xs font-bold text-[#008C45]">
                                         🏢
-                                    </span>
+                                    </div>
 
-                                    <span class="line-clamp-2">
+                                    <span class="line-clamp-2 leading-snug">
                                         {{ $kegiatan->bidang_penyelenggara }}
                                     </span>
 

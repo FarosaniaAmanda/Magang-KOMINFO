@@ -11,62 +11,85 @@
 
 <body class="bg-[#F6F8F5] min-h-screen">
 
-    <!-- NAVBAR -->
-    <nav class="bg-white shadow-sm border-b border-gray-100">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Merged Header with Navbar -->
+    <header class="sticky top-0 z-50 relative overflow-hidden">
+        
+        <!-- Background Gradient with Decorative Elements -->
+        <div class="absolute inset-0 bg-gradient-to-r from-[#005C3B] via-[#00704F] to-[#008C45]"></div>
+        
+        <!-- Decorative Pattern Overlay -->
+        <div class="absolute inset-0 opacity-10">
+            <svg class="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1200 400">
+                <defs>
+                    <pattern id="pattern" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <circle cx="50" cy="50" r="30" fill="none" stroke="white" stroke-width="1"/>
+                        <circle cx="50" cy="50" r="50" fill="none" stroke="white" stroke-width="0.5"/>
+                    </pattern>
+                </defs>
+                <rect width="1200" height="400" fill="url(#pattern)"/>
+            </svg>
+        </div>
 
-            <div class="flex items-center gap-4">
+        <!-- Top Bar (Sticky Navbar) -->
+        <div class="relative bg-black/5 backdrop-blur-sm border-b border-white/10">
+            <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div class="flex items-center gap-4">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 overflow-hidden rounded-xl ring-2 ring-white/30">
+                        <img src="{{ asset('images/logo.jpeg') }}"
+                             class="w-full h-full object-cover"
+                             alt="Logo">
+                    </div>
 
-                <div class="w-14 h-14 rounded-xl overflow-hidden">
-                    <img src="{{ asset('images/logo.jpeg') }}"
-                         class="w-full h-full object-cover">
+                    <div>
+                        <h1 class="font-bold text-lg text-white">
+                            E-GOVERNMENT
+                        </h1>
+
+                        <p class="text-xs text-white/70">
+                            Diskominfotik Kota Pasuruan
+                        </p>
+                    </div>
                 </div>
+            </div>
+        </div>
 
-                <div>
-                    <h1 class="font-bold text-xl text-slate-800">
-                        E-GOVERNMENT
-                    </h1>
+        <!-- Hero Section -->
+        <div class="relative px-6 py-12 md:py-16">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex items-center gap-6">
+                    
+                    <!-- Icon Decorative -->
+                    <div class="hidden sm:flex">
+                        <div class="w-14 h-14 md:w-16 md:h-16 rounded-2xl bg-white/15 backdrop-blur-sm flex items-center justify-center ring-1 ring-white/30 shadow-lg">
+                            <span class="text-2xl md:text-3xl">📋</span>
+                        </div>
+                    </div>
 
-                    <p class="text-xs text-slate-500">
-                        Diskominfotik Kota Pasuruan
-                    </p>
+                    <!-- Text Content -->
+                    <div class="flex-1">
+                        <p class="text-xs font-semibold uppercase tracking-widest text-white/80 mb-2 inline-flex items-center gap-2">
+                            <span class="w-1 h-1 rounded-full bg-white/60"></span>
+                            MANAJEMEN KEGIATAN
+                        </p>
+
+                        <h1 class="text-2xl md:text-4xl font-bold text-white leading-tight">
+                            {{ $kegiatan->nama_kegiatan }}
+                        </h1>
+                    </div>
                 </div>
+            </div>
 
-    </nav>
+            <!-- Bottom Accent Line -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-white/0 via-white/30 to-white/0"></div>
+        </div>
 
+    </header>
 
     <!-- CONTENT -->
     <main class="max-w-5xl mx-auto px-6 py-8">
 
-        <div class="mb-8">
-
-            <p class="text-sm font-semibold text-[#008C45]">
-                MANAJEMEN KEGIATAN
-            </p>
-
-            <h2 class="text-3xl font-bold text-slate-800 mt-1">
-                Detail Kegiatan
-            </h2>
-
-        </div>
-
-
         <!-- CARD -->
         <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden">
-
-            <!-- HEADER -->
-            <div class="bg-gradient-to-r from-[#075E4A] to-[#087F5B] px-6 py-7 text-white">
-
-                <p class="text-sm opacity-80 mb-2">
-                    KEGIATAN DISKOMINFOTIK
-                </p>
-
-                <h1 class="text-2xl md:text-3xl font-bold">
-                    {{ $kegiatan->nama_kegiatan }}
-                </h1>
-
-            </div>
-
 
             <!-- DETAIL -->
             <div class="p-6 md:p-8">
