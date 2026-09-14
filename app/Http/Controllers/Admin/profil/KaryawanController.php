@@ -48,8 +48,8 @@ class KaryawanController extends Controller
         $karyawan->save();
 
         return redirect()
-    ->route('admin.profil.index')
-    ->with('success', 'Karyawan berhasil ditambahkan.');
+            ->route('admin.profil.karyawan')
+            ->with('success', 'Karyawan berhasil ditambahkan.');
     }
 
     public function edit(Karyawan $karyawan)
@@ -87,7 +87,7 @@ class KaryawanController extends Controller
         $karyawan->save();
 
         return redirect()
-            ->route('admin.profil.index')
+            ->route('admin.profil.karyawan')
             ->with('success', 'Data karyawan berhasil diperbarui.');
     }
 

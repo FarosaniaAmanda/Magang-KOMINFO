@@ -388,86 +388,84 @@
 
 
     {{-- =====================================================
-         HEADER
-    ====================================================== --}}
+     HEADER
+====================================================== --}}
 
-    <header
-        class="relative overflow-hidden
-               bg-gradient-to-r
-               from-[#005C3B]
-               via-[#007A43]
-               to-[#008C45]
-               text-white">
+<header
+    class="relative overflow-hidden text-white"
+    style="background: linear-gradient(135deg, #005C3B 0%, #007A43 50%, #008C45 100%);">
 
-        {{-- Dekorasi background --}}
+    {{-- Dekorasi background --}}
 
-        <div
-            class="absolute
-                   -right-16
-                   -top-20
-                   w-56
-                   h-56
-                   rounded-full
-                   bg-white/5">
-        </div>
+    <div
+        class="absolute
+               -right-16
+               -top-20
+               w-56
+               h-56
+               rounded-full
+               bg-white/5">
+    </div>
 
-        <div
-            class="absolute
-                   -left-20
-                   -bottom-24
-                   w-60
-                   h-60
-                   rounded-full
-                   bg-[#F4C430]/10">
-        </div>
+    <div
+        class="absolute
+               -left-20
+               -bottom-24
+               w-60
+               h-60
+               rounded-full
+               bg-[#F4C430]/10">
+    </div>
 
 
-        <div class="relative max-w-3xl mx-auto px-5 md:px-6 py-7 md:py-8">
+    <div
+        class="relative max-w-3xl mx-auto px-5 md:px-6"
+        style="padding-top: 28px; padding-bottom: 28px;">
 
-            <p
-                class="text-xs md:text-sm
-                       font-semibold
-                       tracking-[0.16em]
-                       uppercase
-                       text-[#FFE36E]">
+        <p
+            class="text-xs md:text-sm
+                   font-semibold
+                   tracking-[0.16em]
+                   uppercase
+                   text-[#FFE36E]">
 
-                E-Government Kota Pasuruan
+            E-Government Kota Pasuruan
 
-            </p>
-
-
-            <h1
-                class="text-2xl
-                       md:text-3xl
-                       font-bold
-                       mt-2
-                       tracking-tight">
-
-                Survey Kepuasan Masyarakat
-
-            </h1>
+        </p>
 
 
-            <p
-                class="mt-2
-                       text-sm
-                       md:text-base
-                       text-white/80
-                       max-w-2xl
-                       leading-relaxed">
+        <h1
+            class="text-2xl
+                   md:text-3xl
+                   font-bold
+                   mt-2
+                   tracking-tight">
 
-                Bantu kami meningkatkan kualitas pelayanan
-                dan informasi pada website E-Government
-                Kota Pasuruan.
+            Survey Kepuasan Masyarakat
 
-            </p>
+        </h1>
 
 
-            <div class="header-line"></div>
+        <p
+            class="mt-2
+                   text-sm
+                   md:text-base
+                   text-white/80
+                   max-w-2xl
+                   leading-relaxed">
 
-        </div>
+            Bantu kami meningkatkan kualitas pelayanan
+            dan informasi pada website E-Government
+            Kota Pasuruan.
 
-    </header>
+        </p>
+
+
+        <div class="header-line"></div>
+
+    </div>
+
+</header>
 
 
 
