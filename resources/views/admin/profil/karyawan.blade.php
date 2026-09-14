@@ -36,9 +36,43 @@
 
     @if(session('success'))
 
-        <div class="bg-green-100 text-green-700 p-4 rounded mb-6">
-            {{ session('success') }}
+        <div id="success-alert" class="mb-6 flex items-start gap-4 bg-green-50 border-l-4 border-green-500 text-green-700 px-6 py-4 rounded-lg shadow-md animate-pulse">
+
+            <div class="flex-shrink-0 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center mt-0.5">
+                <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+            </div>
+
+            <div class="flex-1">
+                <h3 class="font-bold text-lg">Sukses! ✓</h3>
+                <p class="text-sm mt-1">{{ session('success') }}</p>
+            </div>
+
+            <button onclick="closeAlert()" class="text-green-500 hover:text-green-700 text-xl font-bold">
+                ×
+            </button>
+
         </div>
+
+        <script>
+            function closeAlert() {
+                const alert = document.getElementById('success-alert');
+                alert.style.opacity = '0';
+                alert.style.transition = 'opacity 0.3s ease-out';
+                setTimeout(() => alert.remove(), 300);
+            }
+
+            // Auto-hide after 5 seconds
+            setTimeout(() => {
+                const alert = document.getElementById('success-alert');
+                if (alert) {
+                    alert.style.opacity = '0';
+                    alert.style.transition = 'opacity 0.5s ease-out';
+                    setTimeout(() => alert.remove(), 500);
+                }
+            }, 5000);
+        </script>
 
     @endif
 

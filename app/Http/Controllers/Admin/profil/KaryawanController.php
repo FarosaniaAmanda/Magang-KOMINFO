@@ -48,7 +48,7 @@ class KaryawanController extends Controller
         $karyawan->save();
 
         return redirect()
-            ->route('admin.profil.karyawan')
+            ->route('admin.profil.index')
             ->with('success', 'Karyawan berhasil ditambahkan.');
     }
 
