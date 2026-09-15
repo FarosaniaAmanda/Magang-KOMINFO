@@ -802,7 +802,8 @@
                        font-bold
                        text-[#008C45]
                        leading-tight
-                       mb-6 md:mb-7"
+                       mb-6 md:mb-7
+                       text-justify"
             >
                 Informasi mengenai arah, kebijakan, kegiatan,
                 dan perkembangan pemerintahan berbasis digital.
@@ -810,53 +811,119 @@
 
 
             <!-- Isi -->
+                <div
+                    class="text-slate-600
+                        text-sm sm:text-base
+                        leading-relaxed
+                        text-justify"
+                >
 
-            <div
-                class="space-y-4 sm:space-y-5
-                       text-slate-600
-                       text-sm sm:text-base
-                       leading-relaxed"
-            >
-
-                <p>
-
-                    <span class="font-semibold text-[#005C3B]">
-                        E-Government
-                    </span>
-
-                    merupakan bagian dari Dinas Komunikasi, Informatika dan Statistik
-                    (Diskominfotik) Kota Pasuruan yang mendukung penyelenggaraan
-                    pemerintahan berbasis digital melalui pemanfaatan teknologi informasi
-                    dan penerapan Sistem Pemerintahan Berbasis Elektronik (SPBE).
-
-                </p>
+                    <!-- Teks utama -->
+                    <p>
+                        <span class="font-semibold text-[#005C3B]">
+                            E-Government
+                        </span>
+                        merupakan bagian dari Dinas Komunikasi, Informatika dan Statistik
+                        (Diskominfotik) Kota Pasuruan yang mendukung penyelenggaraan
+                        pemerintahan berbasis digital melalui pemanfaatan teknologi informasi
+                        dan penerapan Sistem Pemerintahan Berbasis Elektronik (SPBE).
+                    </p>
 
 
-                <p>
+                    <!-- Konten tambahan -->
+                    <div id="isiLengkap" class="hidden mt-4 space-y-4">
 
-                    Penerapan E-Government menjadi salah satu upaya dalam mendorong
-                    penyelenggaraan pemerintahan yang efektif, efisien, transparan,
-                    terintegrasi, dan adaptif terhadap perkembangan teknologi.
-                    Pemanfaatan teknologi informasi juga mendukung berbagai proses
-                    dan kegiatan pemerintahan agar dapat dikelola secara lebih terarah
-                    dan terintegrasi.
+                        <p>
+                            Penerapan E-Government menjadi salah satu upaya dalam mendorong
+                            penyelenggaraan pemerintahan yang efektif, efisien, transparan,
+                            terintegrasi, dan adaptif terhadap perkembangan teknologi.
+                            Pemanfaatan teknologi informasi juga mendukung berbagai proses
+                            dan kegiatan pemerintahan agar dapat dikelola secara lebih terarah
+                            dan terintegrasi.
+                        </p>
 
-                </p>
+                        <p>
+                            Website ini hadir sebagai
+                            <span class="font-semibold text-[#005C3B]">
+                                Media informasi E-Government Kota Pasuruan
+                            </span>
+                            yang menyajikan informasi mengenai arah dan komitmen E-Government,
+                            kebijakan, agenda, berita, serta berbagai kegiatan yang berkaitan
+                            dengan penyelenggaraan pemerintahan berbasis digital.
+                        </p>
+
+                    </div>
 
 
-                <p>
+                    <!-- Tombol -->
+                    <button
+                        type="button"
+                        id="btnSelengkapnya"
+                        onclick="toggleIsi()"
+                        class="mt-4
+                            inline-flex
+                            items-center
+                            gap-2
+                            font-semibold
+                            text-[#008C45]
+                            hover:text-[#005C3B]
+                            transition-colors
+                            duration-200"
+                    >
 
-                    Website ini hadir sebagai
+                        <span id="teksTombol">
+                            Selengkapnya
+                        </span>
 
-                    <span class="font-semibold text-[#005C3B]">
-                        Media informasi E-Government Kota Pasuruan
-                    </span>
+                        <svg
+                            id="iconTombol"
+                            class="w-4 h-4 transition-transform duration-300"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M19 9l-7 7-7-7"
+                            />
+                        </svg>
 
-                    yang menyajikan informasi mengenai arah dan komitmen E-Government,
-                    kebijakan, agenda, berita, serta berbagai kegiatan yang berkaitan
-                    dengan penyelenggaraan pemerintahan berbasis digital.
+                    </button>
 
-                </p>
+                </div>
+
+
+                <script>
+                    function toggleIsi() {
+
+                        const isi = document.getElementById('isiLengkap');
+                        const teks = document.getElementById('teksTombol');
+                        const icon = document.getElementById('iconTombol');
+
+                        if (isi.classList.contains('hidden')) {
+
+                            isi.classList.remove('hidden');
+
+                            teks.textContent = 'Sembunyikan';
+
+                            icon.classList.add('rotate-180');
+
+                        } else {
+
+                            isi.classList.add('hidden');
+
+                            teks.textContent = 'Selengkapnya';
+
+                            icon.classList.remove('rotate-180');
+
+                        }
+
+                    }
+                </script>
+
+                </details>
 
             </div>
 
