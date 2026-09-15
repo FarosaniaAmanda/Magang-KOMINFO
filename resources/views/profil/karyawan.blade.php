@@ -484,7 +484,7 @@
 
             <p>
                 Mengenal jajaran pegawai pada Dinas Komunikasi,
-                Informatika, Statistik dan Persandian Kota Pasuruan.
+                Informasi, dan Statistik Kota Pasuruan.
             </p>
 
             <div class="hero-line"></div>
@@ -603,8 +603,8 @@
     <footer>
 
         <p>
-            © {{ date('Y') }} Dinas Komunikasi, Informatika, Statistik
-            dan Persandian Kota Pasuruan
+            © {{ date('Y') }} Dinas Komunikasi, Informasi, dan Statistik 
+            Kota Pasuruan
         </p>
 
     </footer>

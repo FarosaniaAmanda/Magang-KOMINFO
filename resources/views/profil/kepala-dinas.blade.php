@@ -197,8 +197,8 @@
                           leading-8
                           drop-shadow-md">
 
-                    Mengenal pimpinan Dinas Komunikasi, Informatika,
-                    Statistik dan Persandian Kota Pasuruan.
+                    Mengenal pimpinan Dinas Komunikasi, Informasi, 
+                    dan Statistik Kota Pasuruan
 
                 </p>
 
@@ -692,9 +692,7 @@
 
                     <p class="font-semibold">
 
-                        Dinas Komunikasi, Informatika,
-                        Statistik dan Persandian
-
+                        Dinas Komunikasi, Informasi,dan Statistik Kota Pasuruan
                     </p>
 
                     <p class="text-sm
