@@ -8,59 +8,155 @@
     <title>Edit Berita | Admin E-Government</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .break-text {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+    </style>
 </head>
 
 
 <body class="bg-slate-100">
 
 
-    <!-- HEADER -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="bg-white shadow-sm">
 
-        <div class="max-w-4xl mx-auto px-6 py-5 flex justify-between items-center">
+        <div class="max-w-4xl mx-auto
+                    px-4 sm:px-6
+                    py-4 sm:py-5">
 
-            <div>
+            <div class="flex flex-col sm:flex-row
+                        sm:items-center
+                        sm:justify-between
+                        gap-4">
 
-                <p class="text-sm font-semibold text-[#008C45]">
-                    ADMIN PANEL
-                </p>
 
-                <h1 class="text-2xl font-bold text-slate-800">
-                    Edit Berita Kota Pasuruan
-                </h1>
+                <!-- JUDUL -->
+
+                <div class="min-w-0">
+
+                    <p class="text-xs sm:text-sm
+                              font-semibold
+                              text-[#008C45]">
+
+                        ADMIN PANEL
+
+                    </p>
+
+
+                    <h1 class="text-xl sm:text-2xl lg:text-3xl
+                               font-bold
+                               text-slate-800
+                               mt-1
+                               break-text">
+
+                        Edit Berita Kota Pasuruan
+
+                    </h1>
+
+                </div>
+
+
+
+                <!-- KEMBALI -->
+
+                <a
+                    href="{{ route('admin.informasi.index') }}"
+                    class="w-full sm:w-auto
+                           shrink-0
+                           inline-flex
+                           items-center
+                           justify-center
+                           px-5 py-3
+                           bg-slate-700
+                           text-white
+                           text-sm
+                           font-semibold
+                           rounded-lg
+                           hover:bg-slate-800
+                           transition"
+                >
+
+                    ← Kembali
+
+                </a>
+
 
             </div>
-
-
-            <a href="{{ route('admin.informasi.index') }}"
-               class="px-5 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-800">
-
-                ← Kembali
-
-            </a>
 
         </div>
 
     </header>
 
 
-    <!-- CONTENT -->
 
-    <main class="max-w-4xl mx-auto px-6 py-10">
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
 
-
-        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-8">
-
-
-            <h2 class="text-xl font-bold text-slate-800 mb-6">
-
-                Form Edit Berita
-
-            </h2>
+    <main class="max-w-4xl mx-auto
+                 px-4 sm:px-6
+                 py-5 sm:py-8 lg:py-10">
 
 
-            <!-- FORM -->
+        <!-- =================================================
+             FORM CARD
+        ================================================== -->
+
+        <div class="bg-white
+                    rounded-xl sm:rounded-2xl
+                    shadow-sm
+                    border border-slate-200
+                    overflow-hidden">
+
+
+            <!-- =================================================
+                 CARD HEADER
+            ================================================== -->
+
+            <div class="px-4 sm:px-6 lg:px-8
+                        py-4 sm:py-6
+                        border-b border-slate-200">
+
+
+                <h2 class="text-lg sm:text-xl
+                           font-bold
+                           text-slate-800">
+
+                    Form Edit Berita
+
+                </h2>
+
+
+                <p class="text-xs sm:text-sm
+                          text-slate-500
+                          mt-1
+                          leading-relaxed">
+
+                    Perbarui informasi berita Kota Pasuruan.
+
+                </p>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FORM
+            ================================================== -->
 
             <form
                 action="{{ route('admin.informasi.update', $informasi->id) }}"
@@ -73,254 +169,493 @@
                 @method('PUT')
 
 
-                <!-- JUDUL -->
-
-                <div class="mb-5">
-
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Judul Berita
-
-                    </label>
+                <div class="p-4 sm:p-6 lg:p-8">
 
 
-                    <input
-                        type="text"
-                        name="judul"
-                        value="{{ old('judul', $informasi->judul) }}"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-500"
-                    >
-
-
-                    @error('judul')
-
-                        <p class="text-red-500 text-sm mt-2">
-                            {{ $message }}
-                        </p>
-
-                    @enderror
-
-                </div>
-
-
-                <!-- KATEGORI -->
-
-                <div class="mb-5">
-
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Kategori
-
-                    </label>
-
-
-                    <select
-                        name="kategori"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3"
-                    >
-
-                        <option value="Pemerintahan"
-                            {{ $informasi->kategori == 'Pemerintahan' ? 'selected' : '' }}>
-                            Pemerintahan
-                        </option>
-
-                        <option value="Pembangunan"
-                            {{ $informasi->kategori == 'Pembangunan' ? 'selected' : '' }}>
-                            Pembangunan
-                        </option>
-
-                        <option value="Pelayanan Publik"
-                            {{ $informasi->kategori == 'Pelayanan Publik' ? 'selected' : '' }}>
-                            Pelayanan Publik
-                        </option>
-
-                        <option value="Event Kota"
-                            {{ $informasi->kategori == 'Event Kota' ? 'selected' : '' }}>
-                            Event Kota
-                        </option>
-
-                        <option value="Pengumuman"
-                            {{ $informasi->kategori == 'Pengumuman' ? 'selected' : '' }}>
-                            Pengumuman
-                        </option>
-
-                    </select>
-
-
-                    @error('kategori')
-
-                        <p class="text-red-500 text-sm mt-2">
-                            {{ $message }}
-                        </p>
-
-                    @enderror
-
-                </div>
-
-
-                <!-- TANGGAL -->
-
-                <div class="mb-5">
-
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Tanggal Berita
-
-                    </label>
-
-
-                    <input
-                        type="date"
-                        name="tanggal"
-                        value="{{ old('tanggal', \Carbon\Carbon::parse($informasi->tanggal)->format('Y-m-d')) }}"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3"
-                    >
-
-                </div>
-
-
-                <!-- GAMBAR LAMA -->
-
-                @if($informasi->gambar)
+                    <!-- =================================================
+                         JUDUL
+                    ================================================== -->
 
                     <div class="mb-5">
 
-                        <label class="block font-semibold text-slate-700 mb-2">
 
-                            Gambar Saat Ini
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Judul Berita
 
                         </label>
 
 
-                        <img
-                            src="{{ asset('storage/' . $informasi->gambar) }}"
-                            alt="{{ $informasi->judul }}"
-                            class="w-64 rounded-lg border"
+                        <input
+                            type="text"
+                            name="judul"
+                            value="{{ old('judul', $informasi->judul) }}"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-sm
+                                   text-slate-800
+                                   focus:outline-none
+                                   focus:ring-2
+                                   focus:ring-green-500
+                                   focus:border-green-500"
                         >
+
+
+                        @error('judul')
+
+                            <p class="text-red-500
+                                      text-xs sm:text-sm
+                                      mt-2
+                                      break-text">
+
+                                {{ $message }}
+
+                            </p>
+
+                        @enderror
+
 
                     </div>
 
-                @endif
 
 
-                <!-- GANTI GAMBAR -->
+                    <!-- =================================================
+                         KATEGORI
+                    ================================================== -->
 
-                <div class="mb-5">
-
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Ganti Gambar Berita
-
-                    </label>
+                    <div class="mb-5">
 
 
-                    <input
-                        type="file"
-                        name="gambar"
-                        accept="image/*"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3"
-                    >
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Kategori
+
+                        </label>
 
 
-                    <p class="text-sm text-slate-500 mt-2">
+                        <select
+                            name="kategori"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-sm
+                                   bg-white
+                                   focus:outline-none
+                                   focus:ring-2
+                                   focus:ring-green-500
+                                   focus:border-green-500"
+                        >
 
-                        Kosongkan jika tidak ingin mengganti gambar.
 
-                    </p>
+                            <option
+                                value="Pemerintahan"
+                                {{ old('kategori', $informasi->kategori) == 'Pemerintahan' ? 'selected' : '' }}
+                            >
+                                Pemerintahan
+                            </option>
 
 
-                    @error('gambar')
+                            <option
+                                value="Pembangunan"
+                                {{ old('kategori', $informasi->kategori) == 'Pembangunan' ? 'selected' : '' }}
+                            >
+                                Pembangunan
+                            </option>
 
-                        <p class="text-red-500 text-sm mt-2">
-                            {{ $message }}
+
+                            <option
+                                value="Pelayanan Publik"
+                                {{ old('kategori', $informasi->kategori) == 'Pelayanan Publik' ? 'selected' : '' }}
+                            >
+                                Pelayanan Publik
+                            </option>
+
+
+                            <option
+                                value="Event Kota"
+                                {{ old('kategori', $informasi->kategori) == 'Event Kota' ? 'selected' : '' }}
+                            >
+                                Event Kota
+                            </option>
+
+
+                            <option
+                                value="Pengumuman"
+                                {{ old('kategori', $informasi->kategori) == 'Pengumuman' ? 'selected' : '' }}
+                                >
+                                Pengumuman
+                            </option>
+
+
+                        </select>
+
+
+                        @error('kategori')
+
+                            <p class="text-red-500
+                                      text-xs sm:text-sm
+                                      mt-2
+                                      break-text">
+
+                                {{ $message }}
+
+                            </p>
+
+                        @enderror
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         TANGGAL
+                    ================================================== -->
+
+                    <div class="mb-5">
+
+
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Tanggal Berita
+
+                        </label>
+
+
+                        <input
+                            type="date"
+                            name="tanggal"
+                            value="{{ old('tanggal', \Carbon\Carbon::parse($informasi->tanggal)->format('Y-m-d')) }}"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-sm
+                                   bg-white
+                                   focus:outline-none
+                                   focus:ring-2
+                                   focus:ring-green-500
+                                   focus:border-green-500"
+                        >
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         GAMBAR LAMA
+                    ================================================== -->
+
+                    @if($informasi->gambar)
+
+
+                        <div class="mb-5">
+
+
+                            <label class="block
+                                          font-semibold
+                                          text-sm
+                                          text-slate-700
+                                          mb-2">
+
+                                Gambar Saat Ini
+
+                            </label>
+
+
+                            <!--
+                                Gambar dibuat responsif.
+                                HP: maksimal selebar card.
+                                PC: tetap memiliki ukuran yang nyaman.
+                            -->
+
+                            <div class="w-full sm:w-fit
+                                        max-w-full
+                                        rounded-xl
+                                        overflow-hidden
+                                        border border-slate-200
+                                        bg-slate-50">
+
+
+                                <img
+                                    src="{{ asset('storage/' . $informasi->gambar) }}"
+                                    alt="{{ $informasi->judul }}"
+                                    class="block
+                                           w-full
+                                           sm:w-80
+                                           max-w-full
+                                           h-auto
+                                           max-h-72
+                                           object-cover"
+                                >
+
+                            </div>
+
+
+                        </div>
+
+
+                    @endif
+
+
+
+                    <!-- =================================================
+                         GANTI GAMBAR
+                    ================================================== -->
+
+                    <div class="mb-5">
+
+
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Ganti Gambar Berita
+
+                        </label>
+
+
+                        <input
+                            type="file"
+                            name="gambar"
+                            accept="image/*"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-xs sm:text-sm
+                                   bg-white
+                                   file:mr-3
+                                   file:py-2
+                                   file:px-3
+                                   file:rounded-lg
+                                   file:border-0
+                                   file:bg-green-50
+                                   file:text-[#008C45]
+                                   file:font-semibold
+                                   hover:file:bg-green-100"
+                        >
+
+
+                        <p class="text-xs sm:text-sm
+                                  text-slate-500
+                                  mt-2
+                                  leading-relaxed">
+
+                            Kosongkan jika tidak ingin mengganti gambar.
+
                         </p>
 
-                    @enderror
 
-                </div>
+                        @error('gambar')
 
+                            <p class="text-red-500
+                                      text-xs sm:text-sm
+                                      mt-2
+                                      break-text">
 
-                <!-- RINGKASAN -->
+                                {{ $message }}
 
-                <div class="mb-5">
+                            </p>
 
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Ringkasan Berita
-
-                    </label>
-
-
-                    <textarea
-                        name="ringkasan"
-                        rows="5"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3"
-                    >{{ old('ringkasan', $informasi->ringkasan) }}</textarea>
+                        @enderror
 
 
-                    @error('ringkasan')
-
-                        <p class="text-red-500 text-sm mt-2">
-                            {{ $message }}
-                        </p>
-
-                    @enderror
-
-                </div>
+                    </div>
 
 
-                <!-- ISI BERITA -->
 
-                <div class="mb-6">
+                    <!-- =================================================
+                         RINGKASAN
+                    ================================================== -->
 
-                    <label class="block font-semibold text-slate-700 mb-2">
-
-                        Isi Berita
-
-                    </label>
+                    <div class="mb-5">
 
 
-                    <textarea
-                        name="isi"
-                        rows="10"
-                        class="w-full border border-slate-300 rounded-lg px-4 py-3"
-                    >{{ old('isi', $informasi->isi) }}</textarea>
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Ringkasan Berita
+
+                        </label>
 
 
-                    @error('isi')
-
-                        <p class="text-red-500 text-sm mt-2">
-                            {{ $message }}
-                        </p>
-
-                    @enderror
-
-                </div>
-
-
-                <!-- BUTTON -->
-
-                <div class="flex justify-end gap-3">
-
-
-                    <a
-                        href="{{ route('admin.informasi.index') }}"
-                        class="px-6 py-3 bg-slate-200 text-slate-700 rounded-lg hover:bg-slate-300"
-                    >
-
-                        Batal
-
-                    </a>
+                        <textarea
+                            name="ringkasan"
+                            rows="5"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-sm
+                                   text-slate-800
+                                   resize-y
+                                   focus:outline-none
+                                   focus:ring-2
+                                   focus:ring-green-500
+                                   focus:border-green-500"
+                        >{{ old('ringkasan', $informasi->ringkasan) }}</textarea>
 
 
-                    <button
-                        type="submit"
-                        class="px-6 py-3 bg-[#008C45] text-white font-semibold rounded-lg hover:bg-[#006F38]"
-                    >
+                        @error('ringkasan')
 
-                        Update Berita
+                            <p class="text-red-500
+                                      text-xs sm:text-sm
+                                      mt-2
+                                      break-text">
 
-                    </button>
+                                {{ $message }}
+
+                            </p>
+
+                        @enderror
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         ISI BERITA
+                    ================================================== -->
+
+                    <div class="mb-6">
+
+
+                        <label class="block
+                                      font-semibold
+                                      text-sm
+                                      text-slate-700
+                                      mb-2">
+
+                            Isi Berita
+
+                        </label>
+
+
+                        <textarea
+                            name="isi"
+                            rows="10"
+                            class="w-full
+                                   border border-slate-300
+                                   rounded-lg
+                                   px-3 sm:px-4
+                                   py-2.5 sm:py-3
+                                   text-sm
+                                   text-slate-800
+                                   resize-y
+                                   focus:outline-none
+                                   focus:ring-2
+                                   focus:ring-green-500
+                                   focus:border-green-500"
+                        >{{ old('isi', $informasi->isi) }}</textarea>
+
+
+                        @error('isi')
+
+                            <p class="text-red-500
+                                      text-xs sm:text-sm
+                                      mt-2
+                                      break-text">
+
+                                {{ $message }}
+
+                            </p>
+
+                        @enderror
+
+
+                    </div>
+
+
+
+                    <!-- =================================================
+                         BUTTON
+                    ================================================== -->
+
+                    <div class="flex flex-col-reverse
+                                sm:flex-row
+                                sm:justify-end
+                                gap-2.5 sm:gap-3">
+
+
+                        <!-- BATAL -->
+
+                        <a
+                            href="{{ route('admin.informasi.index') }}"
+                            class="w-full sm:w-auto
+                                   inline-flex
+                                   items-center
+                                   justify-center
+                                   px-6
+                                   py-3
+                                   bg-slate-200
+                                   text-slate-700
+                                   text-sm
+                                   font-semibold
+                                   rounded-lg
+                                   hover:bg-slate-300
+                                   transition"
+                        >
+
+                            Batal
+
+                        </a>
+
+
+
+                        <!-- UPDATE -->
+
+                        <button
+                            type="submit"
+                            class="w-full sm:w-auto
+                                   inline-flex
+                                   items-center
+                                   justify-center
+                                   px-6
+                                   py-3
+                                   bg-[#008C45]
+                                   text-white
+                                   font-semibold
+                                   text-sm
+                                   rounded-lg
+                                   hover:bg-[#006F38]
+                                   transition
+                                   shadow-sm"
+                        >
+
+                            Update Berita
+
+                        </button>
+
+
+                    </div>
 
 
                 </div>

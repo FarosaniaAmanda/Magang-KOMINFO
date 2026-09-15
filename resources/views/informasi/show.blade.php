@@ -884,8 +884,8 @@
                                        mt-2
                                        leading-relaxed"
                             >
-                                Informasi dan layanan
-                                pemerintahan Kota Pasuruan.
+                                Informasi mengenai E-Government, kebijakan, kegiatan, 
+                                dan perkembangan pemerintahan berbasis digital di Kota Pasuruan.
                             </p>
 
                         </div>

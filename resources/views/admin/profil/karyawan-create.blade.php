@@ -2,38 +2,54 @@
 <html lang="id">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Tambah Karyawan - E-Government</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .break-text {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+    </style>
 </head>
 
 
 <body class="bg-gray-100">
 
+
 <div class="min-h-screen">
 
 
-    <!-- ================= HEADER ================= -->
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
 
     <header class="bg-[#005C3B] text-white shadow-md">
 
-        <div class="max-w-6xl mx-auto px-6 py-5">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
 
-            <div class="flex items-center justify-between">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
-                <div>
 
-                    <h1 class="text-2xl font-bold">
+                <!-- JUDUL -->
+
+                <div class="min-w-0">
+
+                    <h1 class="text-xl sm:text-2xl font-bold break-text">
                         Tambah Karyawan
                     </h1>
 
-                    <p class="text-sm text-white/80 mt-1">
+                    <p class="text-xs sm:text-sm text-white/80 mt-1 break-text">
                         Tambahkan data karyawan Diskominfotik.
                     </p>
 
@@ -44,7 +60,7 @@
 
                 <a
                     href="{{ route('admin.profil.index') }}"
-                    class="inline-flex items-center gap-2 bg-white text-[#005C3B] hover:bg-gray-100 px-5 py-2.5 rounded-lg font-semibold text-sm transition"
+                    class="w-full sm:w-auto shrink-0 inline-flex items-center justify-center gap-2 bg-white text-[#005C3B] hover:bg-gray-100 px-4 sm:px-5 py-2.5 rounded-lg font-semibold text-xs sm:text-sm transition"
                 >
 
                     ← Kembali ke Profil
@@ -58,23 +74,26 @@
     </header>
 
 
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
 
-    <!-- ================= CONTENT ================= -->
-
-    <main class="max-w-6xl mx-auto px-6 py-8">
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-5 sm:py-8">
 
 
-        <!-- ERROR -->
+        <!-- =====================================================
+             ERROR
+        ====================================================== -->
 
         @if($errors->any())
 
-            <div class="mb-6 bg-red-50 border border-red-200 text-red-700 px-5 py-4 rounded-xl">
+            <div class="mb-5 sm:mb-6 bg-red-50 border border-red-200 text-red-700 px-4 sm:px-5 py-3 sm:py-4 rounded-xl">
 
-                <p class="font-semibold mb-2">
+                <p class="font-semibold text-sm sm:text-base mb-2">
                     Terdapat kesalahan:
                 </p>
 
-                <ul class="text-sm list-disc list-inside">
+                <ul class="text-xs sm:text-sm list-disc list-inside space-y-1 break-text">
 
                     @foreach($errors->all() as $error)
 
@@ -91,38 +110,41 @@
         @endif
 
 
+        <!-- =====================================================
+             FORM CARD
+        ====================================================== -->
 
-        <!-- ================= FORM CARD ================= -->
-
-        <div class="bg-white rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
+        <div class="bg-white rounded-xl sm:rounded-2xl shadow-sm border border-gray-200 overflow-hidden">
 
 
-            <!-- CARD HEADER -->
+            <!-- =====================================================
+                 CARD HEADER
+            ====================================================== -->
 
-            <div class="px-8 py-6 border-b border-gray-200">
+            <div class="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 border-b border-gray-200">
 
-                <div class="flex items-center gap-3">
+                <div class="flex items-start gap-3 sm:gap-4">
 
-                    <div class="w-11 h-11 rounded-xl bg-[#005C3B] flex items-center justify-center text-white text-lg">
+
+                    <!-- ICON -->
+
+                    <div class="w-10 h-10 sm:w-11 sm:h-11 shrink-0 rounded-xl bg-[#005C3B] flex items-center justify-center text-white text-sm sm:text-lg">
 
                         👤
 
                     </div>
 
 
-                    <div>
+                    <!-- TEXT -->
 
-                        <h2 class="text-xl font-bold text-gray-800">
+                    <div class="min-w-0">
 
+                        <h2 class="text-base sm:text-xl font-bold text-gray-800 break-text">
                             Informasi Karyawan
-
                         </h2>
 
-
-                        <p class="text-sm text-gray-500 mt-1">
-
+                        <p class="text-xs sm:text-sm text-gray-500 mt-1 leading-relaxed break-text">
                             Lengkapi data karyawan sesuai dengan informasi yang tersedia.
-
                         </p>
 
                     </div>
@@ -132,8 +154,9 @@
             </div>
 
 
-
-            <!-- ================= FORM ================= -->
+            <!-- =====================================================
+                 FORM
+            ====================================================== -->
 
             <form
                 action="{{ route('admin.profil.karyawan.store') }}"
@@ -144,15 +167,21 @@
                 @csrf
 
 
-                <div class="p-8">
+                <div class="p-4 sm:p-6 lg:p-8">
 
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <!-- =================================================
+                         GRID FORM
+                    ================================================== -->
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8">
 
 
-                        <!-- ================= FOTO ================= -->
+                        <!-- =================================================
+                             FOTO KARYAWAN
+                        ================================================== -->
 
-                        <div>
+                        <div class="min-w-0">
 
                             <label class="block text-sm font-semibold text-gray-700 mb-3">
 
@@ -161,28 +190,35 @@
                             </label>
 
 
-                            <div class="border-2 border-dashed border-gray-300 rounded-2xl p-5 text-center">
+                            <div class="border-2 border-dashed border-gray-300 rounded-xl sm:rounded-2xl p-4 sm:p-5 text-center">
 
 
-                                <!-- PREVIEW FOTO -->
+                                <!-- =================================================
+                                     PREVIEW FOTO
+                                ================================================== -->
 
                                 <div
                                     id="preview-container"
-                                    class="w-44 h-44 mx-auto mb-4 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
+                                    class="w-36 h-36 sm:w-44 sm:h-44 mx-auto mb-4 rounded-xl bg-gray-100 flex items-center justify-center overflow-hidden"
                                 >
+
+
+                                    <!-- FOTO DEFAULT -->
 
                                     <div id="default-photo" class="text-center">
 
-                                        <div class="text-4xl mb-2">
+                                        <div class="text-3xl sm:text-4xl mb-2">
                                             👤
                                         </div>
 
-                                        <p class="text-sm text-gray-400">
+                                        <p class="text-xs sm:text-sm text-gray-400">
                                             Belum ada foto
                                         </p>
 
                                     </div>
 
+
+                                    <!-- FOTO PREVIEW -->
 
                                     <img
                                         id="preview-image"
@@ -193,10 +229,12 @@
                                 </div>
 
 
-                                <!-- INPUT FOTO -->
+                                <!-- =================================================
+                                     INPUT FOTO
+                                ================================================== -->
 
                                 <label
-                                    class="inline-flex items-center justify-center cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2.5 rounded-lg text-sm font-semibold transition"
+                                    class="w-full sm:w-auto inline-flex items-center justify-center cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-700 px-4 py-2.5 rounded-lg text-xs sm:text-sm font-semibold transition"
                                 >
 
                                     Pilih Foto
@@ -213,7 +251,7 @@
                                 </label>
 
 
-                                <p class="text-xs text-gray-400 mt-3">
+                                <p class="text-[11px] sm:text-xs text-gray-400 mt-3 leading-relaxed">
 
                                     JPG, JPEG, PNG atau WEBP · Maks. 2 MB
 
@@ -224,13 +262,16 @@
                         </div>
 
 
+                        <!-- =================================================
+                             DATA KARYAWAN
+                        ================================================== -->
 
-                        <!-- ================= DATA KARYAWAN ================= -->
-
-                        <div class="lg:col-span-2 space-y-5">
+                        <div class="lg:col-span-2 space-y-4 sm:space-y-5 min-w-0">
 
 
-                            <!-- NAMA -->
+                            <!-- =================================================
+                                 NAMA
+                            ================================================== -->
 
                             <div>
 
@@ -248,15 +289,16 @@
                                     name="nama"
                                     value="{{ old('nama') }}"
                                     placeholder="Masukkan nama lengkap karyawan"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
+                                    class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
                                     required
                                 >
 
                             </div>
 
 
-
-                            <!-- NIP -->
+                            <!-- =================================================
+                                 NIP
+                            ================================================== -->
 
                             <div>
 
@@ -272,14 +314,15 @@
                                     name="nip"
                                     value="{{ old('nip') }}"
                                     placeholder="Masukkan NIP karyawan"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
+                                    class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
                                 >
 
                             </div>
 
 
-
-                            <!-- JABATAN -->
+                            <!-- =================================================
+                                 JABATAN
+                            ================================================== -->
 
                             <div>
 
@@ -295,14 +338,15 @@
                                     name="jabatan"
                                     value="{{ old('jabatan') }}"
                                     placeholder="Contoh: Analis Kebijakan"
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
+                                    class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
                                 >
 
                             </div>
 
 
-
-                            <!-- BIDANG -->
+                            <!-- =================================================
+                                 BIDANG
+                            ================================================== -->
 
                             <div>
 
@@ -318,7 +362,7 @@
                                 <select
                                     name="bidang"
                                     required
-                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
+                                    class="w-full border border-gray-300 rounded-lg px-3 sm:px-4 py-2.5 sm:py-3 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-[#005C3B] focus:border-[#005C3B]"
                                 >
 
                                     <option value="">
@@ -361,44 +405,57 @@
                 </div>
 
 
+                <!-- =====================================================
+                     FOOTER FORM
+                ====================================================== -->
 
-                <!-- ================= FOOTER FORM ================= -->
-
-                <div class="px-8 py-5 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
-
-
-                    <p class="text-xs text-gray-500">
-
-                        Pastikan data karyawan yang dimasukkan sudah benar.
-
-                    </p>
+                <div class="px-4 sm:px-6 lg:px-8 py-4 sm:py-5 bg-gray-50 border-t border-gray-200">
 
 
-                    <div class="flex items-center gap-3">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 
 
-                        <!-- BATAL -->
+                        <!-- KETERANGAN -->
 
-                        <a
-                            href="{{ route('admin.profil.index') }}"
-                            class="px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-white font-semibold text-sm transition"
-                        >
+                        <p class="text-xs text-gray-500 leading-relaxed break-text">
 
-                            Batal
+                            Pastikan data karyawan yang dimasukkan sudah benar.
 
-                        </a>
+                        </p>
 
 
-                        <!-- SIMPAN -->
+                        <!-- =================================================
+                             BUTTON
+                        ================================================== -->
 
-                        <button
-                            type="submit"
-                            class="px-6 py-2.5 rounded-lg bg-[#005C3B] hover:bg-[#00482F] text-white font-semibold text-sm transition shadow-sm"
-                        >
+                        <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full sm:w-auto">
 
-                            Simpan Karyawan
 
-                        </button>
+                            <!-- BATAL -->
+
+                            <a
+                                href="{{ route('admin.profil.index') }}"
+                                class="w-full sm:w-auto inline-flex items-center justify-center px-5 py-2.5 rounded-lg border border-gray-300 text-gray-700 hover:bg-white font-semibold text-xs sm:text-sm transition"
+                            >
+
+                                Batal
+
+                            </a>
+
+
+                            <!-- SIMPAN -->
+
+                            <button
+                                type="submit"
+                                class="w-full sm:w-auto inline-flex items-center justify-center px-6 py-2.5 rounded-lg bg-[#005C3B] hover:bg-[#00482F] text-white font-semibold text-xs sm:text-sm transition shadow-sm"
+                            >
+
+                                Simpan Karyawan
+
+                            </button>
+
+
+                        </div>
 
                     </div>
 
@@ -414,8 +471,9 @@
 </div>
 
 
-
-<!-- ================= PREVIEW FOTO ================= -->
+<!-- =====================================================
+     PREVIEW FOTO JAVASCRIPT
+====================================================== -->
 
 <script>
 
@@ -454,5 +512,4 @@ function previewFoto(event) {
 
 
 </body>
-
 </html>

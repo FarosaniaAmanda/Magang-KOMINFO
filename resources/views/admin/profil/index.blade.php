@@ -8,37 +8,87 @@
     <title>Profil Admin - E-Government</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        /* Supaya teks panjang tidak merusak layout */
+        .break-text {
+            overflow-wrap: anywhere;
+            word-break: break-word;
+        }
+
+        /* Scroll tabel hanya pada tabel */
+        .table-scroll {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .table-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+    </style>
 </head>
+
 
 <body class="bg-gray-100">
 
-<div class="min-h-screen flex">
 
-    <!-- ========================= -->
-    <!-- SIDEBAR -->
-    <!-- ========================= -->
+<div class="min-h-screen">
 
-    <aside class="w-64 bg-[#005C3B] text-white fixed left-0 top-0 bottom-0">
 
-        <div class="p-6">
+    <!-- =====================================================
+         SIDEBAR DESKTOP
+    ====================================================== -->
+
+    <aside id="sidebar"
+           class="fixed
+                  left-0
+                  top-0
+                  bottom-0
+                  z-50
+                  w-64
+                  bg-[#005C3B]
+                  text-white
+                  transform
+                  -translate-x-full
+                  lg:translate-x-0
+                  transition-transform
+                  duration-300
+                  flex
+                  flex-col">
+
+        <!-- LOGO / TITLE -->
+
+        <div class="p-5 sm:p-6">
 
             <h1 class="text-xl font-bold">
                 E-Government
             </h1>
 
-            <p class="text-sm mt-1">
+            <p class="text-sm mt-1 text-white/80">
                 Admin Panel
             </p>
 
         </div>
 
 
-        <nav class="px-4 space-y-2">
+        <!-- MENU -->
+
+        <nav class="px-4 space-y-2 flex-1">
 
             <!-- DASHBOARD -->
 
             <a href="{{ route('admin.dashboard') }}"
-               class="block px-4 py-3 rounded-lg hover:bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      hover:bg-[#C9A227]
+                      transition">
 
                 Dashboard
 
@@ -48,7 +98,11 @@
             <!-- BERITA -->
 
             <a href="{{ route('admin.informasi.index') }}"
-               class="block px-4 py-3 rounded-lg hover:bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      hover:bg-[#C9A227]
+                      transition">
 
                 Berita
 
@@ -58,7 +112,11 @@
             <!-- KEGIATAN -->
 
             <a href="{{ route('admin.kegiatan.index') }}"
-               class="block px-4 py-3 rounded-lg hover:bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      hover:bg-[#C9A227]
+                      transition">
 
                 Kegiatan
 
@@ -68,7 +126,11 @@
             <!-- AGENDA -->
 
             <a href="{{ route('admin.agenda.index') }}"
-               class="block px-4 py-3 rounded-lg hover:bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      hover:bg-[#C9A227]
+                      transition">
 
                 Agenda
 
@@ -78,7 +140,11 @@
             <!-- PROFIL -->
 
             <a href="{{ route('admin.profil.index') }}"
-               class="block px-4 py-3 rounded-lg bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      bg-[#C9A227]
+                      transition">
 
                 Profil
 
@@ -88,7 +154,11 @@
             <!-- SURVEY -->
 
             <a href="{{ route('admin.survey.index') }}"
-               class="block px-4 py-3 rounded-lg hover:bg-[#C9A227]">
+               class="block
+                      px-4 py-3
+                      rounded-lg
+                      hover:bg-[#C9A227]
+                      transition">
 
                 Survey Kepuasan
 
@@ -99,16 +169,20 @@
 
         <!-- LOGOUT -->
 
-        <div class="absolute bottom-6 left-4 right-4">
+        <div class="p-4 sm:p-6">
 
             <form method="POST"
                   action="{{ route('admin.logout') }}">
 
                 @csrf
 
-                <button
-                    type="submit"
-                    class="w-full text-left px-4 py-3 rounded-lg hover:bg-red-600">
+                <button type="submit"
+                        class="w-full
+                               text-left
+                               px-4 py-3
+                               rounded-lg
+                               hover:bg-red-600
+                               transition">
 
                     Logout
 
@@ -122,41 +196,119 @@
 
 
 
-    <!-- ========================= -->
-    <!-- MAIN -->
-    <!-- ========================= -->
+    <!-- =====================================================
+         OVERLAY MOBILE
+    ====================================================== -->
 
-    <main class="ml-64 flex-1">
-
-
-        <!-- ========================= -->
-        <!-- HEADER -->
-        <!-- ========================= -->
-
-        <header class="bg-white border-b px-8 py-5 flex justify-between items-center">
-
-            <div>
-
-                <h2 class="text-2xl font-bold text-gray-800">
-                    Profil
-                </h2>
-
-                <p class="text-gray-500 text-sm">
-                    Kelola profil Kepala Dinas dan Karyawan
-                </p>
-
-            </div>
+    <div id="sidebarOverlay"
+         class="fixed
+                inset-0
+                bg-black/50
+                z-40
+                hidden
+                lg:hidden"
+         onclick="closeSidebar()">
+    </div>
 
 
-            <div class="text-right">
 
-                <p class="font-semibold text-gray-800">
-                    {{ auth()->user()->name }}
-                </p>
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
 
-                <p class="text-sm text-gray-500">
-                    Administrator
-                </p>
+    <main class="lg:ml-64 min-h-screen">
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="bg-white
+                       border-b
+                       px-4 sm:px-6 lg:px-8
+                       py-4 sm:py-5">
+
+            <div class="flex
+                        items-center
+                        justify-between
+                        gap-4">
+
+
+                <!-- HAMBURGER MOBILE -->
+
+                <button type="button"
+                        onclick="openSidebar()"
+                        class="lg:hidden
+                               shrink-0
+                               w-10 h-10
+                               rounded-lg
+                               bg-[#005C3B]
+                               text-white
+                               flex
+                               items-center
+                               justify-center
+                               shadow-sm">
+
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                         class="w-5 h-5"
+                         fill="none"
+                         viewBox="0 0 24 24"
+                         stroke="currentColor">
+
+                        <path stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M4 6h16M4 12h16M4 18h16"/>
+
+                    </svg>
+
+                </button>
+
+
+                <!-- TITLE -->
+
+                <div class="flex-1 min-w-0">
+
+                    <h2 class="text-xl sm:text-2xl
+                               font-bold
+                               text-gray-800">
+
+                        Profil
+
+                    </h2>
+
+                    <p class="text-xs sm:text-sm
+                              text-gray-500
+                              mt-1
+                              break-text">
+
+                        Kelola profil Kepala Dinas dan Karyawan
+
+                    </p>
+
+                </div>
+
+
+                <!-- USER -->
+
+                <div class="hidden sm:block text-right shrink-0">
+
+                    <p class="font-semibold
+                              text-gray-800
+                              text-sm sm:text-base">
+
+                        {{ auth()->user()->name }}
+
+                    </p>
+
+                    <p class="text-xs sm:text-sm
+                              text-gray-500">
+
+                        Administrator
+
+                    </p>
+
+                </div>
 
             </div>
 
@@ -164,20 +316,28 @@
 
 
 
-        <!-- ========================= -->
-        <!-- CONTENT -->
-        <!-- ========================= -->
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
 
-        <section class="p-8">
+        <section class="p-4 sm:p-6 lg:p-8">
 
 
-            <!-- ========================= -->
-            <!-- ALERT SUCCESS -->
-            <!-- ========================= -->
+            <!-- =================================================
+                 SUCCESS ALERT
+            ================================================== -->
 
             @if(session('success'))
 
-                <div class="mb-6 bg-green-100 border border-green-300 text-green-800 px-5 py-4 rounded-xl">
+                <div class="mb-5 sm:mb-6
+                            bg-green-100
+                            border border-green-300
+                            text-green-800
+                            px-4 sm:px-5
+                            py-3 sm:py-4
+                            rounded-xl
+                            text-sm sm:text-base
+                            break-text">
 
                     {{ session('success') }}
 
@@ -187,191 +347,349 @@
 
 
 
-            <!-- ========================= -->
-            <!-- JUDUL -->
-            <!-- ========================= -->
+            <!-- =================================================
+                 PAGE INTRO
+            ================================================== -->
 
-            <div class="mb-8">
+            <div class="mb-6 sm:mb-8">
 
-                <h3 class="text-xl font-semibold text-gray-800">
+                <h3 class="text-lg sm:text-xl
+                           font-semibold
+                           text-gray-800">
+
                     Pengelolaan Profil
+
                 </h3>
 
-                <p class="text-gray-500 mt-1">
+                <p class="text-sm sm:text-base
+                          text-gray-500
+                          mt-1
+                          leading-relaxed">
+
                     Kelola informasi Kepala Dinas dan data Karyawan Diskominfotik.
+
                 </p>
 
             </div>
 
 
 
-           <!-- ========================= -->
-<!-- KEPALA DINAS -->
-<!-- ========================= -->
+            <!-- =================================================
+                 KEPALA DINAS
+            ================================================== -->
 
-<div class="bg-white rounded-2xl shadow-sm overflow-hidden mb-8">
-
-    <!-- HEADER -->
-    <div class="px-6 py-5 border-b flex items-center justify-between">
-
-        <div>
-            <h3 class="text-lg font-semibold text-gray-800">
-                Profil Kepala Dinas
-            </h3>
-
-            <p class="text-sm text-gray-500 mt-1">
-                Informasi Kepala Dinas Diskominfotik.
-            </p>
-        </div>
-
-        <a href="{{ route('admin.profil.kepala-dinas') }}"
-           class="inline-flex items-center justify-center bg-[#005C3B] hover:bg-[#00482F] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition">
-
-            @if($kepalaDinas)
-                Edit Profil
-            @else
-               + Tambah Profil Kepala Dinas
-            @endif
-
-        </a>
-
-    </div>
+            <div class="bg-white
+                        rounded-xl sm:rounded-2xl
+                        shadow-sm
+                        overflow-hidden
+                        mb-6 sm:mb-8">
 
 
-    <!-- CONTENT -->
-    <div class="p-6">
+                <!-- HEADER CARD -->
 
-        @if($kepalaDinas)
+                <div class="px-4 sm:px-6
+                            py-4 sm:py-5
+                            border-b
+                            flex
+                            flex-col
+                            sm:flex-row
+                            sm:items-center
+                            sm:justify-between
+                            gap-4">
 
-            <div class="flex flex-col md:flex-row gap-6">
+                    <div class="min-w-0">
 
-                <!-- FOTO -->
-                <div class="flex-shrink-0">
+                        <h3 class="text-base sm:text-lg
+                                   font-semibold
+                                   text-gray-800">
 
-                    @if($kepalaDinas->foto)
+                            Profil Kepala Dinas
 
-                        <img
-                            src="{{ asset('storage/' . $kepalaDinas->foto) }}"
-                            alt="Foto Kepala Dinas"
-                            class="w-40 h-40 object-cover rounded-2xl border"
-                        >
-
-                    @else
-
-                        <div class="w-40 h-40 bg-gray-100 rounded-2xl flex items-center justify-center">
-
-                            <span class="text-gray-400 text-sm">
-                                Belum ada foto
-                            </span>
-
-                        </div>
-
-                    @endif
-
-                </div>
-
-
-                <!-- DATA -->
-                <div class="flex-1">
-
-                    <h4 class="text-2xl font-bold text-gray-800">
-                        {{ $kepalaDinas->nama }}
-                    </h4>
-
-
-                    @if($kepalaDinas->nip)
-
-                        <p class="text-gray-500 mt-2">
-                            NIP: {{ $kepalaDinas->nip }}
-                        </p>
-
-                    @endif
-
-
-                    @if($kepalaDinas->jabatan)
-
-                        <p class="text-gray-600 font-medium mt-1">
-                            {{ $kepalaDinas->jabatan }}
-                        </p>
-
-                    @endif
-
-
-                    @if($kepalaDinas->deskripsi)
-
-                        <div class="mt-5">
-
-                            <p class="text-sm font-semibold text-gray-700 mb-2">
-                                Deskripsi
-                            </p>
-
-                            <p class="text-gray-600 leading-relaxed">
-                                {{ $kepalaDinas->deskripsi }}
-                            </p>
-
-                        </div>
-
-                    @endif
-
-                </div>
-
-            </div>
-
-        @else
-
-            <!-- DATA KOSONG -->
-            <div class="text-center py-10">
-
-                <div class="text-5xl mb-4">
-                    👤
-                </div>
-
-                <h4 class="font-semibold text-gray-700">
-                    Belum ada data Kepala Dinas
-                </h4>
-
-                <p class="text-sm text-gray-500 mt-1">
-                    Silakan tambahkan informasi Kepala Dinas.
-                </p>
-
-            </div>
-
-        @endif
-
-    </div>
-
-</div>
-
-
-
-
-
-            <!-- ========================= -->
-            <!-- KARYAWAN -->
-            <!-- ========================= -->
-
-            <div class="bg-white rounded-2xl shadow-sm overflow-hidden">
-
-
-                <!-- HEADER -->
-
-                <div class="px-6 py-5 border-b flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-
-                    <div>
-
-                        <h3 class="text-lg font-semibold text-gray-800">
-                            Profil Karyawan
                         </h3>
 
-                        <p class="text-sm text-gray-500 mt-1">
-                            Kelola data karyawan berdasarkan bidang.
+                        <p class="text-xs sm:text-sm
+                                  text-gray-500
+                                  mt-1
+                                  break-text">
+
+                            Informasi Kepala Dinas Diskominfotik.
+
                         </p>
 
                     </div>
 
 
+                    <!-- BUTTON -->
+
+                    <a href="{{ route('admin.profil.kepala-dinas') }}"
+                       class="w-full sm:w-auto
+                              shrink-0
+                              inline-flex
+                              items-center
+                              justify-center
+                              bg-[#005C3B]
+                              hover:bg-[#00482F]
+                              text-white
+                              px-4 sm:px-5
+                              py-2.5
+                              rounded-lg
+                              text-xs sm:text-sm
+                              font-semibold
+                              transition
+                              text-center">
+
+                        @if($kepalaDinas)
+
+                            Edit Profil
+
+                        @else
+
+                            + Tambah Profil Kepala Dinas
+
+                        @endif
+
+                    </a>
+
+                </div>
+
+
+
+                <!-- CONTENT -->
+
+                <div class="p-4 sm:p-6">
+
+                    @if($kepalaDinas)
+
+
+                        <!-- FOTO + DATA -->
+
+                        <div class="flex
+                                    flex-col
+                                    sm:flex-row
+                                    gap-5 sm:gap-6">
+
+
+                            <!-- FOTO -->
+
+                            <div class="flex-shrink-0">
+
+                                @if($kepalaDinas->foto)
+
+                                    <img
+                                        src="{{ asset('storage/' . $kepalaDinas->foto) }}"
+                                        alt="Foto Kepala Dinas"
+                                        class="w-28 h-28
+                                               sm:w-36 sm:h-36
+                                               lg:w-40 lg:h-40
+                                               object-cover
+                                               rounded-2xl
+                                               border">
+
+                                @else
+
+                                    <div class="w-28 h-28
+                                                sm:w-36 sm:h-36
+                                                lg:w-40 lg:h-40
+                                                bg-gray-100
+                                                rounded-2xl
+                                                flex
+                                                items-center
+                                                justify-center">
+
+                                        <span class="text-gray-400
+                                                     text-xs sm:text-sm
+                                                     text-center
+                                                     px-2">
+
+                                            Belum ada foto
+
+                                        </span>
+
+                                    </div>
+
+                                @endif
+
+                            </div>
+
+
+
+                            <!-- DATA -->
+
+                            <div class="flex-1 min-w-0">
+
+                                <h4 class="text-xl sm:text-2xl
+                                           font-bold
+                                           text-gray-800
+                                           break-text">
+
+                                    {{ $kepalaDinas->nama }}
+
+                                </h4>
+
+
+                                @if($kepalaDinas->nip)
+
+                                    <p class="text-sm sm:text-base
+                                              text-gray-500
+                                              mt-2
+                                              break-text">
+
+                                        NIP: {{ $kepalaDinas->nip }}
+
+                                    </p>
+
+                                @endif
+
+
+                                @if($kepalaDinas->jabatan)
+
+                                    <p class="text-sm sm:text-base
+                                              text-gray-600
+                                              font-medium
+                                              mt-1
+                                              break-text">
+
+                                        {{ $kepalaDinas->jabatan }}
+
+                                    </p>
+
+                                @endif
+
+
+                                @if($kepalaDinas->deskripsi)
+
+                                    <div class="mt-4 sm:mt-5">
+
+                                        <p class="text-sm
+                                                  font-semibold
+                                                  text-gray-700
+                                                  mb-2">
+
+                                            Deskripsi
+
+                                        </p>
+
+                                        <p class="text-sm sm:text-base
+                                                  text-gray-600
+                                                  leading-relaxed
+                                                  break-text">
+
+                                            {{ $kepalaDinas->deskripsi }}
+
+                                        </p>
+
+                                    </div>
+
+                                @endif
+
+                            </div>
+
+                        </div>
+
+
+                    @else
+
+
+                        <!-- DATA KOSONG -->
+
+                        <div class="text-center
+                                    py-8 sm:py-10">
+
+                            <div class="text-4xl sm:text-5xl
+                                        mb-4">
+
+                                👤
+
+                            </div>
+
+                            <h4 class="font-semibold
+                                       text-gray-700
+                                       text-sm sm:text-base">
+
+                                Belum ada data Kepala Dinas
+
+                            </h4>
+
+                            <p class="text-xs sm:text-sm
+                                      text-gray-500
+                                      mt-1">
+
+                                Silakan tambahkan informasi Kepala Dinas.
+
+                            </p>
+
+                        </div>
+
+                    @endif
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 KARYAWAN
+            ================================================== -->
+
+            <div class="bg-white
+                        rounded-xl sm:rounded-2xl
+                        shadow-sm
+                        overflow-hidden">
+
+
+                <!-- HEADER -->
+
+                <div class="px-4 sm:px-6
+                            py-4 sm:py-5
+                            border-b
+                            flex
+                            flex-col
+                            sm:flex-row
+                            sm:items-center
+                            sm:justify-between
+                            gap-3">
+
+
+                    <div class="min-w-0">
+
+                        <h3 class="text-base sm:text-lg
+                                   font-semibold
+                                   text-gray-800">
+
+                            Profil Karyawan
+
+                        </h3>
+
+                        <p class="text-xs sm:text-sm
+                                  text-gray-500
+                                  mt-1
+                                  break-text">
+
+                            Kelola data karyawan berdasarkan bidang.
+
+                        </p>
+
+                    </div>
+
+
+                    <!-- TAMBAH KARYAWAN -->
+
                     <a href="{{ route('admin.profil.karyawan.create') }}"
-                       class="inline-flex items-center justify-center bg-[#005C3B] hover:bg-[#00482F] text-white px-5 py-2.5 rounded-lg text-sm font-semibold">
+                       class="w-full sm:w-auto
+                              shrink-0
+                              inline-flex
+                              items-center
+                              justify-center
+                              bg-[#005C3B]
+                              hover:bg-[#00482F]
+                              text-white
+                              px-4 sm:px-5
+                              py-2.5
+                              rounded-lg
+                              text-xs sm:text-sm
+                              font-semibold
+                              transition">
 
                         + Tambah Karyawan
 
@@ -381,47 +699,136 @@
 
 
 
-                <!-- TABLE -->
+                <!-- INFO TABLE MOBILE -->
 
-                <div class="overflow-x-auto">
+                <div class="px-4 sm:px-6
+                            pt-4
+                            lg:hidden">
 
-                    <table class="w-full">
+                    <div class="bg-green-50
+                                border border-green-100
+                                rounded-lg
+                                px-3 py-2.5">
+
+                        <p class="text-xs
+                                  text-green-700">
+
+                            ↔ Geser tabel ke kiri/kanan untuk melihat seluruh data.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TABLE
+                ================================================== -->
+
+                <div class="table-scroll w-full">
+
+                    <table class="w-full min-w-[900px]">
 
                         <thead class="bg-gray-50">
 
                             <tr>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     No
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     Foto
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     Nama
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     NIP
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     Jabatan
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     Bidang
+
                                 </th>
 
-                                <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">
+
+                                <th class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-semibold
+                                           text-gray-600
+                                           whitespace-nowrap">
+
                                     Aksi
+
                                 </th>
 
                             </tr>
 
                         </thead>
+
 
 
                         <tbody class="divide-y">
@@ -433,7 +840,10 @@
 
                                     <!-- NO -->
 
-                                    <td class="px-6 py-4 text-sm text-gray-500">
+                                    <td class="px-4 sm:px-6
+                                               py-4
+                                               text-sm
+                                               text-gray-500">
 
                                         {{ $index + 1 }}
 
@@ -443,21 +853,35 @@
 
                                     <!-- FOTO -->
 
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 sm:px-6
+                                               py-4">
 
                                         @if($karyawan->foto)
 
                                             <img
                                                 src="{{ asset('storage/' . $karyawan->foto) }}"
                                                 alt="Foto {{ $karyawan->nama }}"
-                                                class="w-12 h-12 object-cover rounded-full border">
+                                                class="w-11 h-11
+                                                       sm:w-12 sm:h-12
+                                                       object-cover
+                                                       rounded-full
+                                                       border">
 
                                         @else
 
-                                            <div class="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center">
+                                            <div class="w-11 h-11
+                                                        sm:w-12 sm:h-12
+                                                        bg-gray-100
+                                                        rounded-full
+                                                        flex
+                                                        items-center
+                                                        justify-center">
 
-                                                <span class="text-gray-400 text-xs">
+                                                <span class="text-gray-400
+                                                             text-xs">
+
                                                     -
+
                                                 </span>
 
                                             </div>
@@ -470,10 +894,17 @@
 
                                     <!-- NAMA -->
 
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 sm:px-6
+                                               py-4
+                                               max-w-[220px]">
 
-                                        <p class="font-semibold text-gray-800">
+                                        <p class="font-semibold
+                                                  text-gray-800
+                                                  text-sm
+                                                  break-text">
+
                                             {{ $karyawan->nama }}
+
                                         </p>
 
                                     </td>
@@ -482,7 +913,11 @@
 
                                     <!-- NIP -->
 
-                                    <td class="px-6 py-4 text-sm text-gray-600">
+                                    <td class="px-4 sm:px-6
+                                               py-4
+                                               text-sm
+                                               text-gray-600
+                                               whitespace-nowrap">
 
                                         {{ $karyawan->nip ?? '-' }}
 
@@ -492,9 +927,17 @@
 
                                     <!-- JABATAN -->
 
-                                    <td class="px-6 py-4 text-sm text-gray-600">
+                                    <td class="px-4 sm:px-6
+                                               py-4
+                                               text-sm
+                                               text-gray-600
+                                               max-w-[220px]">
 
-                                        {{ $karyawan->jabatan ?? '-' }}
+                                        <span class="break-text">
+
+                                            {{ $karyawan->jabatan ?? '-' }}
+
+                                        </span>
 
                                     </td>
 
@@ -502,30 +945,70 @@
 
                                     <!-- BIDANG -->
 
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 sm:px-6
+                                               py-4">
 
                                         @if($karyawan->bidang === 'IKP')
 
-                                            <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-700">
+                                            <span class="inline-flex
+                                                         px-3 py-1
+                                                         rounded-full
+                                                         text-xs
+                                                         font-semibold
+                                                         bg-blue-100
+                                                         text-blue-700
+                                                         whitespace-nowrap">
+
                                                 IKP
+
                                             </span>
+
 
                                         @elseif($karyawan->bidang === 'E-Government')
 
-                                            <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                                            <span class="inline-flex
+                                                         px-3 py-1
+                                                         rounded-full
+                                                         text-xs
+                                                         font-semibold
+                                                         bg-green-100
+                                                         text-green-700
+                                                         whitespace-nowrap">
+
                                                 E-Government
+
                                             </span>
+
 
                                         @elseif($karyawan->bidang === 'Statistik')
 
-                                            <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-yellow-100 text-yellow-700">
+                                            <span class="inline-flex
+                                                         px-3 py-1
+                                                         rounded-full
+                                                         text-xs
+                                                         font-semibold
+                                                         bg-yellow-100
+                                                         text-yellow-700
+                                                         whitespace-nowrap">
+
                                                 Statistik
+
                                             </span>
+
 
                                         @else
 
-                                            <span class="inline-flex px-3 py-1 rounded-full text-xs font-semibold bg-gray-100 text-gray-700">
+                                            <span class="inline-flex
+                                                         px-3 py-1
+                                                         rounded-full
+                                                         text-xs
+                                                         font-semibold
+                                                         bg-gray-100
+                                                         text-gray-700
+                                                         whitespace-nowrap">
+
                                                 {{ $karyawan->bidang }}
+
                                             </span>
 
                                         @endif
@@ -536,15 +1019,29 @@
 
                                     <!-- AKSI -->
 
-                                    <td class="px-6 py-4">
+                                    <td class="px-4 sm:px-6
+                                               py-4">
 
-                                        <div class="flex items-center gap-2">
+                                        <div class="flex
+                                                    items-center
+                                                    gap-2
+                                                    whitespace-nowrap">
 
 
                                             <!-- EDIT -->
 
                                             <a href="{{ route('admin.profil.karyawan.edit', $karyawan->id) }}"
-                                               class="bg-[#005C3B] hover:bg-[#00482F] text-white px-3 py-2 rounded-lg text-xs font-semibold">
+                                               class="inline-flex
+                                                      items-center
+                                                      justify-center
+                                                      bg-[#005C3B]
+                                                      hover:bg-[#00482F]
+                                                      text-white
+                                                      px-3 py-2
+                                                      rounded-lg
+                                                      text-xs
+                                                      font-semibold
+                                                      transition">
 
                                                 Edit
 
@@ -554,18 +1051,26 @@
 
                                             <!-- HAPUS -->
 
-                                            <form
-                                                method="POST"
-                                                action="{{ route('admin.profil.karyawan.destroy', $karyawan->id) }}"
-                                                onsubmit="return confirm('Yakin ingin menghapus data karyawan ini?');">
+                                            <form method="POST"
+                                                  action="{{ route('admin.profil.karyawan.destroy', $karyawan->id) }}"
+                                                  onsubmit="return confirm('Yakin ingin menghapus data karyawan ini?');">
 
                                                 @csrf
 
                                                 @method('DELETE')
 
-                                                <button
-                                                    type="submit"
-                                                    class="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-xs font-semibold">
+                                                <button type="submit"
+                                                        class="inline-flex
+                                                               items-center
+                                                               justify-center
+                                                               bg-red-500
+                                                               hover:bg-red-600
+                                                               text-white
+                                                               px-3 py-2
+                                                               rounded-lg
+                                                               text-xs
+                                                               font-semibold
+                                                               transition">
 
                                                     Hapus
 
@@ -579,25 +1084,37 @@
 
                                 </tr>
 
+
                             @empty
 
                                 <tr>
 
-                                    <td colspan="7" class="px-6 py-12 text-center">
+                                    <td colspan="7"
+                                        class="px-6 py-12
+                                               text-center">
 
-                                        <div class="text-4xl mb-3">
+                                        <div class="text-4xl
+                                                    mb-3">
+
                                             👥
+
                                         </div>
 
-                                        <p class="font-semibold text-gray-700">
+                                        <p class="font-semibold
+                                                  text-gray-700">
+
                                             Belum ada data karyawan
+
                                         </p>
 
-                                        <p class="text-sm text-gray-500 mt-1 mb-5">
+                                        <p class="text-sm
+                                                  text-gray-500
+                                                  mt-1
+                                                  mb-5">
+
                                             Silakan tambahkan data karyawan.
+
                                         </p>
-
-
 
                                     </td>
 
@@ -619,6 +1136,73 @@
 
 </div>
 
-</body>
 
+
+<!-- =========================================================
+     JAVASCRIPT SIDEBAR MOBILE
+========================================================== -->
+
+<script>
+
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('sidebarOverlay');
+
+
+    function openSidebar() {
+
+        sidebar.classList.remove('-translate-x-full');
+
+        overlay.classList.remove('hidden');
+
+        document.body.classList.add('overflow-hidden');
+
+    }
+
+
+    function closeSidebar() {
+
+        sidebar.classList.add('-translate-x-full');
+
+        overlay.classList.add('hidden');
+
+        document.body.classList.remove('overflow-hidden');
+
+    }
+
+
+    /* Tutup sidebar setelah memilih menu di HP */
+
+    document.querySelectorAll('#sidebar a').forEach(function(link) {
+
+        link.addEventListener('click', function() {
+
+            if (window.innerWidth < 1024) {
+
+                closeSidebar();
+
+            }
+
+        });
+
+    });
+
+
+    /* Jika layar diperbesar kembali ke PC */
+
+    window.addEventListener('resize', function() {
+
+        if (window.innerWidth >= 1024) {
+
+            overlay.classList.add('hidden');
+
+            document.body.classList.remove('overflow-hidden');
+
+        }
+
+    });
+
+</script>
+
+
+</body>
 </html>
