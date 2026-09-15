@@ -161,40 +161,40 @@
 
             <div
                 class="w-11 h-11 sm:w-14 sm:h-14
-                       bg-white
-                       rounded-xl
-                       flex
-                       items-center
-                       justify-center
-                       overflow-hidden
-                       flex-shrink-0"
+                    bg-white
+                    rounded-xl
+                    flex
+                    items-center
+                    justify-center
+                    overflow-hidden
+                    flex-shrink-0
+                    p-1"
             >
 
                 <img
                     src="{{ asset('images/logo.jpeg') }}"
                     alt="Logo KOMINFO"
-                    class="w-full h-full object-cover"
+                    class="w-full h-full object-contain"
                 >
 
             </div>
-
 
             <div class="min-w-0">
 
                 <h1
                     class="font-bold
-                           text-base sm:text-xl
-                           text-[#005C3B]
-                           truncate"
+                        text-base sm:text-xl
+                        text-[#005C3B]
+                        truncate"
                 >
                     E-GOVERNMENT
                 </h1>
 
                 <p
                     class="text-[9px] sm:text-xs
-                           text-slate-500
-                           leading-tight
-                           max-w-[190px] sm:max-w-none"
+                        text-slate-500
+                        leading-tight
+                        max-w-[190px] sm:max-w-none"
                 >
                     Dinas Komunikasi, Informatika dan Statistik Kota Pasuruan
                 </p>
@@ -2428,58 +2428,60 @@
 
         <!-- Brand -->
 
-        <div>
-
-            <div
-                class="flex
-                       items-center
-                       gap-3
-                       mb-5"
-            >
+            <div>
 
                 <div
-                    class="w-12 h-12
-                           sm:w-16 sm:h-16
-                           rounded-xl
-                           overflow-hidden
-                           flex
-                           items-center
-                           justify-center
-                           flex-shrink-0"
+                    class="flex
+                        items-center
+                        gap-3
+                        mb-5"
                 >
 
-                    <img
-                        src="{{ asset('images/logo.jpeg') }}"
-                        alt="Logo E-Government"
-                        class="w-full h-full object-cover"
+                    <div
+                        class="w-12 h-12
+                            sm:w-16 sm:h-16
+                            bg-white
+                            rounded-xl
+                            overflow-hidden
+                            flex
+                            items-center
+                            justify-center
+                            flex-shrink-0
+                            p-1"
                     >
+
+                        <img
+                            src="{{ asset('images/logo.jpeg') }}"
+                            alt="Logo E-Government"
+                            class="w-full h-full object-contain"
+                        >
+
+                    </div>
+
+
+                    <h2
+                        class="text-xl
+                            sm:text-2xl
+                            font-bold
+                            text-white"
+                    >
+                        E-GOVERNMENT
+                    </h2>
 
                 </div>
 
 
-                <h2
-                    class="text-xl
-                           sm:text-2xl
-                           font-bold
-                           text-white"
+                <p
+                    class="leading-relaxed
+                        text-white/80
+                        text-sm"
                 >
-                    E-GOVERNMENT
-                </h2>
+                    Menyajikan informasi seputar
+                    E-Government, kebijakan, kegiatan, dan perkembangan transformasi digital
+                    Pemerintah Kota Pasuruan.
+                </p>
 
             </div>
-
-
-            <p
-                class="leading-relaxed
-                       text-white/80
-                       text-sm"
-            >
-                Menyajikan informasi seputar
-                E-Government, kebijakan, kegiatan, dan perkembangan transformasi digital
-                Pemerintah Kota Pasuruan.
-            </p>
-
-        </div>
 
 
         <!-- Navigasi -->
