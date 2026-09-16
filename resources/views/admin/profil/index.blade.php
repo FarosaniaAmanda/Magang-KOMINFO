@@ -62,7 +62,7 @@
                   flex
                   flex-col">
 
-        <!-- LOGO / TITLE -->
+        <!-- TITLE -->
 
         <div class="p-5 sm:p-6">
 
@@ -345,32 +345,6 @@
 
             @endif
 
-
-
-            <!-- =================================================
-                 PAGE INTRO
-            ================================================== -->
-
-            <div class="mb-6 sm:mb-8">
-
-                <h3 class="text-lg sm:text-xl
-                           font-semibold
-                           text-gray-800">
-
-                    Pengelolaan Profil
-
-                </h3>
-
-                <p class="text-sm sm:text-base
-                          text-gray-500
-                          mt-1
-                          leading-relaxed">
-
-                    Kelola informasi Kepala Dinas dan data Karyawan Diskominfotik.
-
-                </p>
-
-            </div>
 
 
 

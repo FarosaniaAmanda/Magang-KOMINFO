@@ -12,13 +12,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 
     <style>
+
         html,
         body {
             max-width: 100%;
             overflow-x: hidden;
         }
 
-        /* Scrollbar tabel */
         .table-scroll::-webkit-scrollbar {
             height: 7px;
         }
@@ -31,550 +31,1101 @@
             background: #008C45;
             border-radius: 10px;
         }
+
     </style>
 
 </head>
 
 
-<body class="bg-slate-100">
+<body class="bg-slate-100 min-h-screen">
 
 
-    <!-- ================================================= -->
-    <!-- HEADER -->
-    <!-- ================================================= -->
+    <!-- =====================================================
+         SIDEBAR DESKTOP + MOBILE
+    ====================================================== -->
 
-    <header class="bg-white shadow-sm">
-
-        <div class="max-w-7xl mx-auto
-                    px-4 sm:px-6 lg:px-8
-                    py-4 sm:py-5">
-
-            <div class="flex flex-col
-                        sm:flex-row
-                        sm:items-center
-                        sm:justify-between
-                        gap-4">
-
-
-                <!-- JUDUL -->
-
-                <div class="min-w-0">
-
-                    <p class="text-xs sm:text-sm
-                              font-semibold
-                              text-[#008C45]">
-
-                        ADMIN E-GOVERNMENT
-
-                    </p>
-
-                    <h1 class="text-xl sm:text-2xl
-                               font-bold
-                               text-slate-800
-                               mt-1">
-
-                        Berita Kota Pasuruan
-
-                    </h1>
-
-                </div>
-
-            <!-- =================================================
-                 TOMBOL HEADER
-            ================================================== -->
-
-            <div class="flex flex-col sm:flex-row
-                        gap-2 sm:gap-3
-                        w-full lg:w-auto">
+    <aside
+        id="sidebar"
+        class="fixed
+               left-0
+               top-0
+               bottom-0
+               z-50
+               w-64
+               bg-[#005C3B]
+               text-white
+               transform
+               -translate-x-full
+               lg:translate-x-0
+               transition-transform
+               duration-300
+               flex
+               flex-col"
+    >
 
 
-                <!-- DASHBOARD -->
+        <!-- =================================================
+             LOGO / TITLE
+        ================================================== -->
 
-                <a
-                    href="{{ route('admin.dashboard') }}"
-                    class="w-full sm:w-auto
-                           inline-flex items-center justify-center gap-2
-                           bg-[#C9A227]
-                           hover:bg-[#008C45]
-                           text-white
-                           border border-slate-200
-                           px-4 sm:px-5
-                           py-3
-                           rounded-xl
-                           font-semibold
-                           text-sm
-                           shadow-sm
-                           transition"
-                >
+        <div class="p-5 sm:p-6">
 
-                    <span class="text-lg">
-                        ←
-                    </span>
+            <h1 class="text-xl font-bold">
+                E-Government
+            </h1>
 
-                    Dashboard
-
-                </a>
-
-
-
-                <!-- TAMBAH AGENDA -->
-
-                <a
-                    href="{{ route('admin.informasi.create') }}"
-                    class="w-full sm:w-auto
-                           inline-flex items-center justify-center gap-2
-                           bg-[#008C45]
-                           hover:bg-[#005C3B]
-                           text-white
-                           px-4 sm:px-5
-                           py-3
-                           rounded-xl
-                           font-semibold
-                           text-sm
-                           shadow-sm
-                           transition"
-                >
-
-                    <span class="text-xl leading-none">
-                        +
-                    </span>
-
-                    Tambah Berita
-
-                </a>
-
-            </div>
+            <p class="text-sm mt-1 text-white/80">
+                Admin Panel
+            </p>
 
         </div>
 
 
 
-    <!-- ================================================= -->
-    <!-- CONTENT -->
-    <!-- ================================================= -->
+        <!-- =================================================
+             MENU
+        ================================================== -->
 
-    <main class="max-w-7xl mx-auto
-                 px-4 sm:px-6 lg:px-8
-                 py-6 sm:py-8 lg:py-10">
+        <nav class="px-4 space-y-2 flex-1">
 
-        <!-- ================================================= -->
-        <!-- NOTIFIKASI -->
-        <!-- ================================================= -->
 
-        @if(session('success'))
+            <!-- DASHBOARD -->
 
-            <div class="mb-6
-                        bg-green-100
-                        border border-green-300
-                        text-green-700
-                        px-4 sm:px-5
-                        py-4
-                        rounded-xl
-                        text-sm sm:text-base">
+            <a
+                href="{{ route('admin.dashboard') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       hover:bg-[#C9A227]
+                       transition"
+            >
 
-                {{ session('success') }}
+                Dashboard
+
+            </a>
+
+
+
+            <!-- BERITA AKTIF -->
+
+            <a
+                href="{{ route('admin.informasi.index') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       bg-[#C9A227]
+                       transition"
+            >
+
+                Berita
+
+            </a>
+
+
+
+            <!-- KEGIATAN -->
+
+            <a
+                href="{{ route('admin.kegiatan.index') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       hover:bg-[#C9A227]
+                       transition"
+            >
+
+                Kegiatan
+
+            </a>
+
+
+
+            <!-- AGENDA -->
+
+            <a
+                href="{{ route('admin.agenda.index') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       hover:bg-[#C9A227]
+                       transition"
+            >
+
+                Agenda
+
+            </a>
+
+
+
+            <!-- PROFIL -->
+
+            <a
+                href="{{ route('admin.profil.index') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       hover:bg-[#C9A227]
+                       transition"
+            >
+
+                Profil Karyawan
+
+            </a>
+
+
+
+            <!-- SURVEY -->
+
+            <a
+                href="{{ route('admin.survey.index') }}"
+                class="block
+                       px-4 py-3
+                       rounded-lg
+                       hover:bg-[#C9A227]
+                       transition"
+            >
+
+                Survey Kepuasan
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- =================================================
+             LOGOUT
+        ================================================== -->
+
+        <div class="p-4 sm:p-6">
+
+            <form
+                method="POST"
+                action="{{ route('admin.logout') }}"
+            >
+
+                @csrf
+
+                <button
+                    type="submit"
+                    class="w-full
+                           text-left
+                           px-4 py-3
+                           rounded-lg
+                           hover:bg-red-600
+                           transition"
+                >
+
+                    Logout
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         OVERLAY MOBILE
+    ====================================================== -->
+
+    <div
+        id="sidebarOverlay"
+        class="fixed
+               inset-0
+               bg-black/50
+               z-40
+               hidden
+               lg:hidden"
+        onclick="closeSidebar()"
+    >
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN WRAPPER
+    ====================================================== -->
+
+    <div class="lg:ml-64 min-h-screen flex flex-col">
+
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <header class="bg-white shadow-sm">
+
+            <div
+                class="max-w-7xl mx-auto
+                       px-4 sm:px-6 lg:px-8
+                       py-4 sm:py-5"
+            >
+
+                <div
+                    class="flex
+                           items-center
+                           justify-between
+                           gap-3 sm:gap-4"
+                >
+
+
+                    <!-- HAMBURGER HP -->
+
+                    <button
+                        type="button"
+                        onclick="openSidebar()"
+                        class="lg:hidden
+                               shrink-0
+                               w-10 h-10
+                               rounded-lg
+                               bg-[#005C3B]
+                               text-white
+                               flex
+                               items-center
+                               justify-center
+                               shadow-sm
+                               hover:bg-[#00482F]
+                               transition"
+                    >
+
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"
+                            />
+
+                        </svg>
+
+                    </button>
+
+
+
+                    <!-- JUDUL -->
+
+                    <div class="flex-1 min-w-0">
+
+                        <p
+                            class="text-xs sm:text-sm
+                                   font-semibold
+                                   text-[#008C45]"
+                        >
+
+                            ADMIN E-GOVERNMENT
+
+                        </p>
+
+
+                        <h1
+                            class="text-lg sm:text-2xl
+                                   font-bold
+                                   text-slate-800
+                                   mt-1
+                                   break-words"
+                        >
+
+                            Berita Kota Pasuruan
+
+                        </h1>
+
+                    </div>
+
+
+
+                    <!-- TOMBOL DESKTOP -->
+
+                    <div
+                        class="hidden sm:flex
+                               flex-col sm:flex-row
+                               gap-2 sm:gap-3
+                               shrink-0"
+                    >
+
+
+                        <!-- DASHBOARD -->
+
+                        <a
+                            href="{{ route('admin.dashboard') }}"
+                            class="inline-flex
+                                   items-center
+                                   justify-center
+                                   gap-2
+                                   bg-[#C9A227]
+                                   hover:bg-[#008C45]
+                                   text-white
+                                   px-4 sm:px-5
+                                   py-3
+                                   rounded-xl
+                                   font-semibold
+                                   text-sm
+                                   shadow-sm
+                                   transition"
+                        >
+
+                            <span class="text-lg">
+                                ←
+                            </span>
+
+                            Dashboard
+
+                        </a>
+
+
+
+                        <!-- TAMBAH BERITA -->
+
+                        <a
+                            href="{{ route('admin.informasi.create') }}"
+                            class="inline-flex
+                                   items-center
+                                   justify-center
+                                   gap-2
+                                   bg-[#008C45]
+                                   hover:bg-[#005C3B]
+                                   text-white
+                                   px-4 sm:px-5
+                                   py-3
+                                   rounded-xl
+                                   font-semibold
+                                   text-sm
+                                   shadow-sm
+                                   transition"
+                        >
+
+                            <span class="text-xl leading-none">
+                                +
+                            </span>
+
+                            Tambah Berita
+
+                        </a>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     TOMBOL MOBILE
+                ================================================== -->
+
+                <div
+                    class="flex
+                           sm:hidden
+                           flex-col
+                           gap-2
+                           mt-4"
+                >
+
+
+                    <!-- DASHBOARD -->
+
+                    <a
+                        href="{{ route('admin.dashboard') }}"
+                        class="w-full
+                               inline-flex
+                               items-center
+                               justify-center
+                               gap-2
+                               bg-[#C9A227]
+                               hover:bg-[#008C45]
+                               text-white
+                               px-4
+                               py-3
+                               rounded-xl
+                               font-semibold
+                               text-sm
+                               shadow-sm
+                               transition"
+                    >
+
+                        ← Dashboard
+
+                    </a>
+
+
+
+                    <!-- TAMBAH BERITA -->
+
+                    <a
+                        href="{{ route('admin.informasi.create') }}"
+                        class="w-full
+                               inline-flex
+                               items-center
+                               justify-center
+                               gap-2
+                               bg-[#008C45]
+                               hover:bg-[#005C3B]
+                               text-white
+                               px-4
+                               py-3
+                               rounded-xl
+                               font-semibold
+                               text-sm
+                               shadow-sm
+                               transition"
+                    >
+
+                        + Tambah Berita
+
+                    </a>
+
+
+                </div>
+
 
             </div>
 
-        @endif
+        </header>
 
 
 
-        <!-- ================================================= -->
-        <!-- TABLE CONTAINER -->
-        <!-- ================================================= -->
+        <!-- =================================================
+             CONTENT
+        ================================================== -->
 
-        <div class="bg-white
-                    rounded-2xl
-                    shadow-sm
-                    border border-slate-200
-                    overflow-hidden">
+        <main
+            class="max-w-7xl
+                   mx-auto
+                   w-full
+                   px-4 sm:px-6 lg:px-8
+                   py-6 sm:py-8 lg:py-10
+                   flex-1"
+        >
 
 
-            <!-- ================================================= -->
-            <!-- INFO TABLE -->
-            <!-- ================================================= -->
+            <!-- =================================================
+                 NOTIFIKASI
+            ================================================== -->
 
-            <div class="px-4 sm:px-6
-                        py-4
-                        border-b
-                        bg-white">
+            @if(session('success'))
 
-                <div class="flex items-center
-                            justify-between
-                            gap-3">
+                <div
+                    class="mb-6
+                           bg-green-100
+                           border border-green-300
+                           text-green-700
+                           px-4 sm:px-5
+                           py-4
+                           rounded-xl
+                           text-sm sm:text-base"
+                >
 
-                    <div>
+                    {{ session('success') }}
 
-                        <p class="text-sm
-                                  font-semibold
-                                  text-slate-700">
+                </div>
 
-                            Data Berita
+            @endif
 
-                        </p>
 
-                        <p class="text-xs
-                                  text-slate-400
-                                  mt-1
-                                  sm:hidden">
 
-                            Geser tabel ke samping untuk
-                            melihat semua kolom.
+            <!-- =================================================
+                 TABLE CONTAINER
+            ================================================== -->
 
-                        </p>
+            <div
+                class="bg-white
+                       rounded-2xl
+                       shadow-sm
+                       border border-slate-200
+                       overflow-hidden"
+            >
+
+
+                <!-- =================================================
+                     INFO TABLE
+                ================================================== -->
+
+                <div
+                    class="px-4 sm:px-6
+                           py-4
+                           border-b
+                           bg-white"
+                >
+
+                    <div
+                        class="flex
+                               items-center
+                               justify-between
+                               gap-3"
+                    >
+
+                        <div>
+
+                            <p
+                                class="text-sm
+                                       font-semibold
+                                       text-slate-700"
+                            >
+
+                                Data Berita
+
+                            </p>
+
+
+                            <p
+                                class="text-xs
+                                       text-slate-400
+                                       mt-1
+                                       sm:hidden"
+                            >
+
+                                Geser tabel ke samping untuk
+                                melihat semua kolom.
+
+                            </p>
+
+                        </div>
 
                     </div>
 
                 </div>
 
-            </div>
 
 
+                <!-- =================================================
+                     TABLE
+                ================================================== -->
 
-            <!-- ================================================= -->
-            <!-- TABLE -->
-            <!-- ================================================= -->
-
-            <div class="overflow-x-auto table-scroll">
-
-                <table class="w-full min-w-[850px]">
+                <div class="overflow-x-auto table-scroll">
 
 
-                    <!-- TABLE HEADER -->
-
-                    <thead class="bg-slate-50 border-b">
-
-                        <tr>
-
-
-                            <!-- NO -->
-
-                            <th class="px-4 sm:px-6
-                                       py-4
-                                       text-left
-                                       text-xs sm:text-sm
-                                       font-bold
-                                       text-slate-600
-                                       w-16">
-
-                                No
-
-                            </th>
+                    <table
+                        class="w-full
+                               min-w-[850px]"
+                    >
 
 
+                        <!-- TABLE HEADER -->
 
-                            <!-- JUDUL -->
+                        <thead
+                            class="bg-slate-50
+                                   border-b"
+                        >
 
-                            <th class="px-4 sm:px-6
-                                       py-4
-                                       text-left
-                                       text-xs sm:text-sm
-                                       font-bold
-                                       text-slate-600">
-
-                                Judul Berita
-
-                            </th>
+                            <tr>
 
 
+                                <!-- NO -->
 
-                            <!-- KATEGORI -->
+                                <th
+                                    class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-bold
+                                           text-slate-600
+                                           w-16"
+                                >
 
-                            <th class="px-4 sm:px-6
-                                       py-4
-                                       text-left
-                                       text-xs sm:text-sm
-                                       font-bold
-                                       text-slate-600">
+                                    No
 
-                                Kategori
-
-                            </th>
-
-
-
-                            <!-- TANGGAL -->
-
-                            <th class="px-4 sm:px-6
-                                       py-4
-                                       text-left
-                                       text-xs sm:text-sm
-                                       font-bold
-                                       text-slate-600
-                                       whitespace-nowrap">
-
-                                Tanggal
-
-                            </th>
-
-
-
-                            <!-- AKSI -->
-
-                            <th class="px-4 sm:px-6
-                                       py-4
-                                       text-center
-                                       text-xs sm:text-sm
-                                       font-bold
-                                       text-slate-600
-                                       w-48">
-
-                                Aksi
-
-                            </th>
-
-
-                        </tr>
-
-                    </thead>
-
-
-
-                    <!-- ================================================= -->
-                    <!-- TABLE BODY -->
-                    <!-- ================================================= -->
-
-                    <tbody>
-
-
-                        @forelse($informasi as $item)
-
-
-                            <tr class="border-b
-                                       border-slate-100
-                                       hover:bg-slate-50
-                                       transition">
-
-
-                                <!-- NOMOR -->
-
-                                <td class="px-4 sm:px-6
-                                           py-5
-                                           text-sm
-                                           text-slate-600">
-
-                                    {{ $loop->iteration }}
-
-                                </td>
+                                </th>
 
 
 
                                 <!-- JUDUL -->
 
-                                <td class="px-4 sm:px-6
-                                           py-5
-                                           max-w-md">
+                                <th
+                                    class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-bold
+                                           text-slate-600"
+                                >
 
-                                    <p class="font-semibold
-                                              text-slate-800
-                                              text-sm sm:text-base
-                                              leading-relaxed">
+                                    Judul Berita
 
-                                        {{ $item->judul }}
-
-                                    </p>
-
-                                </td>
+                                </th>
 
 
 
                                 <!-- KATEGORI -->
 
-                                <td class="px-4 sm:px-6
-                                           py-5">
+                                <th
+                                    class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-bold
+                                           text-slate-600"
+                                >
 
-                                    <span class="inline-block
-                                                 px-3 py-1.5
-                                                 text-xs
-                                                 font-semibold
-                                                 rounded-full
-                                                 bg-green-100
-                                                 text-[#008C45]
-                                                 whitespace-nowrap">
+                                    Kategori
 
-                                        {{ $item->kategori }}
-
-                                    </span>
-
-                                </td>
+                                </th>
 
 
 
                                 <!-- TANGGAL -->
 
-                                <td class="px-4 sm:px-6
-                                           py-5
-                                           text-sm
+                                <th
+                                    class="px-4 sm:px-6
+                                           py-4
+                                           text-left
+                                           text-xs sm:text-sm
+                                           font-bold
                                            text-slate-600
-                                           whitespace-nowrap">
+                                           whitespace-nowrap"
+                                >
 
-                                    {{ $item->tanggal->format('d M Y') }}
+                                    Tanggal
 
-                                </td>
+                                </th>
 
 
 
                                 <!-- AKSI -->
 
-                                <td class="px-4 sm:px-6
-                                           py-5">
+                                <th
+                                    class="px-4 sm:px-6
+                                           py-4
+                                           text-center
+                                           text-xs sm:text-sm
+                                           font-bold
+                                           text-slate-600
+                                           w-48"
+                                >
 
-                                    <div class="flex
-                                                items-center
-                                                justify-center
-                                                gap-2">
+                                    Aksi
+
+                                </th>
 
 
-                                        <!-- EDIT -->
+                            </tr>
 
-                                        <a href="{{ route('admin.informasi.edit', $item->id) }}"
-                                           class="inline-flex
-                                                  items-center
-                                                  justify-center
-                                                  px-4
-                                                  py-2
-                                                  bg-blue-500
-                                                  text-white
-                                                  text-sm
-                                                  font-semibold
-                                                  rounded-lg
-                                                  hover:bg-blue-600
-                                                  transition
-                                                  whitespace-nowrap">
-
-                                            Edit
-
-                                        </a>
+                        </thead>
 
 
 
-                                        <!-- HAPUS -->
+                        <!-- =================================================
+                             TABLE BODY
+                        ================================================== -->
 
-                                        <form
-                                            action="{{ route('admin.informasi.destroy', $item->id) }}"
-                                            method="POST"
-                                            onsubmit="return confirm('Yakin ingin menghapus berita ini?')"
+                        <tbody>
+
+
+                            @forelse($informasi as $item)
+
+
+                                <tr
+                                    class="border-b
+                                           border-slate-100
+                                           hover:bg-slate-50
+                                           transition"
+                                >
+
+
+                                    <!-- NOMOR -->
+
+                                    <td
+                                        class="px-4 sm:px-6
+                                               py-5
+                                               text-sm
+                                               text-slate-600"
+                                    >
+
+                                        {{ $loop->iteration }}
+
+                                    </td>
+
+
+
+                                    <!-- JUDUL -->
+
+                                    <td
+                                        class="px-4 sm:px-6
+                                               py-5
+                                               max-w-md"
+                                    >
+
+                                        <p
+                                            class="font-semibold
+                                                   text-slate-800
+                                                   text-sm sm:text-base
+                                                   leading-relaxed
+                                                   break-words"
                                         >
 
-                                            @csrf
+                                            {{ $item->judul }}
 
-                                            @method('DELETE')
+                                        </p>
 
-                                            <button
-                                                type="submit"
+                                    </td>
+
+
+
+                                    <!-- KATEGORI -->
+
+                                    <td
+                                        class="px-4 sm:px-6
+                                               py-5"
+                                    >
+
+                                        <span
+                                            class="inline-block
+                                                   px-3 py-1.5
+                                                   text-xs
+                                                   font-semibold
+                                                   rounded-full
+                                                   bg-green-100
+                                                   text-[#008C45]
+                                                   whitespace-nowrap"
+                                        >
+
+                                            {{ $item->kategori }}
+
+                                        </span>
+
+                                    </td>
+
+
+
+                                    <!-- TANGGAL -->
+
+                                    <td
+                                        class="px-4 sm:px-6
+                                               py-5
+                                               text-sm
+                                               text-slate-600
+                                               whitespace-nowrap"
+                                    >
+
+                                        {{ $item->tanggal->format('d M Y') }}
+
+                                    </td>
+
+
+
+                                    <!-- AKSI -->
+
+                                    <td
+                                        class="px-4 sm:px-6
+                                               py-5"
+                                    >
+
+                                        <div
+                                            class="flex
+                                                   items-center
+                                                   justify-center
+                                                   gap-2"
+                                        >
+
+
+                                            <!-- EDIT -->
+
+                                            <a
+                                                href="{{ route('admin.informasi.edit', $item->id) }}"
                                                 class="inline-flex
                                                        items-center
                                                        justify-center
                                                        px-4
                                                        py-2
-                                                       bg-red-500
+                                                       bg-blue-500
                                                        text-white
                                                        text-sm
                                                        font-semibold
                                                        rounded-lg
-                                                       hover:bg-red-600
+                                                       hover:bg-blue-600
                                                        transition
                                                        whitespace-nowrap"
                                             >
 
-                                                Hapus
+                                                Edit
 
-                                            </button>
-
-                                        </form>
+                                            </a>
 
 
-                                    </div>
 
-                                </td>
+                                            <!-- HAPUS -->
 
+                                            <form
+                                                action="{{ route('admin.informasi.destroy', $item->id) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('Yakin ingin menghapus berita ini?')"
+                                            >
 
-                            </tr>
+                                                @csrf
 
-
-                        @empty
-
-
-                            <!-- ================================================= -->
-                            <!-- JIKA BELUM ADA BERITA -->
-                            <!-- ================================================= -->
-
-                            <tr>
-
-                                <td
-                                    colspan="5"
-                                    class="text-center
-                                           px-4
-                                           py-16
-                                           text-slate-500"
-                                >
-
-                                    <div class="text-5xl mb-4">
-
-                                        📰
-
-                                    </div>
+                                                @method('DELETE')
 
 
-                                    <h3 class="text-lg
-                                               font-bold
-                                               text-slate-700">
+                                                <button
+                                                    type="submit"
+                                                    class="inline-flex
+                                                           items-center
+                                                           justify-center
+                                                           px-4
+                                                           py-2
+                                                           bg-red-500
+                                                           text-white
+                                                           text-sm
+                                                           font-semibold
+                                                           rounded-lg
+                                                           hover:bg-red-600
+                                                           transition
+                                                           whitespace-nowrap"
+                                                >
 
-                                        Belum Ada Berita
+                                                    Hapus
 
-                                    </h3>
-
-
-                                    <p class="mt-2
-                                              text-sm sm:text-base">
-
-                                        Silakan tambahkan berita
-                                        pertama Kota Pasuruan.
-
-                                    </p>
-
-
-                                    <!-- BUTTON TAMBAH -->
-
-                                    <a href="{{ route('admin.informasi.create') }}"
-                                       class="inline-flex
-                                              items-center
-                                              justify-center
-                                              mt-5
-                                              px-5 py-3
-                                              bg-[#008C45]
-                                              hover:bg-[#006F38]
-                                              text-white
-                                              rounded-xl
-                                              font-semibold
-                                              text-sm
-                                              transition">
-
-                                        + Tambah Berita
-
-                                    </a>
-
-                                </td>
-
-                            </tr>
+                                                </button>
 
 
-                        @endforelse
+                                            </form>
 
 
-                    </tbody>
+                                        </div>
+
+                                    </td>
 
 
-                </table>
+                                </tr>
+
+
+                            @empty
+
+
+                                <!-- =================================================
+                                     JIKA BELUM ADA BERITA
+                                ================================================== -->
+
+                                <tr>
+
+                                    <td
+                                        colspan="5"
+                                        class="text-center
+                                               px-4
+                                               py-16
+                                               text-slate-500"
+                                    >
+
+
+                                        <div class="text-5xl mb-4">
+
+                                            📰
+
+                                        </div>
+
+
+                                        <h3
+                                            class="text-lg
+                                                   font-bold
+                                                   text-slate-700"
+                                        >
+
+                                            Belum Ada Berita
+
+                                        </h3>
+
+
+                                        <p
+                                            class="mt-2
+                                                   text-sm sm:text-base"
+                                        >
+
+                                            Silakan tambahkan berita
+                                            pertama Kota Pasuruan.
+
+                                        </p>
+
+
+
+                                        <!-- BUTTON TAMBAH -->
+
+                                        <a
+                                            href="{{ route('admin.informasi.create') }}"
+                                            class="inline-flex
+                                                   items-center
+                                                   justify-center
+                                                   mt-5
+                                                   px-5 py-3
+                                                   bg-[#008C45]
+                                                   hover:bg-[#006F38]
+                                                   text-white
+                                                   rounded-xl
+                                                   font-semibold
+                                                   text-sm
+                                                   transition"
+                                        >
+
+                                            + Tambah Berita
+
+                                        </a>
+
+
+                                    </td>
+
+                                </tr>
+
+
+                            @endforelse
+
+
+                        </tbody>
+
+
+                    </table>
+
+                </div>
+
 
             </div>
 
 
-        </div>
+        </main>
 
 
-    </main>
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer
+            class="bg-gradient-to-r
+                   from-[#075E4A]
+                   to-[#087F5B]
+                   text-white
+                   py-6
+                   text-center
+                   mt-8 sm:mt-10"
+        >
+
+            <div class="px-4">
+
+                <p class="text-xs sm:text-sm">
+
+                    © {{ date('Y') }}
+                    E-GOVERNMENT —
+                    Diskominfotik Kota Pasuruan
+
+                </p>
+
+            </div>
+
+        </footer>
+
+
+    </div>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT SIDEBAR MOBILE
+    ========================================================== -->
+
+    <script>
+
+        const sidebar =
+            document.getElementById('sidebar');
+
+        const overlay =
+            document.getElementById('sidebarOverlay');
+
+
+        function openSidebar() {
+
+            sidebar.classList.remove(
+                '-translate-x-full'
+            );
+
+            overlay.classList.remove(
+                'hidden'
+            );
+
+            document.body.classList.add(
+                'overflow-hidden'
+            );
+
+        }
+
+
+        function closeSidebar() {
+
+            sidebar.classList.add(
+                '-translate-x-full'
+            );
+
+            overlay.classList.add(
+                'hidden'
+            );
+
+            document.body.classList.remove(
+                'overflow-hidden'
+            );
+
+        }
+
+
+        /*
+         * Tutup sidebar setelah memilih menu
+         * ketika menggunakan HP.
+         */
+
+        document
+            .querySelectorAll('#sidebar a')
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    'click',
+                    function() {
+
+                        if (window.innerWidth < 1024) {
+
+                            closeSidebar();
+
+                        }
+
+                    }
+                );
+
+            });
+
+
+        /*
+         * Jika ukuran layar kembali ke PC,
+         * overlay otomatis dihilangkan.
+         */
+
+        window.addEventListener(
+            'resize',
+            function() {
+
+                if (window.innerWidth >= 1024) {
+
+                    overlay.classList.add(
+                        'hidden'
+                    );
+
+                    document.body.classList.remove(
+                        'overflow-hidden'
+                    );
+
+                }
+
+            }
+        );
+
+    </script>
 
 
 </body>
