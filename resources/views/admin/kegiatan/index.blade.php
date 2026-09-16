@@ -42,10 +42,10 @@
 
 
     <!-- ================================================= -->
-    <!-- NAVBAR -->
+    <!-- HEADER -->
     <!-- ================================================= -->
 
-    <nav class="bg-white shadow-sm border-b border-gray-100">
+    <header class="bg-white shadow-sm">
 
         <div class="max-w-7xl mx-auto
                     px-4 sm:px-6 lg:px-8
@@ -58,69 +58,58 @@
                         gap-4">
 
 
-                <!-- LOGO + IDENTITAS -->
+                <!-- JUDUL -->
 
-                <div class="flex items-center gap-3 sm:gap-4
-                            min-w-0">
+                <div class="min-w-0">
 
-                    <div class="w-11 h-11
-                                sm:w-14 sm:h-14
-                                rounded-xl
-                                overflow-hidden
-                                shadow-sm
-                                flex-shrink-0">
+                    <p class="text-xs sm:text-sm
+                              font-semibold
+                              text-[#008C45]">
 
-                        <img src="{{ asset('images/logo.jpeg') }}"
-                             class="w-full h-full object-cover"
-                             alt="Logo">
+                        ADMIN E-GOVERNMENT
 
-                    </div>
+                    </p>
 
+                    <h1 class="text-xl sm:text-2xl
+                               font-bold
+                               text-slate-800
+                               mt-1">
 
-                    <div class="min-w-0">
+                        Berita Kota Pasuruan
 
-                        <h1 class="font-bold
-                                   text-lg sm:text-xl
-                                   text-slate-800">
-
-                            E-GOVERNMENT
-
-                        </h1>
-
-                        <p class="text-xs sm:text-sm
-                                  text-slate-500
-                                  mt-0.5">
-
-                            Diskominfotik Kota Pasuruan
-
-                        </p>
-
-                    </div>
+                    </h1>
 
                 </div>
 
+            <!-- =================================================
+                 TOMBOL HEADER
+            ================================================== -->
+
+            <div class="flex flex-col sm:flex-row
+                        gap-2 sm:gap-3
+                        w-full lg:w-auto">
 
 
                 <!-- DASHBOARD -->
 
-                <a href="{{ route('admin.dashboard') }}"
-                   class="w-full sm:w-auto
-                          inline-flex
-                          items-center
-                          justify-center
-                          gap-2
-                          bg-amber-500
-                          hover:bg-amber-600
-                          text-white
-                          px-5 py-3
-                          rounded-xl
-                          font-semibold
-                          text-sm sm:text-base
-                          shadow-md
-                          transition
-                          whitespace-nowrap">
+                <a
+                    href="{{ route('admin.dashboard') }}"
+                    class="w-full sm:w-auto
+                           inline-flex items-center justify-center gap-2
+                           bg-[#C9A227]
+                           hover:bg-[#008C45]
+                           text-white
+                           border border-slate-200
+                           px-4 sm:px-5
+                           py-3
+                           rounded-xl
+                           font-semibold
+                           text-sm
+                           shadow-sm
+                           transition"
+                >
 
-                    <span>
+                    <span class="text-lg">
                         ←
                     </span>
 
@@ -129,11 +118,36 @@
                 </a>
 
 
+
+                <!-- TAMBAH KEGIATAN -->
+
+                <a
+                    href="{{ route('admin.kegiatan.create') }}"
+                    class="w-full sm:w-auto
+                           inline-flex items-center justify-center gap-2
+                           bg-[#008C45]
+                           hover:bg-[#005C3B]
+                           text-white
+                           px-4 sm:px-5
+                           py-3
+                           rounded-xl
+                           font-semibold
+                           text-sm
+                           shadow-sm
+                           transition"
+                >
+
+                    <span class="text-xl leading-none">
+                        +
+                    </span>
+
+                    Tambah Kegiatan
+
+                </a>
+
             </div>
 
         </div>
-
-    </nav>
 
 
 
@@ -144,88 +158,6 @@
     <main class="max-w-7xl mx-auto
                  px-4 sm:px-6 lg:px-8
                  py-6 sm:py-8 lg:py-10">
-
-
-        <!-- ================================================= -->
-        <!-- HEADER -->
-        <!-- ================================================= -->
-
-        <div class="flex flex-col
-                    lg:flex-row
-                    lg:items-center
-                    lg:justify-between
-                    gap-5
-                    mb-6 sm:mb-8">
-
-
-            <!-- JUDUL -->
-
-            <div class="min-w-0">
-
-                <p class="text-xs sm:text-sm
-                          font-medium
-                          text-[#008C45]
-                          mb-1">
-
-                    ADMINISTRASI
-
-                </p>
-
-
-                <h2 class="text-2xl sm:text-3xl
-                           font-bold
-                           text-slate-800">
-
-                    Manajemen Kegiatan
-
-                </h2>
-
-
-                <p class="text-slate-500
-                          text-sm sm:text-base
-                          mt-2
-                          leading-relaxed">
-
-                    Kelola data kegiatan Diskominfotik
-                    Kota Pasuruan.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- TAMBAH KEGIATAN -->
-
-            <a href="{{ route('admin.kegiatan.create') }}"
-               class="w-full lg:w-auto
-                      inline-flex
-                      items-center
-                      justify-center
-                      gap-2
-                      bg-[#008C45]
-                      hover:bg-[#006F37]
-                      text-white
-                      px-5 sm:px-6
-                      py-3
-                      rounded-xl
-                      font-semibold
-                      text-sm sm:text-base
-                      shadow-md
-                      transition
-                      whitespace-nowrap">
-
-                <span class="text-xl">
-                    +
-                </span>
-
-                Tambah Kegiatan
-
-            </a>
-
-
-        </div>
-
 
 
         <!-- ================================================= -->

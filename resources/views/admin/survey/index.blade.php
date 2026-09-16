@@ -66,7 +66,7 @@
 
 
                 <a href="{{ route('admin.dashboard') }}"
-                   class="inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-600 text-white px-5 py-3 rounded-xl font-semibold shadow-md transition">
+                   class="inline-flex items-center justify-center gap-2 bg-yellow-500 hover:bg-amber-600 text-white px-5 py-3 rounded-xl font-semibold shadow-md transition">
                 <span class="text-xl"></span>
 
                     ← Kembali ke Dashboard

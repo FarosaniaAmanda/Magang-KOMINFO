@@ -64,7 +64,7 @@
                               font-semibold
                               text-[#008C45]">
 
-                        ADMIN PANEL
+                        ADMIN E-GOVERNMENT
 
                     </p>
 
@@ -79,28 +79,35 @@
 
                 </div>
 
+            <!-- =================================================
+                 TOMBOL HEADER
+            ================================================== -->
+
+            <div class="flex flex-col sm:flex-row
+                        gap-2 sm:gap-3
+                        w-full lg:w-auto">
 
 
-                <!-- KEMBALI KE DASHBOARD -->
+                <!-- DASHBOARD -->
 
-                <a href="{{ route('admin.dashboard') }}"
-                   class="w-full sm:w-auto
-                          inline-flex
-                          items-center
-                          justify-center
-                          gap-2
-                          bg-amber-500
-                          hover:bg-amber-600
-                          text-white
-                          px-5 py-3
-                          rounded-xl
-                          font-semibold
-                          text-sm sm:text-base
-                          shadow-md
-                          transition
-                          whitespace-nowrap">
+                <a
+                    href="{{ route('admin.dashboard') }}"
+                    class="w-full sm:w-auto
+                           inline-flex items-center justify-center gap-2
+                           bg-[#C9A227]
+                           hover:bg-[#008C45]
+                           text-white
+                           border border-slate-200
+                           px-4 sm:px-5
+                           py-3
+                           rounded-xl
+                           font-semibold
+                           text-sm
+                           shadow-sm
+                           transition"
+                >
 
-                    <span>
+                    <span class="text-lg">
                         ←
                     </span>
 
@@ -109,11 +116,36 @@
                 </a>
 
 
+
+                <!-- TAMBAH AGENDA -->
+
+                <a
+                    href="{{ route('admin.informasi.create') }}"
+                    class="w-full sm:w-auto
+                           inline-flex items-center justify-center gap-2
+                           bg-[#008C45]
+                           hover:bg-[#005C3B]
+                           text-white
+                           px-4 sm:px-5
+                           py-3
+                           rounded-xl
+                           font-semibold
+                           text-sm
+                           shadow-sm
+                           transition"
+                >
+
+                    <span class="text-xl leading-none">
+                        +
+                    </span>
+
+                    Tambah Berita
+
+                </a>
+
             </div>
 
         </div>
-
-    </header>
 
 
 
@@ -124,77 +156,6 @@
     <main class="max-w-7xl mx-auto
                  px-4 sm:px-6 lg:px-8
                  py-6 sm:py-8 lg:py-10">
-
-
-        <!-- ================================================= -->
-        <!-- JUDUL + TAMBAH BERITA -->
-        <!-- ================================================= -->
-
-        <div class="flex flex-col
-                    lg:flex-row
-                    lg:items-center
-                    lg:justify-between
-                    gap-5
-                    mb-6 sm:mb-8">
-
-
-            <!-- JUDUL -->
-
-            <div class="min-w-0">
-
-                <h2 class="text-2xl sm:text-3xl
-                           font-bold
-                           text-slate-800">
-
-                    Daftar Berita
-
-                </h2>
-
-                <p class="text-slate-500
-                          text-sm sm:text-base
-                          mt-2
-                          leading-relaxed">
-
-                    Kelola berita dan informasi terbaru
-                    Kota Pasuruan.
-
-                </p>
-
-            </div>
-
-
-
-            <!-- TAMBAH BERITA -->
-
-            <a href="{{ route('admin.informasi.create') }}"
-               class="w-full lg:w-auto
-                      inline-flex
-                      items-center
-                      justify-center
-                      px-5 sm:px-6
-                      py-3
-                      bg-[#008C45]
-                      text-white
-                      font-semibold
-                      text-sm sm:text-base
-                      rounded-xl
-                      hover:bg-[#006F38]
-                      transition
-                      shadow-md
-                      whitespace-nowrap">
-
-                <span class="mr-2 text-lg">
-                    +
-                </span>
-
-                Tambah Berita
-
-            </a>
-
-
-        </div>
-
-
 
         <!-- ================================================= -->
         <!-- NOTIFIKASI -->

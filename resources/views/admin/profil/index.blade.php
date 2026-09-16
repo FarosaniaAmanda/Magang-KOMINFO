@@ -146,7 +146,7 @@
                       bg-[#C9A227]
                       transition">
 
-                Profil
+                Profil Karyawan
 
             </a>
 

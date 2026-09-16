@@ -213,7 +213,7 @@
 
             <button
                 type="submit"
-                class="px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
+                class="px-5 py-3 bg-[#008C45] hover:bg-[#006F38] text-white rounded-lg">
                 Simpan Agenda
             </button>
 

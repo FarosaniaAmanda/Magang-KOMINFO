@@ -27,60 +27,7 @@
 <body class="bg-[#FAFAF7] text-slate-800">
 
 
-    <!-- =====================================================
-         NAVBAR
-    ====================================================== -->
-
-    <nav class="bg-white shadow-sm relative z-40">
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-            <div class="min-h-16 sm:min-h-20 py-3 sm:py-0 flex items-center">
-
-                <div class="flex items-center gap-3 min-w-0">
-
-
-                    <!-- LOGO -->
-
-                    <div class="w-10 h-10 sm:w-12 sm:h-12 lg:w-14 lg:h-14
-                                shrink-0 overflow-hidden rounded-lg sm:rounded-xl">
-
-                        <img
-                            src="{{ asset('images/logo.jpeg') }}"
-                            class="w-full h-full object-cover"
-                            alt="Logo"
-                        >
-
-                    </div>
-
-
-                    <!-- IDENTITAS -->
-
-                    <div class="min-w-0">
-
-                        <h1 class="font-bold text-base sm:text-lg lg:text-xl
-                                   text-slate-800 leading-tight">
-
-                            E-GOVERNMENT
-
-                        </h1>
-
-                        <p class="text-[10px] sm:text-xs text-slate-500
-                                  mt-0.5 truncate">
-
-                            Diskominfotik Kota Pasuruan
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </nav>
+    
 
 
 
@@ -107,16 +54,9 @@
                 <div class="flex flex-wrap items-center gap-2 mb-2">
 
                     <span class="text-xs sm:text-sm font-semibold text-[#008C45]">
-                        ADMIN
+                        ADMIN E-GOVERNMENT
                     </span>
 
-                    <span class="text-slate-300">
-                        /
-                    </span>
-
-                    <span class="text-xs sm:text-sm text-slate-500">
-                        Agenda
-                    </span>
 
                 </div>
 
